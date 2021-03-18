@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelecommunicationDevicesStore.Domain", "TelecommunicationDevicesStore.Domain\TelecommunicationDevicesStore.Domain.csproj", "{8DDC8A9A-B992-44F9-B326-5193CE5E2E59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelecommunicationDevicesStore.WebUI", "TelecommunicationDevicesStore.WebUI\TelecommunicationDevicesStore.WebUI.csproj", "{47DD1BDF-0BE5-44F0-BA33-F1D2DFDEE039}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DDC8A9A-B992-44F9-B326-5193CE5E2E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DDC8A9A-B992-44F9-B326-5193CE5E2E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DDC8A9A-B992-44F9-B326-5193CE5E2E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DDC8A9A-B992-44F9-B326-5193CE5E2E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47DD1BDF-0BE5-44F0-BA33-F1D2DFDEE039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47DD1BDF-0BE5-44F0-BA33-F1D2DFDEE039}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47DD1BDF-0BE5-44F0-BA33-F1D2DFDEE039}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47DD1BDF-0BE5-44F0-BA33-F1D2DFDEE039}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C7D10CD-2DE2-4256-8074-287D07BAF550}
+	EndGlobalSection
+EndGlobal
