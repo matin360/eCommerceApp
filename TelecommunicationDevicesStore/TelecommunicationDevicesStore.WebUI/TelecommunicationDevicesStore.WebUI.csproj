@@ -88,11 +88,59 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Content\css\meanmenu.css" />
+    <Content Include="Content\css\nice-select.css" />
+    <Content Include="Content\css\normalize.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\slick.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\icons\1.png" />
+    <Content Include="Content\icons\2.png" />
+    <Content Include="Content\icons\3.png" />
+    <Content Include="Content\icons\4.png" />
+    <Content Include="Content\icons\calll.png" />
+    <Content Include="Content\icons\p1.png" />
+    <Content Include="Content\icons\p2.png" />
+    <Content Include="Content\icons\p3.png" />
+    <Content Include="Content\icons\p4.png" />
+    <Content Include="Content\icons\p5.png" />
+    <Content Include="Content\icons\p6.png" />
+    <Content Include="Content\icons\p7.png" />
+    <Content Include="Content\icons\service1.png" />
+    <Content Include="Content\icons\service2.png" />
+    <Content Include="Content\icons\service3.png" />
+    <Content Include="Content\icons\service4.png" />
+    <Content Include="Content\icons\service5.png" />
+    <Content Include="Content\icons\service6.png" />
+    <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\2.jpg" />
+    <Content Include="Content\images\3.jpg" />
+    <Content Include="Content\images\banner2.jpg" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\lllll.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\mapimg.jpg" />
+    <Content Include="Content\images\pc_layout.png" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\plugin.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -101,6 +149,8 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,8 +160,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TelecommunicationDevicesStore.Domain\TelecommunicationDevicesStore.Domain.csproj">
+      <Project>{8ddc8a9a-b992-44f9-b326-5193ce5e2e59}</Project>
+      <Name>TelecommunicationDevicesStore.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
