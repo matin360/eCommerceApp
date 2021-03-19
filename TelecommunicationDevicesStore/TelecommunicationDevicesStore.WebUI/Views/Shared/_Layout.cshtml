@@ -25,7 +25,6 @@
 	<!-- Tweaks for older IEs-->
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-	
 </head>
 <!-- body -->
 <body class="main-layout">
@@ -75,10 +74,20 @@
 									<ul class="menu-area-main">
 										<li class="active"> <a href="index.html">Home</a> </li>
 										<li> <a href="about.html">About</a> </li>
-										<li> <a href="product.html">product</a> </li>
-										<li> <a href="contact.html">Contact</a> </li>
+										<li> <a href="product.html">Product</a> </li>
+										@*<li> <a href="contact.html">Contact</a> </li>*@
 										<li class="mean-last"> <a href="#contact">signup</a> </li>
-										<li> <a href="#">Cart</a></li>
+										<li class="dropdown">
+											<a class="dropbtn" href="#">Categories</a></i>
+											<div class="dropdown-content">
+												<a href="#">Modems</a>
+												<a href="#">Mobile phones</a>
+												<a href="#">Routers</a>
+												<a href="#">Fax machines</a>
+												<a href="#">Teleprinters</a>
+												<a href="#">Landline telephones</a>
+											</div>
+										</li>
 									</ul>
 								</nav>
 							</div>
@@ -181,6 +190,15 @@
          });
          });
 
+		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
 	</script>
 </body>
 </html>
