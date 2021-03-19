@@ -1711,17 +1711,16 @@ font-size: 18px;
 	position: relative;
 }
 .banner-main .carousel-caption h1 {
-	color: #020000;
+	color: #fff;
 	font-size: 85px;
    line-height: 90px;
 	text-transform: uppercase;
 }
-.banner-main .carousel-caption p {
-	color: #050000;
-    font-weight: 500;
-    	
-    line-height: 23px;
-	 }
+	.banner-main .carousel-caption p {
+		color: #fff;
+		font-weight: 500;
+		line-height: 23px;
+	}
 .banner-main .carousel-caption a {
     width: 250px;
 background: #ffc221;
