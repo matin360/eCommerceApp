@@ -4,15 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelecommunicationDevicesStore.Domain.Roles;
 
 namespace TelecommunicationDevicesStore.Domain.Data
 {
-	public class Customer : User
+	public class SystemUser : User
 	{
-		public ICollection<Product> Products { get; set; }
-		public Customer()
-		{
-			Products = new HashSet<Product>();
-		}
+		[Required]
+		public UserRole UserRole { get; set; }
 	}
 }

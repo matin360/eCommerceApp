@@ -16,9 +16,9 @@ namespace TelecommunicationDevicesStore.Domain.Data
 			: base("name=TelecomStoreDbContext")
 		{
 		}
-		public virtual DbSet<User> Users { get; set; }
 		public virtual DbSet<Customer> Customers { get; set; }
-		public virtual DbSet<Category> MyEntities { get; set; }
+		public virtual DbSet<SystemUser> SystemUsers { get; set; }
+		public virtual DbSet<Category> Categories { get; set; }
 		public virtual DbSet<Feedback> Feedbacks { get; set; }
 		public virtual DbSet<ContactMessage> ContactMessages { get; set; }
 		public virtual DbSet<Product> Products { get; set; }

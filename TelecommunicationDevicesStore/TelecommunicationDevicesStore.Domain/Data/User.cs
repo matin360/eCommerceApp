@@ -13,5 +13,8 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		[StringLength(maximumLength: 50)]
 		[EmailAddress]
 		public string Email { get; set; }
+		[Required]
+		[StringLength(maximumLength: 20, MinimumLength = 6)]
+		public string Password { get; set; }
 	}
 }
