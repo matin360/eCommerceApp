@@ -127,6 +127,7 @@
     <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\mapimg.jpg" />
     <Content Include="Content\images\pc_layout.png" />
+    <Content Include="Content\images\xiaominote10pro.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\custom.js" />
