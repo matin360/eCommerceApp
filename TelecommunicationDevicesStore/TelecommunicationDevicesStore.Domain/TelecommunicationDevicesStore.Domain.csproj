@@ -63,6 +63,7 @@
     <Compile Include="Data\Service.cs" />
     <Compile Include="Data\TelecomStoreDbContext.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
