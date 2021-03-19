@@ -13,27 +13,25 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<!-- bootstrap css -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="/Content/css/bootstrap.min.css">
 	<!-- style css -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/Content/css/style.css">
 	<!-- Responsive-->
-	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="/Content/css/responsive.css">
 	<!-- fevicon -->
-	<link rel="icon" href="images/fevicon.png" type="image/gif" />
+	<link rel="icon" href="/Content/images/fevicon.png" type="image/gif" />
 	<!-- Scrollbar Custom CSS -->
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="/Content/css/jquery.mCustomScrollbar.min.css">
 	<!-- Tweaks for older IEs-->
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+	
 </head>
 <!-- body -->
 <body class="main-layout">
 	<!-- loader  -->
 	<div class="loader_bg">
-		<div class="loader"><img src="images/loading.gif" alt="#" /></div>
+		<div class="loader"><img src="/Content/images/loading.gif" alt="#" /></div>
 	</div>
 	<!-- end loader -->
 	<!-- header -->
@@ -66,7 +64,7 @@
 					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
 						<div class="full">
 							<div class="center-desk">
-								<div class="logo"> <a href="index.html"><img src="images/logo.jpg" alt="logo" /></a> </div>
+								<div class="logo"> <a href="index.html"><img src="/Content/images/logo.jpg" alt="logo" /></a> </div>
 							</div>
 						</div>
 					</div>
@@ -92,8 +90,9 @@
 				</div>
 			</div>
 			<!-- end header inner -->
+		</div>
 	</header>
-
+	@RenderBody();
 	<footer>
 		<div class="footer">
 			<div class="container">
@@ -157,15 +156,15 @@
 	</footer>
 	<!-- end footer -->
 	<!-- Javascript files-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/jquery-3.0.0.min.js"></script>
-	<script src="js/plugin.js"></script>
+	<script src="/Scripts/jquery.min.js"></script>
+	<script src="/Scripts/popper.min.js"></script>
+	<script src="/Scripts/bootstrap.bundle.min.js"></script>
+	<script src="/Scripts/jquery-3.0.0.min.js"></script>
+	<script src="/Scripts/plugin.js"></script>
 	<!-- sidebar -->
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+	<script src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/Scripts/custom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
 	<script>
          $(document).ready(function(){
          $(".fancybox").fancybox({
