@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
+using TelecommunicationDevicesStore.WebUI.Infrastructure;
 using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Controllers
@@ -23,22 +24,12 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 
         public ActionResult Menus()
 		{
-            var menus = _tsdbcontxt.Menus.Where(m => m.IsActive).Select(m => new MenuIndexModel
-            {
-                Name = m.Name,
-                ControllerName = m.ControllerName,
-                ActionName = m.ActionName
-            }).ToList();
-            return View(menus);
+            return View(_tsdbcontxt.GetAllMenus());
 		}
 
         public ActionResult Categories()
 		{
-            var categories = _tsdbcontxt.Categories.Select(cat => new CategoryIndexModel
-            {
-                Name = cat.Name
-            }).ToList();
-            return View(categories);
+            return View(_tsdbcontxt.GetAllCategories());
 		}
     }
 }
