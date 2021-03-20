@@ -1,0 +1,11 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model List<CategoryIndexModel>
+@{
+	var categories = Model;
+}
+<div class="dropdown-content">
+	@foreach (var cat in categories)
+	{
+		@Html.ActionLink(cat.Name, cat.Name, "Category")
+	}
+</div>

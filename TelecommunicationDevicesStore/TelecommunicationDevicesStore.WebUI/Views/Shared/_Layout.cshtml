@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	<!-- site metas -->
-	<title>lighten</title>
+	<title>Lighten - @ViewBag.Title</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -70,38 +70,21 @@
 					<div class="col-xl-7 col-lg-7 col-md-9 col-sm-9">
 						<div class="menu-area">
 							<div class="limit-box">
-								<nav class="main-menu">
-									<ul class="menu-area-main">
-										<li class="active"> <a href="index.html">Home</a> </li>
-										<li> <a href="about.html">About</a> </li>
-										<li> <a href="product.html">Products</a> </li>
-										<li> <a href="product.html">Contact</a> </li>
-										<li class="mean-last"> <a href="#contact">signup</a> </li>
-										<li class="dropdown">
-											<a class="dropbtn" href="#">Categories</a>
-											<div class="dropdown-content">
-												<a href="#">Modems</a>
-												<a href="#">Mobile phones</a>
-												<a href="#">Routers</a>
-												<a href="#">Fax machines</a>
-												<a href="#">Teleprinters</a>
-												<a href="#">Landline telephones</a>
-											</div>
-										</li>
-									</ul>
+								<nav class="main-menu">						
+										@Html.Action("Menus", "Home")
 								</nav>
 							</div>
 						</div>
 					</div>
 					<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-						<li><a class="buy" href="#">Login</a></li>
+						<section><a class="buy" href="#">Login</a></section>
 					</div>
 				</div>
 			</div>
 			<!-- end header inner -->
 		</div>
 	</header>
-	@RenderBody();
+	@RenderBody()
 	<footer>
 		<div class="footer">
 			<div class="container">
@@ -158,7 +141,7 @@
 				</div>
 			</div>
 			<div class="copyright">
-				<p>Copyright 2019 All Right Reserved By <a href="https://html.design/">Free html Templates</a>. Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a></p>
+				<p>Copyright 2019 All Right Reserved By matin360</p>
 			</div>
 
 		</div>

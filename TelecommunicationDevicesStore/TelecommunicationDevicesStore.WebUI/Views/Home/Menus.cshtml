@@ -1,0 +1,16 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model List<MenuIndexModel>
+@{
+	var menus = Model;
+}
+<ul class="menu-area-main">
+	<li class="active"> <a href="#">Home</a> </li>
+	@foreach (var menu in menus)
+	{
+		<li>@Html.ActionLink(menu.Name, menu.ActionName, menu.ControllerName)</li>
+	}
+	<li class="dropdown mean-last">
+		<a class="dropbtn" href="#">Categories</a>
+		@Html.Action("Categories", "Home")
+	</li>
+</ul>
