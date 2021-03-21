@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CarouselItem.cs" />
     <Compile Include="Data\CartProducts.cs" />
     <Compile Include="Data\Category.cs" />
     <Compile Include="Data\ContactMessage.cs" />
