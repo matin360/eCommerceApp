@@ -25,5 +25,19 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				Name = cat.Name
 			}).ToList();
 		}
+
+		public static IEnumerable<CarouselItemIndexModel> GetAllCarouselItems(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return _tsdbcontxt.CarouselItems.Select(carItm => new CarouselItemIndexModel
+			{
+				Heading = carItm.Heading,
+				Description = carItm.Description,
+				ImagePath = carItm.ImagePath,
+				ActionLink = carItm.ActionLink,
+				TextLink = carItm.TextLink,
+				ControllerLink = carItm.ControllerLink,
+				SlideNumber = carItm.SlideNumber
+			}).ToList();
+		}
 	}
 }

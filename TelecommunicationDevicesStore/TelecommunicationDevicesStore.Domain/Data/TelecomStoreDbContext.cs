@@ -6,12 +6,6 @@ namespace TelecommunicationDevicesStore.Domain.Data
 {
 	public class TelecomStoreDbContext : DbContext
 	{
-		// Your context has been configured to use a 'TelecomStoreDbContext' connection string from your application's 
-		// configuration file (App.config or Web.config). By default, this connection string targets the 
-		// 'TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext' database on your LocalDb instance. 
-		// 
-		// If you wish to target a different database and/or database provider, modify the 'TelecomStoreDbContext' 
-		// connection string in the application configuration file.
 		public TelecomStoreDbContext()
 			: base("name=TelecomStoreDbContext")
 		{
@@ -24,6 +18,7 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		public virtual DbSet<Product> Products { get; set; }
 		public virtual DbSet<Menu> Menus { get; set; }
 		public virtual DbSet<Service> Services { get; set; }
+		public virtual DbSet<CarouselItem> CarouselItems { get; set; }
 		public virtual DbSet<CartProducts> CartProducts { get; set; }
 
 	}

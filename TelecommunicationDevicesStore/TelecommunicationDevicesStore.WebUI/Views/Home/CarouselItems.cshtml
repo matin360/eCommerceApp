@@ -1,0 +1,37 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model List<CarouselItemIndexModel>
+@{
+	var carouselItems = Model;
+	string activeClass = "";
+}
+
+<div class="carousel-inner">
+	@foreach (var carItem in carouselItems)
+	{
+		string[] arr = carItem.Heading.Split(' ');
+		if (carItem.SlideNumber == "first-slide")
+		{
+			activeClass = "active";
+		}
+		else
+		{
+			activeClass = "";
+		}
+		<div class="carousel-item @activeClass">
+			<img class="@carItem.SlideNumber" src="/Content/images/@carItem.ImagePath" alt="slide">
+			<div class="container">
+				<div class="carousel-caption relative">
+					<h1>
+						@arr[0] <br> <strong class="black_bold">@arr[1] </strong><br>
+						<strong class="yellow_bold">@arr[2] </strong>
+						
+					</h1>
+					<p>
+						@carItem.Description
+					</p>
+					@Html.ActionLink(@carItem.TextLink, @carItem.ActionLink, @carItem.ControllerLink)
+				</div>
+			</div>
+		</div>
+	}
+</div>

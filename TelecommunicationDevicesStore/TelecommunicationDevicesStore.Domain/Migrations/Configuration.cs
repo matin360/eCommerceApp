@@ -49,6 +49,39 @@
                 ControllerName = "SignUp",
                 IsActive = true
             });
+			context.CarouselItems.AddOrUpdate(new CarouselItem
+			{
+				Id = 1,
+				ImagePath = "banner2.jpg",
+				Heading = "Our Latest Product",
+				Description = "It is a long established fact that a reader will be distracted by the readable content of a page",
+				ActionLink = "Index",
+				ControllerLink = "Product",
+				TextLink = "See more products",
+				SlideNumber = "first-slide"
+			},
+			new CarouselItem
+			{
+				Id = 2,
+				ImagePath = "banner2.jpg",
+				Heading = "Our Latest Product",
+				Description = "It is a long established fact that a reader will be distracted by the readable content of a page",
+				ActionLink = "Index",
+				ControllerLink = "About",
+				TextLink = "Read more about us",
+				SlideNumber = "second-slide"
+			},
+			new CarouselItem
+			{
+				Id = 3,
+				ImagePath = "banner2.jpg",
+				Heading = "Our Latest Product",
+				Description = "It is a long established fact that a reader will be distracted by the readable content of a page",
+				ActionLink = "Index",
+				ControllerLink = "Product",
+				TextLink = "See more Products",
+				SlideNumber = "third-slide"
+			});
 			#region data
 			//context.SystemUsers.AddOrUpdate(new SystemUser
 			//{

@@ -107,9 +107,13 @@
     <Compile Include="Migrations\202103191437133_CustomerUpdated.designer.cs">
       <DependentUpon>202103191437133_CustomerUpdated.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103211420496_CarouselItemAdded.cs" />
-    <Compile Include="Migrations\202103211420496_CarouselItemAdded.designer.cs">
-      <DependentUpon>202103211420496_CarouselItemAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202103211519495_change.cs" />
+    <Compile Include="Migrations\202103211519495_change.designer.cs">
+      <DependentUpon>202103211519495_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103211538395_ServiceUpdated.cs" />
+    <Compile Include="Migrations\202103211538395_ServiceUpdated.designer.cs">
+      <DependentUpon>202103211538395_ServiceUpdated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,8 +139,11 @@
     <EmbeddedResource Include="Migrations\202103191437133_CustomerUpdated.resx">
       <DependentUpon>202103191437133_CustomerUpdated.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103211420496_CarouselItemAdded.resx">
-      <DependentUpon>202103211420496_CarouselItemAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103211519495_change.resx">
+      <DependentUpon>202103211519495_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103211538395_ServiceUpdated.resx">
+      <DependentUpon>202103211538395_ServiceUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

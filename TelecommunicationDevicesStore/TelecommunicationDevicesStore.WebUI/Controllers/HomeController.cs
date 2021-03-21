@@ -31,5 +31,10 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 		{
             return View(_tsdbcontxt.GetAllCategories());
 		}
-    }
+
+		public ActionResult CarouselItems()
+		{
+			return View(_tsdbcontxt.GetAllCarouselItems());
+		}
+	}
 }

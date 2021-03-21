@@ -17,5 +17,8 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		[Required]
 		[StringLength(maximumLength: 200, MinimumLength = 10)]
 		public string Description { get; set; }
+		[Required]
+		[StringLength(maximumLength: 50, MinimumLength = 3)]
+		public string ImagePath { get; set; }
 	}
 }

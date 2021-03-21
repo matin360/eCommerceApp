@@ -7,13 +7,13 @@ namespace TelecommunicationDevicesStore.Domain.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class CarouselItemAdded : IMigrationMetadata
+    public sealed partial class ServiceUpdated : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CarouselItemAdded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ServiceUpdated));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103211420496_CarouselItemAdded"; }
+            get { return "202103211538395_ServiceUpdated"; }
         }
         
         string IMigrationMetadata.Source
