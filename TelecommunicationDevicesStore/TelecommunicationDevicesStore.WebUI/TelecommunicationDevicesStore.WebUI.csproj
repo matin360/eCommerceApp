@@ -170,6 +170,7 @@
     <Content Include="Views\Home\CarouselItems.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Product\PopularProduct.cshtml" />
+    <Content Include="Views\Shared\_ContactIndexPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
