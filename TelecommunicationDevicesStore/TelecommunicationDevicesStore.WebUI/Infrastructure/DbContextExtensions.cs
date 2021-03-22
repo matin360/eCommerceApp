@@ -52,7 +52,17 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 
 		public static IEnumerable<ProductIndexModel> GetPopularProducts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
 		{
-			return (IEnumerable<ProductIndexModel>)_tsdbcontxt.Products.OrderByDescending(x => x.Customers.Count()).Take(8).ToList();
+			return _tsdbcontxt.Products.
+						OrderByDescending(x => x.Customers.Count()).
+							Take(8).Select( p => new ProductIndexModel
+							{
+								Name = p.Name,
+								Id = p.Id,
+								ImagePath = p.ImagePath,
+								Price = p.Price,
+								ShorDescription = p.ShorDescription,
+								CustomersCount = p.Customers.Count()
+							}).ToList();
 		}
 	}
 }

@@ -133,7 +133,7 @@
     <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\mapimg.jpg" />
     <Content Include="Content\images\pc_layout.png" />
-    <Content Include="Content\images\xiaominote10pro.png" />
+    <Content Include="Content\images\products\xiaominote10pro.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\custom.js" />
@@ -169,6 +169,7 @@
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\CarouselItems.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Product\PopularProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -178,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TelecommunicationDevicesStore.Domain\TelecommunicationDevicesStore.Domain.csproj">
