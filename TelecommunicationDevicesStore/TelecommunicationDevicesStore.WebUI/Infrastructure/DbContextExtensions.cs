@@ -39,5 +39,20 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				SlideNumber = carItm.SlideNumber
 			}).ToList();
 		}
+
+		public static IEnumerable<ServiceIndexModel> GetAllServices(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return _tsdbcontxt.Services.Select(s => new ServiceIndexModel
+			{
+				Name = s.Name,
+				Description = s.Description,
+				ImagePath = s.ImagePath,
+			}).ToList();
+		}
+
+		public static IEnumerable<ProductIndexModel> GetPopularProducts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return (IEnumerable<ProductIndexModel>)_tsdbcontxt.Products.OrderByDescending(x => x.Customers.Count()).Take(8).ToList();
+		}
 	}
 }
