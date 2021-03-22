@@ -1,0 +1,16 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model List<ServiceIndexModel>
+@{
+	var services = Model;
+}
+
+@foreach (var serv in services)
+{
+	<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+		<div class="service-box">
+			<i><img src="/Content/icons/@serv.ImagePath" /></i>
+			<h3>@serv.Name</h3>
+			<p>@serv.Description</p>
+		</div>
+	</div>
+}

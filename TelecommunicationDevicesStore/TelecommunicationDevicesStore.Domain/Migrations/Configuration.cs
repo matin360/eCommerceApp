@@ -128,24 +128,27 @@
 			//    Id = 6,
 			//    Name = "Routers",
 			//});
-			//context.Services.AddOrUpdate(new Service
-			//{
-			//    Id = 1,
-			//    Description = "Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea",
-			//    Name = "Secure payments"
-			//},
-			//new Service
-			//{
-			//    Id = 2,
-			//    Description = "Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea",
-			//    Name = "Affordable products"
-			//},
-			//new Service
-			//{
-			//    Id = 3,
-			//    Description = "Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea",
-			//    Name = "1 year warranty"
-			//});
+			context.Services.AddOrUpdate(new Service
+			{
+				Id = 1,
+				Description = "Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea",
+				Name = "Secure payments",
+				ImagePath = "service2.png"
+			},
+			new Service
+			{
+				Id = 2,
+				Description = "Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea",
+				Name = "Affordable products",
+				ImagePath = "service4.png"
+			},
+			new Service
+			{
+				Id = 3,
+				Description = "Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea",
+				Name = "1 year warranty",
+				ImagePath = "service5.png"
+			});
 			//context.Feedbacks.AddOrUpdate(new Feedback
 			//{
 			//    Id = 1,
