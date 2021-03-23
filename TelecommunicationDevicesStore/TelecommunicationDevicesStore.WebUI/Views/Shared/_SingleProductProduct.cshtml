@@ -1,0 +1,14 @@
+﻿@model TelecommunicationDevicesStore.WebUI.Models.ProductIndexModel
+@{ 
+	var prod = Model;
+	string currency = "AZN";
+}
+
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+	<div class="product-box rounded">
+		<i><img src="~/Content/images/products/@prod.ImagePath"/></i>
+		<h3>@prod.Name</h3>
+		<span>@prod.Price @currency</span>
+		<footer class="prd-btm py-2">@Html.ActionLink("Add to Cart", "Details", "Product", routeValues: new { id = prod.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })</footer>
+	</div>
+</div>

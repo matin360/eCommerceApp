@@ -52,11 +52,11 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			}).ToList();
 		}
 
-		public static IEnumerable<ProductIndexModel> GetPopularProducts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		public static IEnumerable<ProductIndexModel> GetPopularProducts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsNumber)
 		{
 			return _tsdbcontxt.Products.
 						OrderByDescending(x => x.Customers.Count()).
-							Take(8).Select( p => new ProductIndexModel
+							Take(_itemsNumber).Select( p => new ProductIndexModel
 							{
 								Name = p.Name,
 								Id = p.Id,
@@ -77,6 +77,20 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				SlideNumber = f.SlideNumber,
 				UserImage = f.Customer.Picture
 			}).ToList();
+		}
+		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, int page)
+		{
+			return await _tsdbcontxt.Products.
+						OrderByDescending(x => x.Name).Skip((page - 1) * _itemsPerPage).
+							Take(_itemsPerPage).Select(p => new ProductIndexModel
+							{
+								Name = p.Name,
+								Id = p.Id,
+								ImagePath = p.ImagePath,
+								Price = p.Price,
+								ShorDescription = p.ShorDescription,
+								CustomersCount = p.Customers.Count()
+							}).ToListAsync();
 		}
 	}
 }

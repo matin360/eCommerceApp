@@ -1,0 +1,29 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model List<ProductIndexModel>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var allProducts = Model;
+}
+@*@Html.ActionLink(article.Title, "Details", "Article", routeValues: new { id = article.Id }, htmlAttributes: new { @class = "article-title" })*@
+
+<div class="brand_color">
+	@{ Html.RenderPartial("_PageTitlePartial", "our products");}
+</div>
+
+<div class="product">
+	@{ Html.RenderPartial("_PageTitlePartial", "We package the products with best services to make you a happy customer");}
+</div>
+
+<div class="product-bg">
+	<div class="product-bg-white">
+		<div class="container">
+			<div class="row">
+				@foreach (var product in allProducts)
+				{
+					{ Html.RenderPartial("_SingleProductProduct", product);}
+				}
+			</div>
+		</div>
+	</div>
+</div>

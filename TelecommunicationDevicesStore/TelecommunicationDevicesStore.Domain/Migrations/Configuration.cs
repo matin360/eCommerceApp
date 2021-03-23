@@ -30,7 +30,7 @@
                 Id = 2,
                 Name = "Products",
                 ActionName = "Index",
-                ControllerName = "Products",
+                ControllerName = "Product",
                 IsActive = true
             },
              new Menu

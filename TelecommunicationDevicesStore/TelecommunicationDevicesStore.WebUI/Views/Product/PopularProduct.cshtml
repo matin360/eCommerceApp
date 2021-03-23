@@ -4,14 +4,7 @@
 	var popProducts = Model;
 }
 
-@foreach (var prod in popProducts)
+@foreach (var product in popProducts)
 {
-	<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-		<div class="product-box rounded">
-			<i><img src="~/Content/images/products/@prod.ImagePath" /></i>
-			<h3>@prod.Name</h3>
-			<span>@prod.Price AZN</span>
-			<footer class="prd-btm py-2">@Html.ActionLink("Add to Cart", "Details", "Product", new { @class = "btn btn-outline-secondary" })</footer>
-		</div>
-	</div>
+	{ Html.RenderPartial("_SingleProductProduct", product); }
 }
