@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Infrastructure;
+using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Controllers
 {
-    public class MenuController : Controller
+    public class ServiceController : Controller
     {
         private TelecomStoreDbContext _tsdbcontxt;
-        public MenuController()
+        public ServiceController()
         {
             _tsdbcontxt = new TelecomStoreDbContext();
         }
-        // GET: Menu
-        public ActionResult Menus()
+        // GET: Service
+        public ActionResult Services()
         {
-            return View(_tsdbcontxt.GetAllMenus());
+            return View(_tsdbcontxt.GetAllServices());
         }
     }
 }
