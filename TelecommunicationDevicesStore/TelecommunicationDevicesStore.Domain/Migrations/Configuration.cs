@@ -45,7 +45,7 @@
             {
                 Id = 3,
                 Name = "Sign Up",
-                ActionName = "Index",
+                ActionName = "Register",
                 ControllerName = "SignUp",
                 IsActive = true
             });
