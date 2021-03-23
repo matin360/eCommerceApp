@@ -1,0 +1,31 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model List<FeedbackIndexModel>
+@{
+	var feedbacks = Model;
+	string classActive = "active";
+}
+
+<ol class="carousel-indicators">
+	@foreach (var feed in feedbacks)
+	{
+		<li data-target="#client_slider" data-slide-to="@feed.SlideNumber" class=""></li>
+	}
+</ol>
+<div class="carousel-inner">
+	@foreach (var feed in feedbacks)
+	{
+		<div class="carousel-item @classActive">
+			<div class="container">
+				<div class="carousel-caption text-bg">
+					<div class="img_bg">
+						<i><img src="~/Content/images/users/@feed.UserImage" /><span>@feed.UserName<br><strong class="date">@feed.WrittenDate</strong></span></i>
+					</div>
+					<p>
+						@feed.Message
+					</p>
+				</div>
+			</div>
+		</div>
+		classActive = "";
+	}
+</div>

@@ -64,5 +64,17 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								CustomersCount = p.Customers.Count()
 							}).ToList();
 		}
+
+		public static IEnumerable<FeedbackIndexModel> GetAllFEeedbacks(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return _tsdbcontxt.Feedbacks.Select(f => new FeedbackIndexModel
+			{
+				UserName = f.UserName,
+				WrittenDate = f.WrittenDate,
+				Message = f.Message,
+				SlideNumber = f.SlideNumber,
+				UserImage = f.Customer.Picture
+			}).ToList();
+		}
 	}
 }

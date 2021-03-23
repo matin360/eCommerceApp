@@ -14,6 +14,9 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		[StringLength(maximumLength: 70, MinimumLength = 2)]
 		public string UserName { get; set; }
 		[Required]
+		[Range(0, 5)]
+		public int SlideNumber { get; set; }
+		[Required]
 		[StringLength(maximumLength: 300, MinimumLength = 5)]
 		public string Message { get; set; }
 		[Required]

@@ -115,6 +115,14 @@
     <Compile Include="Migrations\202103211538395_ServiceUpdated.designer.cs">
       <DependentUpon>202103211538395_ServiceUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103231500100_FeedbackUpdated.cs" />
+    <Compile Include="Migrations\202103231500100_FeedbackUpdated.designer.cs">
+      <DependentUpon>202103231500100_FeedbackUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103231516158_PictureAddedToCustomer.cs" />
+    <Compile Include="Migrations\202103231516158_PictureAddedToCustomer.designer.cs">
+      <DependentUpon>202103231516158_PictureAddedToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\UserRole.cs" />
@@ -144,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103211538395_ServiceUpdated.resx">
       <DependentUpon>202103211538395_ServiceUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103231500100_FeedbackUpdated.resx">
+      <DependentUpon>202103231500100_FeedbackUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103231516158_PictureAddedToCustomer.resx">
+      <DependentUpon>202103231516158_PictureAddedToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

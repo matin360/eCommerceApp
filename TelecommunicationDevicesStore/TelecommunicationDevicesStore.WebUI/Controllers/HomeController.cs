@@ -42,6 +42,9 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             return View(_tsdbcontxt.GetAllServices());
         }
 
-
+        public ActionResult Feedbacks()
+        {
+            return View(_tsdbcontxt.GetAllFEeedbacks());
+        }
     }
 }
