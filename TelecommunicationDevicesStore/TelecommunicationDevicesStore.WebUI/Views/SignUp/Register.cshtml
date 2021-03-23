@@ -1,0 +1,35 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model List<UserModel>
+@{
+	ViewBag.Title = "Signup";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="brand_color">
+	@{ Html.RenderPartial("_PageTitlePartial", "sing up here!");}
+</div>
+
+<div class="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<form class="main_form">
+					<div class="row">
+						<div class=" col-md-12">
+							<input class="form-control" placeholder="Username" type="text" name="Your Name">
+						</div>
+						<div class=" col-md-12">
+							<input class="form-control" placeholder="Email" type="email" name="Email">
+						</div>
+						<div class=" col-md-12">
+							<input class="form-control" placeholder="Password" type="password" name="password">
+						</div>
+						<div class=" col-md-12">
+							<input type="submit" class="btn btn-outline-warning" value="Sing Up"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
