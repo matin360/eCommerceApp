@@ -149,6 +149,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,13 +168,13 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Menus.cshtml" />
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\CarouselItems.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Product\PopularProduct.cshtml" />
     <Content Include="Views\Shared\_ContactIndexPartial.cshtml" />
     <Content Include="Views\Home\Feedbacks.cshtml" />
+    <Content Include="Views\Menu\Menus.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
