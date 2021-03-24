@@ -128,6 +128,10 @@
     <Content Include="Content\images\3.jpg" />
     <Content Include="Content\images\banner2.jpg" />
     <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\products\fax-machine.jpg" />
+    <Content Include="Content\images\products\iptelephone.png" />
+    <Content Include="Content\images\products\router.jpg" />
+    <Content Include="Content\images\products\tplink.jpg" />
     <Content Include="Content\images\users\default.jpg" />
     <Content Include="Content\images\users\lllll.png" />
     <Content Include="Content\images\loading.gif" />
