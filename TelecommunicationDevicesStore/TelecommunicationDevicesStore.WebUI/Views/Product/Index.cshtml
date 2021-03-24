@@ -11,9 +11,9 @@
 	@{ Html.RenderPartial("_PageTitlePartial", "our products");}
 </div>
 
-<div class="product">
+@*<div class="product">
 	@{ Html.RenderPartial("_PageTitlePartial", "We package the products with best services to make you a happy customer");}
-</div>
+</div>*@
 
 <div class="product-bg">
 	<div class="product-bg-white">
@@ -21,9 +21,22 @@
 			<div class="row">
 				@foreach (var product in allProducts)
 				{
-					{ Html.RenderPartial("_SingleProductProduct", product);}
+					{ Html.RenderPartial("_SingleProductProduct", product); }
 				}
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="block-27 text-dark">
+						<ul>
+							<li><a href="#">&lt;</a></li>
+							<li class="active"><span>1</span></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">&gt;</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
