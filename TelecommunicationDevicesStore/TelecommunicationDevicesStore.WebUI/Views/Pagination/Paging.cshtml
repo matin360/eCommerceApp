@@ -1,0 +1,15 @@
+﻿@model int
+@{ 
+	decimal allElementsCount = Model;
+	int pagesCount = (int)Math.Ceiling(allElementsCount / 12);
+}
+
+<ul>
+	@*@Html.ActionLink("<", "Index", "Product", routeValues: new { page = 1 }, htmlAttributes: new { })*@
+	<li>@Html.ActionLink("1", "Index", "Product", routeValues: new { page = 1 }, htmlAttributes: new { })</li>
+	@for (int p = 2; p < pagesCount + 1; p++)
+	{
+		<li>@Html.ActionLink(p.ToString(), "Index", "Product", routeValues: new { page = p }, htmlAttributes: new { })</li>
+	}
+	@*<li>@Html.ActionLink(">", "Index", "Product", routeValues: new { page = 1 }, htmlAttributes: new { })</li>*@
+</ul>

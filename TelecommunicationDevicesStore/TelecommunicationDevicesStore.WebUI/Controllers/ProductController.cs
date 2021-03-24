@@ -30,5 +30,10 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         {
             return View(_tsdbcontxt.GetPopularProducts(8));
         }
+
+  //      public ActionResult GategoryProducts()
+		//{
+
+		//}
     }
 }

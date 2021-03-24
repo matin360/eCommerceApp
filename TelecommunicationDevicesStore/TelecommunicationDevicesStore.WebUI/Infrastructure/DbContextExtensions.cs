@@ -81,7 +81,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, int page)
 		{
 			return await _tsdbcontxt.Products.
-						OrderByDescending(x => x.Name).Skip((page - 1) * _itemsPerPage).
+						OrderByDescending(x => x.Id).Skip((page - 1) * _itemsPerPage).
 							Take(_itemsPerPage).Select(p => new ProductIndexModel
 							{
 								Name = p.Name,
@@ -91,6 +91,11 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								ShorDescription = p.ShorDescription,
 								CustomersCount = p.Customers.Count()
 							}).ToListAsync();
+		}
+
+		public static int GetAllProductsNumber(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return _tsdbcontxt.Products.Count();
 		}
 	}
 }
