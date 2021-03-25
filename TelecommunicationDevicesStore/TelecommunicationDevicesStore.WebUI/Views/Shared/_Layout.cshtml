@@ -113,23 +113,19 @@
 						<div class="contact">
 							<h3>ADDITIONAL LINKS</h3>
 							<ul class="lik">
-								<li> <a href="#">About us</a></li>
+								<li>@Html.ActionLink("About Us","Index", "About")</li>
 								<li> <a href="#">Terms and conditions</a></li>
 								<li> <a href="#">Privacy policy</a></li>
-								<li> <a href="#">News</a></li>
-								<li> <a href="#">Contact us</a></li>
+								<li>@Html.ActionLink("Contact Us", "Index", "Contact")</li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
 						<div class="contact">
-							<h3>service</h3>
+							<h3>Categories</h3>
 							<ul class="lik">
-								<li> <a href="#"> Data recovery</a></li>
-								<li> <a href="#">Computer repair</a></li>
-								<li> <a href="#">Mobile service</a></li>
-								<li> <a href="#">Network solutions</a></li>
-								<li> <a href="#">Technical support</a></li>
+								@Html.Action("Categories", "Category")
+							</ul>
 						</div>
 					</div>
 					<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
