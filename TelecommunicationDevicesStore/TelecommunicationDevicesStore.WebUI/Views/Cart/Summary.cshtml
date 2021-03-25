@@ -1,0 +1,22 @@
+﻿@model TelecommunicationDevicesStore.Domain.Data.Cart
+@{ 
+	decimal totalVal = 0;
+	if (@Model.ComputeTotalValue() == 0)
+	{
+		totalVal = 0;
+	}
+	else
+	{
+		totalVal = @Model.ComputeTotalValue();
+	}
+}
+<div class="navbar-right">
+	@Html.ActionLink(" ", "Index", "Cart",
+	new { returnUrl = Request.Url.PathAndQuery },
+	new { @class = "fa fa-shopping-cart btn btn-outline-dark mr-2" })
+</div>
+
+<div class="navbar-text navbar-right">
+	@Model.Lines.Sum(x => x.Quantity) products,
+	@totalVal AZN
+</div>

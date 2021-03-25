@@ -4,9 +4,15 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	string currency = "AZN";
 }
+<style>
+	#cartTable td {
+		vertical-align: middle;
+	}
+</style>
+
 
 <div class="container py-5">
-	<table class="table">
+	<table class="table" id="cartTable">
 		<thead>
 			<tr>
 				<th>Quantity</th>
@@ -24,6 +30,11 @@
 					<td class="text-right">@line.Product.Price.ToString($"# {currency}")</td>
 					<td class="text-right">
 						@((line.Quantity * line.Product.Price).ToString($"# {currency}"))
+					</td>
+					<td>
+						@Html.ActionLink("Remove", "RemoveFromCart", "Cart",
+									routeValues: new { productId = line.Product.Id, returnUrl = Request.Url.PathAndQuery },
+										htmlAttributes: new { @class = "btn btn-outline-danger" })
 					</td>
 				</tr>
 			}
