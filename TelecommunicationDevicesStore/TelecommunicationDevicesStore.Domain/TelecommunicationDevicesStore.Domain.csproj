@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\CarouselItem.cs" />
-    <Compile Include="Data\CartProducts.cs" />
+    <Compile Include="Data\Cart.cs" />
     <Compile Include="Data\Category.cs" />
     <Compile Include="Data\ContactMessage.cs" />
     <Compile Include="Data\Customer.cs" />
@@ -123,6 +123,10 @@
     <Compile Include="Migrations\202103231516158_PictureAddedToCustomer.designer.cs">
       <DependentUpon>202103231516158_PictureAddedToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103251437231_CartProductsRemoved.cs" />
+    <Compile Include="Migrations\202103251437231_CartProductsRemoved.designer.cs">
+      <DependentUpon>202103251437231_CartProductsRemoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\UserRole.cs" />
@@ -158,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103231516158_PictureAddedToCustomer.resx">
       <DependentUpon>202103231516158_PictureAddedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103251437231_CartProductsRemoved.resx">
+      <DependentUpon>202103251437231_CartProductsRemoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

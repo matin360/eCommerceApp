@@ -17,6 +17,5 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		public virtual DbSet<Menu> Menus { get; set; }
 		public virtual DbSet<Service> Services { get; set; }
 		public virtual DbSet<CarouselItem> CarouselItems { get; set; }
-		public virtual DbSet<CartProducts> CartProducts { get; set; }
 	}
 }

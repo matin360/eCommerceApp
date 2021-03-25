@@ -31,11 +31,8 @@ namespace TelecommunicationDevicesStore.Domain.Data
 			ErrorMessage = "Number of products must be between 0 and 100000")]
 		public int StockCount { get; set; }
 		public ICollection<Customer> Customers { get; set; }
-		public ICollection<CartProducts> CartProducts { get; set; }
 		public Category Category { get; set; }
 		[Required]
 		public int CategoryId { get; set; }
-		
-
 	}
 }
