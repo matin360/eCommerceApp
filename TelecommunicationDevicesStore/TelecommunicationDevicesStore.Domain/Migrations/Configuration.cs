@@ -99,31 +99,31 @@
 			//	Password = "123456smith",
 			//	Picture = "lllll.png"
 			//});
-			//context.Categories.AddOrUpdate(new Category
-			//{
-			//    Id = 1,
-			//    Name = "Modems",
-			//},
-			//new Category
-			//{
-			//    Id = 2,
-			//    Name = "Mobile phones",
-			//},
-			//new Category
-			//{
-			//    Id = 3,
-			//    Name = "Landline telephones",
-			//},
-			//new Category
-			//{
-			//    Id = 4,
-			//    Name = "Fax machines",
-			//},
-			//new Category
-			//{
-			//    Id = 6,
-			//    Name = "Routers",
-			//});
+			context.Categories.AddOrUpdate(new Category
+			{
+				Id = 1,
+				Name = "Modems",
+			},
+			new Category
+			{
+				Id = 2,
+				Name = "Mobile phones",
+			},
+			new Category
+			{
+				Id = 3,
+				Name = "Landline telephones",
+			},
+			new Category
+			{
+				Id = 4,
+				Name = "Fax machines",
+			},
+			new Category
+			{
+				Id = 6,
+				Name = "Routers",
+			});
 			context.Services.AddOrUpdate(new Service
 			{
 				Id = 1,
