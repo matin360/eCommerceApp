@@ -9,7 +9,7 @@ using TelecommunicationDevicesStore.WebUI.Infrastructure;
 
 namespace TelecommunicationDevicesStore.WebUI.Controllers
 {
-
+    [Obsolete]
     public class AccountController : Controller
     {
         private TelecomStoreDbContext _tsdbcontxt;

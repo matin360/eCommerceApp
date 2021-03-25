@@ -40,15 +40,7 @@
                  ActionName = "Index",
                  ControllerName = "Contact",
                  IsActive = true
-             },
-            new Menu
-            {
-                Id = 3,
-                Name = "Sign Up",
-                ActionName = "Register",
-                ControllerName = "SignUp",
-                IsActive = true
-            });
+             });
 			context.CarouselItems.AddOrUpdate(new CarouselItem
 			{
 				Id = 1,

@@ -196,8 +196,6 @@
     <Content Include="Views\Shared\_PageTitlePartial.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\_SingleProductPartial.cshtml" />
-    <Content Include="Views\SignUp\Register.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Product\GategoryProducts.cshtml" />
     <Content Include="Views\Pagination\Paging.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />

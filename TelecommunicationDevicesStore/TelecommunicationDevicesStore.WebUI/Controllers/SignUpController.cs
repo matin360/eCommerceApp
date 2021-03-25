@@ -9,6 +9,7 @@ using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Controllers
 {
+    [Obsolete]
     public class SignUpController : Controller
     {
         private TelecomStoreDbContext _tsdbcontxt;
