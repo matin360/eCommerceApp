@@ -169,6 +169,7 @@
     <Compile Include="Models\CategoryIndexModel.cs" />
     <Compile Include="Models\FeedbackIndexModel.cs" />
     <Compile Include="Models\MenuIndexModel.cs" />
+    <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\ProductIndexModel.cs" />
     <Compile Include="Models\ServiceIndexModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -193,6 +194,7 @@
     <Content Include="Views\Shared\_SingleProductProduct.cshtml" />
     <Content Include="Views\SignUp\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Product\GategoryProducts.cshtml" />
     <Content Include="Views\Pagination\Paging.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

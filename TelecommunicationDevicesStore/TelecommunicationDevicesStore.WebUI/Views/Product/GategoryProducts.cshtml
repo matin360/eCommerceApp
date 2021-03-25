@@ -1,20 +1,21 @@
 ﻿@using TelecommunicationDevicesStore.WebUI.Models
 @model List<ProductIndexModel>
 @{
-	ViewBag.Title = "Products";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	var allProducts = Model;
-	var pageModel = new PageModel
-	{
-		ControllerName = "Product",
-		ActionName = "Index",
-		ElementsCount = 0,
-		CategoryName = ""
+		var allProducts = Model;
+		string category = allProducts.FirstOrDefault().CategoryName;
+		ViewBag.Title = $"Products - {category}";
+		Layout = "~/Views/Shared/_Layout.cshtml";
+		var pageModel = new PageModel
+		{
+			ControllerName = "Product",
+			ActionName = "GategoryProducts",
+			CategoryName = category,
+			ElementsCount = allProducts.Count()
 	};
 }
 
 <div class="brand_color">
-	@{ Html.RenderPartial("_PageTitlePartial", "our products");}
+	@{ Html.RenderPartial("_PageTitlePartial", category);}
 </div>
 
 <div class="product-bg">
@@ -29,11 +30,12 @@
 			<div class="row">
 				<div class="col">
 					<div class="block-27 text-dark">
-						@Html.Action("Paging", "Pagination", routeValues: new { model = pageModel })
+						@Html.Action("Paging", "Pagination", routeValues: new { pageModel })
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 

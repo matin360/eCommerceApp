@@ -6,6 +6,6 @@
 <div class="dropdown-content">
 	@foreach (var cat in categories)
 	{
-		@Html.ActionLink(cat.Name, cat.Name, "Category")
+		@Html.ActionLink(cat.Name, "GategoryProducts", "Product", routeValues: new PageModel { CategoryName = cat.Name, ActionName = "GategoryProducts", ControllerName = "Product", ElementsCount = cat.ProductsCount } , htmlAttributes: new { })
 	}
 </div>

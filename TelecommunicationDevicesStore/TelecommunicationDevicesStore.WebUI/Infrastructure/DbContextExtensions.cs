@@ -24,7 +24,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		{
 			return _tsdbcontxt.Categories.Select(cat => new CategoryIndexModel
 			{
-				Name = cat.Name
+				Name = cat.Name,
+				ProductsCount = cat.Products.Count()
 			}).ToList();
 		}
 
@@ -78,10 +79,10 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				UserImage = f.Customer.Picture
 			}).ToList();
 		}
-		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, int page)
+		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, PageModel model)
 		{
 			return await _tsdbcontxt.Products.
-						OrderByDescending(x => x.Id).Skip((page - 1) * _itemsPerPage).
+						OrderByDescending(x => x.Id).Skip((model.Page - 1) * _itemsPerPage).
 							Take(_itemsPerPage).Select(p => new ProductIndexModel
 							{
 								Name = p.Name,
@@ -96,6 +97,22 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		public static int GetAllProductsNumber(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
 		{
 			return _tsdbcontxt.Products.Count();
+		}
+
+		public async static Task<IEnumerable<ProductIndexModel>> GetProductsWithCategory(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, PageModel model)
+		{
+			return await _tsdbcontxt.Products.Where( x => x.Category.Name == model.CategoryName)
+						.OrderByDescending(x => x.Id).Skip((model.Page - 1) * _itemsPerPage).
+							Take(_itemsPerPage).Select(p => new ProductIndexModel
+							{
+								Name = p.Name,
+								Id = p.Id,
+								ImagePath = p.ImagePath,
+								Price = p.Price,
+								ShorDescription = p.ShorDescription,
+								CustomersCount = p.Customers.Count(),
+								CategoryName = p.Category.Name
+							}).ToListAsync();
 		}
 	}
 }

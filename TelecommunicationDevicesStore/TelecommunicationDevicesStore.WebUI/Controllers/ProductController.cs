@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Infrastructure;
+using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Controllers
 {
@@ -21,19 +22,19 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         // GET: Product
         [HttpGet]
         [ActionName("Index")]
-        public async Task<ActionResult> IndexAsync(int page = 1)
+        public async Task<ActionResult> IndexAsync(PageModel model)
         {
-            return View(await _tsdbcontxt.GetPaginatableProductsAsync(_itemsPerPage, page));
+            return View(await _tsdbcontxt.GetPaginatableProductsAsync(_itemsPerPage, model));
         }
 
         public ActionResult PopularProduct()
         {
             return View(_tsdbcontxt.GetPopularProducts(8));
         }
-
-  //      public ActionResult GategoryProducts()
-		//{
-
-		//}
-    }
+        [ActionName("GategoryProducts")]
+		public async Task<ActionResult> GategoryProductsAsync(PageModel model)
+		{
+            return View(await _tsdbcontxt.GetProductsWithCategory(_itemsPerPage, model));
+		}
+	}
 }

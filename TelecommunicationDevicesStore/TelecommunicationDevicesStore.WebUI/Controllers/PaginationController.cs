@@ -17,9 +17,12 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             _tsdbcontxt = new TelecomStoreDbContext();
         }
         // GET: Pagination
-        public ActionResult Paging()
-        {
-            return View(_tsdbcontxt.GetAllProductsNumber());
-        }
-    }
+
+        public ActionResult Paging(PageModel model)
+		{
+            if (model.ElementsCount == default)
+                 model.ElementsCount = _tsdbcontxt.GetAllProductsNumber();
+            return View(model);
+		}
+	}
 }

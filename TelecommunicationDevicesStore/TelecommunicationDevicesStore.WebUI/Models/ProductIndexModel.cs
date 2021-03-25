@@ -13,6 +13,7 @@ namespace TelecommunicationDevicesStore.WebUI.Models
 		public string ShorDescription { get; set; }
 		public decimal Price { get; set; }
 		public string ImagePath { get; set; }
+		public string CategoryName { get; set; }
 		public int CustomersCount { get; set; }
 	}
 }
