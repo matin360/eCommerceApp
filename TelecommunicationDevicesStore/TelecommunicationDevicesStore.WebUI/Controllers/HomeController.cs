@@ -22,11 +22,6 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             return View();
         }
 
-        public ActionResult Categories()
-		{
-            return View(_tsdbcontxt.GetAllCategories());
-		}
-
 		public ActionResult CarouselItems()
 		{
 			return View(_tsdbcontxt.GetAllCarouselItems());

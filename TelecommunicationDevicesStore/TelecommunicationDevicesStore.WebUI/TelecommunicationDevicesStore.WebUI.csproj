@@ -154,6 +154,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -180,7 +181,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Categories.cshtml" />
+    <Content Include="Views\Category\Categories.cshtml" />
     <Content Include="Views\Home\CarouselItems.cshtml" />
     <Content Include="Views\Service\Services.cshtml" />
     <Content Include="Views\Product\PopularProduct.cshtml" />
