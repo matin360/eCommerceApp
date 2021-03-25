@@ -1,0 +1,44 @@
+﻿@model TelecommunicationDevicesStore.WebUI.Models.CartIndexModel
+@{
+	ViewBag.Title = "Lighten - Your Cart";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	string currency = "AZN";
+}
+
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Quantity</th>
+				<th>Product</th>
+				<th class="text-right">Price</th>
+				<th class="text-right">Total price</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var line in Model.Cart.Lines)
+			{
+				<tr>
+					<td class="text-center">@line.Quantity</td>
+					<td class="text-left">@line.Product.Name</td>
+					<td class="text-right">@line.Product.Price.ToString($"# {currency}")</td>
+					<td class="text-right">
+						@((line.Quantity * line.Product.Price).ToString($"# {currency}"))
+					</td>
+				</tr>
+			}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="text-right">Total:</td>
+				<td class="text-right">
+					@Model.Cart.ComputeTotalValue().ToString($"# {currency}")
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+
+	<div class="text-center">
+		<a class="btn btn-warning" href="@Model.ReturnUrl">Continue Shopping</a>
+	</div>
+</div>

@@ -154,6 +154,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -167,6 +168,7 @@
     </Compile>
     <Compile Include="Infrastructure\DbContextExtensions.cs" />
     <Compile Include="Models\CarouselItemIndexModel.cs" />
+    <Compile Include="Models\CartIndexModel.cs" />
     <Compile Include="Models\CategoryIndexModel.cs" />
     <Compile Include="Models\FeedbackIndexModel.cs" />
     <Compile Include="Models\MenuIndexModel.cs" />
@@ -192,11 +194,12 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shared\_PageTitlePartial.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Shared\_SingleProductProduct.cshtml" />
+    <Content Include="Views\Shared\_SingleProductPartial.cshtml" />
     <Content Include="Views\SignUp\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Product\GategoryProducts.cshtml" />
     <Content Include="Views\Pagination\Paging.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
