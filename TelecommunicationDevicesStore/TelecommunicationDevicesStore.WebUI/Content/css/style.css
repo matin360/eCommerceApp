@@ -2115,7 +2115,7 @@ font-size: 18px;
 	line-height: 27px;
 }
 
-ul.lik li a {
+ul.lik li a, ul.lik section a {
 	color: #fff;
 	font-size: 17px;
 	line-height: 27px;
@@ -2124,8 +2124,10 @@ ul.lik li a {
 ul.lik li a:hover {
 	color: #ffc221;
 }
-
-.copyright {
+ul.lik section a:hover {
+	color: #ffc221;
+}
+	.copyright {
 	background-color: #ffc221;
 	padding: 20px 0px;
 	margin-top: 70px;

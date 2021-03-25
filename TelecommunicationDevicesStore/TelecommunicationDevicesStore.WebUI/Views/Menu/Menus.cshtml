@@ -12,6 +12,8 @@
 	}
 	<li class="dropdown mean-last">
 		<a class="dropbtn" href="#">Categories</a>
-		@Html.Action("Categories", "Category")
+		<div class="dropdown-content">
+			@Html.Action("Categories", "Category")
+		</div>
 	</li>
 </ul>
