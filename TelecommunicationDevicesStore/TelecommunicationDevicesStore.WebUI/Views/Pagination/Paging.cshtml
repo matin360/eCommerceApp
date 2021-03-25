@@ -6,36 +6,45 @@
 }
 
 <ul>
-	@*@Html.ActionLink("<", "Index", "Product", routeValues: new { page = 1 }, htmlAttributes: new { })*@
-	<li>@Html.ActionLink("1", pageModel.ActionName, 
-									pageModel.ControllerName, 
-										routeValues: new PageModel { ActionName = pageModel.ActionName, 
-																		CategoryName = pageModel.CategoryName,
-																			ControllerName = pageModel.ControllerName,
-																				ElementsCount = pageModel.ElementsCount,
-																					Page = pageModel.Page}, 
-											htmlAttributes: new { })</li>
-	@for (int p = 2; p < pagesCount + 1; p++)
-	{
-		<li>@Html.ActionLink(p.ToString(), pageModel.ActionName,
-												pageModel.ControllerName,
-													routeValues: new PageModel
-													{
-														ActionName = pageModel.ActionName,
-															CategoryName = pageModel.CategoryName,
-																ControllerName = pageModel.ControllerName,
-																	ElementsCount = pageModel.ElementsCount,
-																		Page = p},
-														htmlAttributes: new { })</li>
-	}
-	@*<li>@Html.ActionLink(">", "Index", "Product", routeValues: new { page = 1 }, htmlAttributes: new { })</li>*@
+	<li>
+		@Html.ActionLink("1", pageModel.ActionName,
+								pageModel.ControllerName,
+									routeValues: new PageModel
+											 {
+												 ActionName = pageModel.ActionName,
+																	CategoryName = pageModel.CategoryName,
+																		ControllerName = pageModel.ControllerName,
+																			ElementsCount = pageModel.ElementsCount,
+																				Page = pageModel.Page
+											 },
+										htmlAttributes: new { })
+</li>
+@for (int p = 2; p < pagesCount + 1; p++)
+{
+	<li>
+		@Html.ActionLink(p.ToString(), pageModel.ActionName,
+										pageModel.ControllerName,
+											routeValues: new PageModel
+											{
+												ActionName = pageModel.ActionName,
+													CategoryName = pageModel.CategoryName,
+														ControllerName = pageModel.ControllerName,
+															ElementsCount = pageModel.ElementsCount,
+																Page = p
+													 },
+												htmlAttributes: new { })
+	</li>
+}
+
 </ul>
 
 
 @*<ul>
-	<li>@Html.ActionLink("1", pageModel.ActionName, pageModel.ControllerName, routeValues: new { page = 1, category = pageModel.CategoryName }, htmlAttributes: new { })</li>
-	@for (int p = 2; p < pagesCount + 1; p++)
-	{
-		<li>@Html.ActionLink(p.ToString(), pageModel.ActionName, pageModel.ControllerName, routeValues: new { page = p, category = pageModel.CategoryName }, htmlAttributes: new { })</li>
-	}
-</ul>*@
+		<li>@Html.ActionLink("1", pageModel.ActionName, pageModel.ControllerName, routeValues: new { page = 1, category = pageModel.CategoryName }, htmlAttributes: new { })</li>
+		@for (int p = 2; p < pagesCount + 1; p++)
+		{
+			<li>@Html.ActionLink(p.ToString(), pageModel.ActionName, pageModel.ControllerName, routeValues: new { page = p, category = pageModel.CategoryName }, htmlAttributes: new { })</li>
+		}
+	</ul>*@
+
+@*<li>@Html.ActionLink(">", "Index", "Product", routeValues: new { page = 1 }, htmlAttributes: new { })</li>*@
