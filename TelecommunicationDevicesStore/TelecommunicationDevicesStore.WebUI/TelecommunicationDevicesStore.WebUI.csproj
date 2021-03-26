@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\errorStyles.css" />
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.mCustomScrollbar.min.css" />
     <Content Include="Content\css\meanmenu.css" />
@@ -201,6 +202,7 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Summary.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\Completed.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

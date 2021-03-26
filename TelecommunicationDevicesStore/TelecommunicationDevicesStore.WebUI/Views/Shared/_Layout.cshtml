@@ -1,32 +1,23 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- basic -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!-- mobile metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-	<!-- site metas -->
 	<title>Lighten - @ViewBag.Title</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<!-- bootstrap css -->
 	<link rel="stylesheet" href="/Content/css/bootstrap.min.css">
-	<!-- style css -->
 	<link rel="stylesheet" href="/Content/css/style.css">
-	<!-- Responsive-->
 	<link rel="stylesheet" href="/Content/css/responsive.css">
-	<!-- fevicon -->
+	<link href="~/Content/css/errorStyles.css" rel="stylesheet" />
 	<link rel="icon" href="/Content/images/fevicon.png" type="image/gif" />
-	<!-- Scrollbar Custom CSS -->
 	<link rel="stylesheet" href="/Content/css/jquery.mCustomScrollbar.min.css">
-	<!-- Tweaks for older IEs-->
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 </head>
-<!-- body -->
 <body class="main-layout">
 	<!-- loader  -->
 	<div class="loader_bg">
@@ -70,8 +61,8 @@
 					<div class="col-xl-7 col-lg-7 col-md-9 col-sm-9">
 						<div class="menu-area">
 							<div class="limit-box">
-								<nav class="main-menu">						
-										@Html.Action("Menus", "Menu")
+								<nav class="main-menu">
+									@Html.Action("Menus", "Menu")
 								</nav>
 							</div>
 						</div>
@@ -110,7 +101,7 @@
 						<div class="contact">
 							<h3>ADDITIONAL LINKS</h3>
 							<ul class="lik">
-								<li>@Html.ActionLink("About Us","Index", "About")</li>
+								<li>@Html.ActionLink("About Us", "Index", "About")</li>
 								<li> <a href="#">Terms and conditions</a></li>
 								<li> <a href="#">Privacy policy</a></li>
 								<li>@Html.ActionLink("Contact Us", "Index", "Contact")</li>
@@ -143,6 +134,7 @@
 	<!-- Javascript files-->
 	<script src="/Scripts/jquery.min.js"></script>
 	<script src="/Scripts/popper.min.js"></script>
+	@RenderSection("ValidationSection", false)
 	<script src="/Scripts/bootstrap.bundle.min.js"></script>
 	<script src="/Scripts/jquery-3.0.0.min.js"></script>
 	<script src="/Scripts/plugin.js"></script>
@@ -151,20 +143,20 @@
 	<script src="/Scripts/custom.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
 	<script>
-         $(document).ready(function(){
-         $(".fancybox").fancybox({
-         openEffect: "none",
-         closeEffect: "none"
-         });
+		$(document).ready(function () {
+			$(".fancybox").fancybox({
+				openEffect: "none",
+				closeEffect: "none"
+			});
 
-         $(".zoom").hover(function(){
+			$(".zoom").hover(function () {
 
-         $(this).addClass('transition');
-         }, function(){
+				$(this).addClass('transition');
+			}, function () {
 
-         $(this).removeClass('transition');
-         });
-         });
+				$(this).removeClass('transition');
+			});
+		});
 
 		/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 		function myFunction() {

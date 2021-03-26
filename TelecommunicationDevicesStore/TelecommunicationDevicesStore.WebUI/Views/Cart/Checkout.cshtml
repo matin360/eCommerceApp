@@ -10,12 +10,14 @@
 		<h2 class="text-warning font-weight-bold" style="text-shadow: 1px 1px 4px #000; letter-spacing: 2px">Order now</h2>
 		<p>Please enter your data so that we can send it to you!</p>
 	</header>
-	@using (Html.BeginForm())
+	@using (Html.BeginForm("Checkout", "Cart", FormMethod.Post))
 	{
+		@Html.AntiForgeryToken()
 		<h3>Data</h3>
 		<div class="form-group">
 			@Html.DisplayNameFor(x => x.Name)
 			@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+			@Html.ValidationMessageFor(x => x.Name)
 		</div>
 		foreach (var property in ViewData.ModelMetadata.Properties)
 		{
@@ -24,6 +26,7 @@
 				<div class="form-group">
 					<label>@(property.DisplayName ?? property.PropertyName)</label>
 					@Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+					@Html.ValidationMessage(property.PropertyName)
 				</div>
 			}
 		}
@@ -34,10 +37,16 @@
 				Shall we use a gift wrap?
 			</label>
 		</div>
-
+		@Html.ValidationSummary()
 		<div class="text-center">
 			<input class="btn btn-warning" type="submit" value="Order" />
 		</div>
 	}
 </div>
 
+@section ValidationSection{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+			></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" 
+			></script>
+}

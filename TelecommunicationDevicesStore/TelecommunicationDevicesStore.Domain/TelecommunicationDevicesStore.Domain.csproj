@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\EmailOrderProcessor.cs" />
     <Compile Include="Data\CarouselItem.cs" />
     <Compile Include="Data\Cart.cs" />
     <Compile Include="Data\Category.cs" />
@@ -168,6 +169,7 @@
       <DependentUpon>202103251437231_CartProductsRemoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

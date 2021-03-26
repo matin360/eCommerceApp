@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TelecommunicationDevicesStore.Domain.Concrete;
 using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Models;
 
@@ -11,9 +13,15 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
     public class CartController : Controller
     {
         private TelecomStoreDbContext _tsdbcontxt;
+        private EmailOrderProcessor _emordProc;
         public CartController()
         {
             _tsdbcontxt = new TelecomStoreDbContext();
+            _emordProc = new EmailOrderProcessor(new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager
+                    .AppSettings["Email.WriteAsFile"] ?? "false")
+            });
         }
         // GET: Cart
         public ViewResult Index(Cart cart, string returnUrl)
@@ -47,10 +55,37 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        [HttpGet]
+        public ViewResult Checkout()
         {
             return View(new ShippingDetails());
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("cart", "Sorry, your cart is empty!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _emordProc.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
+        }
+
+        public ViewResult Completed()
+		{
+            return View();
+		}
 
         public PartialViewResult Summary(Cart cart)
         {
