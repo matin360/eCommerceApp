@@ -82,6 +82,7 @@
     <Compile Include="Data\Customer.cs" />
     <Compile Include="Data\Feedback.cs" />
     <Compile Include="Data\Menu.cs" />
+    <Compile Include="Data\ShippingDetails.cs" />
     <Compile Include="Data\SystemUser.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Service.cs" />

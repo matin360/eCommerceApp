@@ -47,6 +47,10 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            return View(new ShippingDetails());
+        }
 
         public PartialViewResult Summary(Cart cart)
         {
