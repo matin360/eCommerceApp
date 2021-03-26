@@ -26,9 +26,6 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		[Required]
 		[DataType("smalldatetime")]
 		public DateTime SubmittedDate { get; set; }
-		public User User { get; set; }
-		[Required]
-		public int UserId { get; set; }
 		
 	}
 }

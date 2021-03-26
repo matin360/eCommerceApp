@@ -1,37 +1,47 @@
-﻿
+﻿@model TelecommunicationDevicesStore.Domain.Data.ContactMessage
 @{
 	ViewBag.Title = "Contact";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="brand_color">
 	@{ Html.RenderPartial("_PageTitlePartial", "contact"); }
 </div>
 
-<div class="contact">
+<div class="py-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<form class="main_form">
-					<div class="row">
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-							<input class="form-control" placeholder="Your name" type="text" name="Your Name">
-						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-							<input class="form-control" placeholder="Email" type="text" name="Email">
-						</div>
-						<div class=" col-md-12">
-							<input class="form-control" placeholder="Phone" type="text" name="Phone">
-						</div>
-						<div class="col-md-12">
-							<textarea class="textarea" placeholder="Message"></textarea>
-						</div>
-						<div class=" col-md-12">
-							<button class="send">Send</button>
-						</div>
+				@using (Html.BeginForm("Index", "Contact", FormMethod.Post, htmlAttributes: new { @class = "main_form" } ))
+				{
+				<div class="row">
+					@Html.AntiForgeryToken()
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+						@Html.TextBoxFor(x => x.UserName, htmlAttributes: new { @class = "form-control", @placeholder = "Your name" })
+						@Html.ValidationMessageFor(x => x.UserName)
 					</div>
-				</form>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+						@Html.TextBoxFor(x => x.UserEmail, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
+						@Html.ValidationMessageFor(x => x.UserEmail)
+					</div>
+					<div class=" col-md-12">
+						@Html.TextBoxFor(x => x.UserPhoneNumber, htmlAttributes: new { @class = "form-control", @placeholder = "Your Phone Number" })
+						@Html.ValidationMessageFor(x => x.UserPhoneNumber)
+					</div>
+					<div class="col-md-12">
+						@Html.TextAreaFor(x => x.Message, rows: 10, columns: 10, htmlAttributes: new { @class = "form-control", @placeholder = "Message" })
+						@Html.ValidationMessageFor(x => x.Message)
+					</div>
+					<div class="text-center col-md-12">
+						<input class="btn btn-warning w-100" type="submit" value="Send" />
+					</div>
+				</div>
+				}
 			</div>
 		</div>
 	</div>
 </div>
+
+@section ValidationSection{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}

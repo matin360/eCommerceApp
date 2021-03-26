@@ -74,7 +74,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             {
                 _emordProc.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
-                return View("Completed");
+                return View(nameof(Completed));
             }
             else
             {
