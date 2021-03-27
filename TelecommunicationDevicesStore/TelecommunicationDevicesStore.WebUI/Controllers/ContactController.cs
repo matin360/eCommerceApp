@@ -26,7 +26,8 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Index(ContactMessage model)
+        [ActionName("Index")]
+        public async Task<ActionResult> IndexAsync(ContactMessage model)
         {
 			if (ModelState.IsValid)
 			{
