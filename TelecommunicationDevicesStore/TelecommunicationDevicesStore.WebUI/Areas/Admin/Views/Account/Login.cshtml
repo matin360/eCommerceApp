@@ -1,0 +1,38 @@
+﻿@model TelecommunicationDevicesStore.WebUI.Areas.Admin.Data.LoginModel
+@{
+	ViewBag.Title = "Login";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="py-5">
+	<div class="container">
+		<div class="d-flex justify-content-center align-items-center">
+			<div class="col-md-6 border p-3">
+				@using (Html.BeginForm("Login", "Account", FormMethod.Post, htmlAttributes: new { @class = "main_form" }))
+				{
+				 @Html.ValidationSummary();
+				<div class="row">
+					@Html.AntiForgeryToken()
+					<div class="col-md-12">
+						@Html.TextBoxFor(x => x.Email, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
+						@Html.ValidationMessageFor(x => x.Email)
+					</div>
+					<div class="col-md-12">
+						@Html.TextBoxFor(x => x.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
+						@Html.ValidationMessageFor(x => x.Password)
+					</div>
+					<div class="text-center col-md-12">
+						<input class="btn btn-warning w-100" type="submit" value="Login" />
+					</div>
+				</div>
+				}
+			</div>
+		</div>
+	</div>
+</div>
+
+@section ValidationSection{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
+

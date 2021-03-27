@@ -34,7 +34,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 			{
                 if (ModelState.IsValid)
                 {
-                    User user = await _tsdbcontxt.SystemUsers.GetUserAsync(model);
+                    var user = await _tsdbcontxt.SystemUsers.GetUserAsync(model);
 
                     if (user == null)
                     {
@@ -44,17 +44,14 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
                     else
                     {
                         Session.Add("user", user.Id);
-                        return RedirectToAction(nameof(Success));
+                        return RedirectToAction("Index", "Dashboard");
                     }
                 }
                 return View();
             }
             return View();
         }
-        [SessionAuthorizationFilter(nameof(Login))]
-        public ActionResult Success()
-		{
-            return View();
-		}
+
+       
 	}
 }
