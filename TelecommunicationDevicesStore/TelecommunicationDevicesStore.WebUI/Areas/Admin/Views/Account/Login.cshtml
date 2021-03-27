@@ -18,7 +18,7 @@
 						@Html.ValidationMessageFor(x => x.Email)
 					</div>
 					<div class="col-md-12">
-						@Html.TextBoxFor(x => x.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
+						@Html.PasswordFor(x => x.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
 						@Html.ValidationMessageFor(x => x.Password)
 					</div>
 					<div class="text-center col-md-12">
