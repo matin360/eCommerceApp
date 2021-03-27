@@ -10,7 +10,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
     public class DashboardController : Controller
     {
         // GET: Admin/Dashboard
-        [SessionAuthorizationFilter("/Admin/Account/Login")]
+        //[SessionAuthorizationFilter("/Admin/Account/Login")]
         public ActionResult Index()
         {
             return View();
