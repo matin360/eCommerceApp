@@ -5,7 +5,9 @@
 	var menus = Model;
 }
 <ul class="menu-area-main">
-	<li class="active"> <a href="#">Home</a> </li>
+	<li>@Html.ActionLink(linkText: "Home", 
+					   actionName: "Index", 
+					   controllerName: "Home")</li>
 	@foreach (var menu in menus)
 	{
 		<li>@Html.ActionLink(menu.Name, menu.ActionName, menu.ControllerName)</li>
