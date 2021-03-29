@@ -247,6 +247,8 @@
     <Content Include="Areas\Admin\Content\fonts\Roboto\Roboto-Medium.ttf" />
     <Content Include="Areas\Admin\Content\fonts\Roboto\Roboto-Medium.eot" />
     <Content Include="Areas\Admin\Content\fonts\Roboto\Roboto-Light.woff2" />
+    <Content Include="Areas\Admin\Views\Shared\_NavbarPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_FooterPartial.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
