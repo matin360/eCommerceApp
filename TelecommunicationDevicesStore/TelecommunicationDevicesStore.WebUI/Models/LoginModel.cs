@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Data
+namespace TelecommunicationDevicesStore.WebUI.Models
 {
 	public class LoginModel
 	{

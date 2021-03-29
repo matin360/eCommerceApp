@@ -172,9 +172,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Admin\Data\LoginModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -274,6 +274,7 @@
     <Content Include="Views\Contact\Sent.cshtml" />
     <Content Include="Views\SignUp\Register.cshtml" />
     <Content Include="Views\SignUp\Completed.cshtml" />
+    <Content Include="Views\SignIn\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -283,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TelecommunicationDevicesStore.Domain\TelecommunicationDevicesStore.Domain.csproj">

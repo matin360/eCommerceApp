@@ -1,40 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
-using TelecommunicationDevicesStore.Domain.Filters;
 using TelecommunicationDevicesStore.WebUI.Models;
 using TelecommunicationDevicesStore.WebUI.Infrastructure;
+using System.Threading.Tasks;
 
-namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
+namespace TelecommunicationDevicesStore.WebUI.Controllers
 {
-    public class AccountController : Controller
+    public class SignInController : Controller
     {
         private TelecomStoreDbContext _tsdbcontxt;
-        public AccountController()
+        public SignInController()
         {
             _tsdbcontxt = new TelecomStoreDbContext();
         }
-        // GET: Admin/Account
+        // GET: Account
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Login")]
-        public async Task<ActionResult> LoginAsync(LoginModel model)
+        public async Task<ActionResult> Login(LoginModel model)
         {
-			if (ModelState.IsValid)
-			{
+            if (ModelState.IsValid)
+            {
                 if (ModelState.IsValid)
                 {
-                    var user = await _tsdbcontxt.SystemUsers.GetUserAsync(model);
+                    var user = await _tsdbcontxt.Customers.GetUserAsync(model);
 
                     if (user == null)
                     {
@@ -43,15 +41,13 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
                     }
                     else
                     {
-                        Session.Add("user", user.Id);
-                        return RedirectToAction("Index", "Dashboard");
+                        Session.Add("customer", user.Id);
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 return View();
             }
             return View();
         }
-
-       
-	}
+    }
 }
