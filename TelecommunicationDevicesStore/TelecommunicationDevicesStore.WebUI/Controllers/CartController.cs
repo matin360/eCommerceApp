@@ -14,15 +14,9 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
     public class CartController : Controller
     {
         private TelecomStoreDbContext _tsdbcontxt;
-        //private EmailOrderProcessor _emordProc;
         public CartController()
         {
             _tsdbcontxt = new TelecomStoreDbContext();
-            //_emordProc = new EmailOrderProcessor(new EmailSettings
-            //{
-            //    WriteAsFile = bool.Parse(ConfigurationManager
-            //        .AppSettings["Email.WriteAsFile"] ?? "false")
-            //});
         }
         // GET: Cart
         public ViewResult Index(Cart cart, string returnUrl)
@@ -67,11 +61,16 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         [ActionName("Checkout")]
         public async Task<ViewResult> CheckoutAsync(Cart cart, ShippingDetails shippingDetails)
         {
+            if (Session["customer"] == null)
+            {
+                ModelState.AddModelError("login", "You have to sign in before!");
+            }
+
             if (cart.Lines.Count() == 0)
             {
                 ModelState.AddModelError("cart", "Sorry, your cart is empty!");
             }
-
+            shippingDetails.UserId = Convert.ToInt32(Session["customer"]);
             if (ModelState.IsValid)
             {
                 Order order = new Order
@@ -81,7 +80,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                     Line1 = shippingDetails.Line1,
                     Line2 = shippingDetails.Line2,
                     Line3 = shippingDetails.Line3,
-                    UserId = 2, //shippingDetails.UserId,
+                    UserId =  shippingDetails.UserId,
                     GiftWrap = shippingDetails.GiftWrap,
                     TotalPrice = cart.ComputeTotalValue(),
                     CartLines = cart.Lines.Select(x => new CartLine

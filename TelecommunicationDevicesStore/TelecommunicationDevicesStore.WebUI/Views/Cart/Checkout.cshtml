@@ -12,7 +12,6 @@
 	</header>
 	@using (Html.BeginForm("Checkout", "Cart", FormMethod.Post))
 	{
-		@*@Html.Hidden(User.Identity)*@
 		@Html.AntiForgeryToken()
 		<h3>Data</h3>
 		foreach (var property in ViewData.ModelMetadata.Properties)
