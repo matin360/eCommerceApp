@@ -9,8 +9,12 @@ namespace TelecommunicationDevicesStore.Domain.Data
 {
     public class Cart
     {
-        private List<CartLine> lineCollection = new List<CartLine>();
+        private List<CartLine> lineCollection;
 
+		public Cart()
+		{
+            lineCollection = new List<CartLine>();
+        }
         public void AddItem(Product product, int quantity)
         {
             CartLine line = lineCollection
@@ -51,9 +55,4 @@ namespace TelecommunicationDevicesStore.Domain.Data
         }
     }
 
-    public class CartLine
-    {
-        public Product Product { get; set; }
-        public int Quantity { get; set; }
-    }
 }

@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using TelecommunicationDevicesStore.Domain.Concrete;
 using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Models;
+using TelecommunicationDevicesStore.WebUI.Infrastructure;
 
 namespace TelecommunicationDevicesStore.WebUI.Controllers
 {
     public class CartController : Controller
     {
         private TelecomStoreDbContext _tsdbcontxt;
-        private EmailOrderProcessor _emordProc;
+        //private EmailOrderProcessor _emordProc;
         public CartController()
         {
             _tsdbcontxt = new TelecomStoreDbContext();
-            _emordProc = new EmailOrderProcessor(new EmailSettings
-            {
-                WriteAsFile = bool.Parse(ConfigurationManager
-                    .AppSettings["Email.WriteAsFile"] ?? "false")
-            });
+            //_emordProc = new EmailOrderProcessor(new EmailSettings
+            //{
+            //    WriteAsFile = bool.Parse(ConfigurationManager
+            //        .AppSettings["Email.WriteAsFile"] ?? "false")
+            //});
         }
         // GET: Cart
         public ViewResult Index(Cart cart, string returnUrl)
@@ -63,7 +64,8 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        [ActionName("Checkout")]
+        public async Task<ViewResult> CheckoutAsync(Cart cart, ShippingDetails shippingDetails)
         {
             if (cart.Lines.Count() == 0)
             {
@@ -72,7 +74,26 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
-                _emordProc.ProcessOrder(cart, shippingDetails);
+                Order order = new Order
+                {
+                    City = shippingDetails.City,
+                    Country = shippingDetails.Country,
+                    Line1 = shippingDetails.Line1,
+                    Line2 = shippingDetails.Line2,
+                    Line3 = shippingDetails.Line3,
+                    UserId = 2, //shippingDetails.UserId,
+                    GiftWrap = shippingDetails.GiftWrap,
+                    TotalPrice = cart.ComputeTotalValue(),
+                    CartLines = cart.Lines.Select(x => new CartLine
+					{
+                        Product = x.Product,
+                        Quantity = x.Quantity,
+                        ProductId = x.ProductId
+					}).ToList()
+                };
+                order.User = await _tsdbcontxt.Customers.GetUserAsync(order.UserId);
+                _tsdbcontxt.Orders.Add(order);
+                await _tsdbcontxt.SaveChangesAsync();
                 cart.Clear();
                 return View(nameof(Completed));
             }

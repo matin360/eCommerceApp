@@ -198,6 +198,7 @@
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\ProductIndexModel.cs" />
     <Compile Include="Models\ServiceIndexModel.cs" />
+    <Compile Include="Models\ShippingDetails.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

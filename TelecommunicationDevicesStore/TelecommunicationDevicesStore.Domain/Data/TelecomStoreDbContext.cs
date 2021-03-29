@@ -9,6 +9,8 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		public TelecomStoreDbContext() : base("name=TelecomStoreDbContext") { }
 
 		public virtual DbSet<Customer> Customers { get; set; }
+		public virtual DbSet<Order> Orders { get; set; }
+		public virtual DbSet<CartLine> CartLines { get; set; }
 		public virtual DbSet<SystemUser> SystemUsers { get; set; }
 		public virtual DbSet<Category> Categories { get; set; }
 		public virtual DbSet<Feedback> Feedbacks { get; set; }

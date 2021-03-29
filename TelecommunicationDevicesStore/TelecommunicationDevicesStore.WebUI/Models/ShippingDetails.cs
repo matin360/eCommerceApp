@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TelecommunicationDevicesStore.Domain.Data
+namespace TelecommunicationDevicesStore.WebUI.Models
 {
 	public class ShippingDetails
 	{
-        [Required(ErrorMessage = "Enter your name")]
-        public string Name { get; set; }
-
         [Required(ErrorMessage = "Indicate your address")]
         [Display(Name = "First line for an address")]
         public string Line1 { get; set; }
@@ -29,5 +26,6 @@ namespace TelecommunicationDevicesStore.Domain.Data
         public string Country { get; set; }
 
         public bool GiftWrap { get; set; }
-    }
+		public int UserId { get; set; }
+	}
 }

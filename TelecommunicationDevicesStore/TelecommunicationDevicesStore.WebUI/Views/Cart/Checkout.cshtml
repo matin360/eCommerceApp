@@ -1,4 +1,4 @@
-﻿@model TelecommunicationDevicesStore.Domain.Data.ShippingDetails
+﻿@model TelecommunicationDevicesStore.WebUI.Models.ShippingDetails
 
 @{
 	ViewBag.Title = "Lighten: Order Form";
@@ -12,16 +12,12 @@
 	</header>
 	@using (Html.BeginForm("Checkout", "Cart", FormMethod.Post))
 	{
+		@*@Html.Hidden(User.Identity)*@
 		@Html.AntiForgeryToken()
 		<h3>Data</h3>
-		<div class="form-group">
-			@Html.DisplayNameFor(x => x.Name)
-			@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-			@Html.ValidationMessageFor(x => x.Name)
-		</div>
 		foreach (var property in ViewData.ModelMetadata.Properties)
 		{
-			if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
+			if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap" && property.PropertyName != "UserId")
 			{
 				<div class="form-group">
 					<label>@(property.DisplayName ?? property.PropertyName)</label>

@@ -11,10 +11,8 @@ namespace TelecommunicationDevicesStore.Domain.Data
 	{
 		[StringLength(maximumLength: 50)]
 		public string Picture { get; set; }
-		public ICollection<Product> Products { get; set; }
 		public Customer()
 		{
-			Products = new HashSet<Product>();
 			Picture = "default.jpg";
 		}
 	}
