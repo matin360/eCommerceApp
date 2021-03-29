@@ -31,22 +31,27 @@
 		<!-- header inner -->
 		<div class="header">
 			<div class="head_top">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-							<div class="top-box">
+				<div class="container-md">
+					<div class=" row align-items-center justify-content-sm-center">
+						<div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
+							<div class="top-box p-sm-0">
 								<ul class="sociel_link">
-									<li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+									<li> <a href="#"><i class="fa fa-facebook"></i></a></li>
 									<li> <a href="#"><i class="fa fa-twitter"></i></a></li>
 									<li> <a href="#"><i class="fa fa-instagram"></i></a></li>
 									<li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-							<div class="top-box d-flex align-items-center justify-content-end">
+						<div class="col-xl-3 col-lg-3 col-md-5 col-sm-5 px-0 p-xs-0">
+							<div class="top-box d-flex align-items-center justify-content-md-end">
 								@Html.Action("Summary", "Cart")
 							</div>
+						</div>
+						<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+							<section class="singin">
+								@Html.ActionLink("Sing In", "SingIn", "Account", null, htmlAttributes: new { @class = "btn btn-outline-dark" })
+							</section>
 						</div>
 					</div>
 				</div>
@@ -69,6 +74,7 @@
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 			<!-- end header inner -->

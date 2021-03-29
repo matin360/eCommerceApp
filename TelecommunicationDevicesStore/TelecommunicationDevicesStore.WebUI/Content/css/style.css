@@ -1659,6 +1659,9 @@ float: right;
 .head_top {background: #ffc221;
 margin-bottom: 35px;
 }
+.signin a{
+	font-size: 14px;
+}
 ul.sociel_link {
 	display: flex;
 flex-wrap: wrap;

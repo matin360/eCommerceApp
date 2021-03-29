@@ -10,13 +10,13 @@
 		totalVal = @Model.ComputeTotalValue();
 	}
 }
-<div class="navbar-right">
+<div class="">
 	@Html.ActionLink(" ", "Index", "Cart",
 	new { returnUrl = Request.Url.PathAndQuery },
 	new { @class = "fa fa-shopping-cart btn btn-outline-dark mr-2" })
 </div>
 
-<div class="navbar-text navbar-right">
+<div class="navbar-text px-1">
 	@Model.Lines.Sum(x => x.Quantity) products,
 	@totalVal AZN
 </div>

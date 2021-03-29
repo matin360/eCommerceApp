@@ -284,7 +284,18 @@ padding: 1px 0px 1px 0px;
     }
    
      .head_top {
-        display: none;
+        padding: 10px 0;
+    }
+     .top-box{
+         display: flex;
+         justify-content: center;
+     }
+    .singin {
+        text-align: center;
+        padding: 10px 0;
+    }
+    .singin a{
+         font-size: 12px;
     }
     .buy {display: none; } 
     
@@ -342,12 +353,27 @@ padding: 1px 0px 1px 0px;
         margin-top: 0;
     }
     .mean-last {
-/*        display: none;*/
+
     }
     .head_top {
-        display: none;
+        padding: 10px 0;
     }
-    .buy {display: none;  } 
+    .top-box {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+   .singin {
+        text-align: center;
+        padding: 10px 0;
+    }
+    .singin a {
+        width: 100%;
+        font-size: 14px;
+    }
+    .buy {
+        display: none;
+    } 
     .main_bt {
         padding: 5px 24px 5px 24px;
         margin-right: 10px;
