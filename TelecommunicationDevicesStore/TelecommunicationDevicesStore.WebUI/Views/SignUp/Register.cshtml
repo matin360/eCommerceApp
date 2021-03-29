@@ -1,0 +1,51 @@
+﻿@model TelecommunicationDevicesStore.WebUI.Models.UserModel
+@{
+	ViewBag.Title = "Sign Up";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="brand_color">
+	@{ Html.RenderPartial("_PageTitlePartial", "sing up"); }
+</div>
+
+<div class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				@using (Html.BeginForm("Register", "SignUp", FormMethod.Post, htmlAttributes: new { @class = "main_form" }))
+				{
+					<div class="row">
+						@Html.AntiForgeryToken()
+						<div class="col-md-12">
+							@Html.ValidationSummary()
+						</div>
+						<div class="col-md-12">
+							@Html.TextBoxFor(x => x.UserName, htmlAttributes: new { @class = "form-control", @placeholder = "Username" })
+							@Html.ValidationMessageFor(x => x.UserName)
+						</div>
+						<div class="col-md-12">
+							@Html.TextBoxFor(x => x.Email, htmlAttributes: new { @class = "form-control", @placeholder = "Email" })
+							@Html.ValidationMessageFor(x => x.Email)
+						</div>
+						<div class="col-md-12">
+							@Html.PasswordFor(x => x.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Password" })
+							@Html.ValidationMessageFor(x => x.Password)
+						</div>
+						<div class="text-center col-md-12">
+							<input class="btn btn-warning w-100" type="submit" value="Sing Up" />
+						</div>
+					</div>
+				}
+			</div>
+			<footer class="login-link col-md-12">
+				@Html.ActionLink("Do you already have an acoount? Just Log in!", "Login", "Account", htmlAttributes: new { @class = "text-warning" })
+			</footer>
+		</div>
+	</div>
+</div>
+
+@section ValidationSection{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
+
