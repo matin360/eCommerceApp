@@ -43,6 +43,12 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         [ActionName("Details")]
         public async Task<ViewResult> DetailsAsync(int productId)
 		{
+            var product = await _tsdbcontxt.Customers.GetUserAsync(productId);
+
+            if (product == null)
+                return View("Error");
+
+
             return View();
 		}
 	}

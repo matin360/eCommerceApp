@@ -16,14 +16,6 @@
 
         protected override void Seed(TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext context)
         {
-			//context.SystemUsers.AddOrUpdate(new SystemUser
-			//{
-			//	Id = 1, 
-			//	UserName = "Admin",
-			//	Email = "admin@gmail.com",
-			//	Password = "Co1fUszvpQQ4kob",
-			//	UserRole = Roles.UserRole.Admin
-			//});
 
 			#region data
 			//         context.Menus.AddOrUpdate(new Menu
@@ -173,228 +165,228 @@
 			//	CustomerId = 2,
 			//	SlideNumber = 2
 			//});
-			//context.Products.AddOrUpdate(
-			//new Product
-			//{
-			//	Id = 1,
-			//	Name = "Xiaomi Redmi Note 10 4/64GB Grey",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "xiaominote10pro.png",
-			//	CategoryId = 2,
-			//	Price = 479.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 2,
-			//	Name = "Xiaomi Redmi Note 10 6/128GB Grey",
-			//	ShorDescription = "Storage: 128 GB | Battery : 5000(mAh) | RAM: 6 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "xiaominote10pro.png",
-			//	CategoryId = 2,
-			//	Price = 522.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 3,
-			//	Name = "Modem TP-LINK TD-W8961N",
-			//	ShorDescription = "Storage: 32 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "tplink.jpg",
-			//	CategoryId = 1,
-			//	Price = 49.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 4,
-			//	Name = "Modem TP-LINK TD-W8961N",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "tplink.jpg",
-			//	CategoryId = 1,
-			//	Price = 59.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 5,
-			//	Name = "Router Keenetic GIGA KN-1010-01RU",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "router.jpg",
-			//	CategoryId = 6,
-			//	Price = 319.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 6,
-			//	Name = "Router Keenetic GIGA KN-1010-01RU",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "router.jpg",
-			//	CategoryId = 6,
-			//	Price = 219.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 7,
-			//	Name = "Huawei eSpace 6805",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "iptelephone.png",
-			//	CategoryId = 3,
-			//	Price = 59.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 8,
-			//	Name = "Huawei eSpace 6805",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "iptelephone.png",
-			//	CategoryId = 3,
-			//	Price = 79.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 9,
-			//	Name = "PANASONİC KX-FP701 FX",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "fax-machine.jpg",
-			//	CategoryId = 4,
-			//	Price = 89.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 10,
-			//	Name = "PANASONİC KX-FP701 FX",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "fax-machine.jpg",
-			//	CategoryId = 4,
-			//	Price = 59.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 11,
-			//	Name = "Xiaomi Redmi Note 10 4/64GB Grey",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "xiaominote10pro.png",
-			//	CategoryId = 2,
-			//	Price = 479.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 12,
-			//	Name = "Xiaomi Redmi Note 10 6/128GB Grey",
-			//	ShorDescription = "Storage: 128 GB | Battery : 5000(mAh) | RAM: 6 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "xiaominote10pro.png",
-			//	CategoryId = 2,
-			//	Price = 522.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 13,
-			//	Name = "Modem TP-LINK TD-W8961N",
-			//	ShorDescription = "Storage: 32 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "tplink.jpg",
-			//	CategoryId = 1,
-			//	Price = 49.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 14,
-			//	Name = "Modem TP-LINK TD-W8961N",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "tplink.jpg",
-			//	CategoryId = 1,
-			//	Price = 59.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 15,
-			//	Name = "Router Keenetic GIGA KN-1010-01RU",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "router.jpg",
-			//	CategoryId = 6,
-			//	Price = 319.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 16,
-			//	Name = "Router Keenetic GIGA KN-1010-01RU",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "router.jpg",
-			//	CategoryId = 6,
-			//	Price = 219.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 17,
-			//	Name = "Huawei eSpace 6805",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "iptelephone.png",
-			//	CategoryId = 3,
-			//	Price = 59.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 18,
-			//	Name = "Huawei eSpace 6805",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "iptelephone.png",
-			//	CategoryId = 3,
-			//	Price = 79.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 19,
-			//	Name = "PANASONİC KX-FP701 FX",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "fax-machine.jpg",
-			//	CategoryId = 4,
-			//	Price = 89.99m,
-			//	StockCount = 30
-			//},
-			//new Product
-			//{
-			//	Id = 20,
-			//	Name = "PANASONİC KX-FP701 FX",
-			//	ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
-			//	ImagePath = "fax-machine.jpg",
-			//	CategoryId = 4,
-			//	Price = 59.99m,
-			//	StockCount = 30
-			//}
-			//);
+			context.Products.AddOrUpdate(
+			new Product
+			{
+				Id = 26,
+				Name = "Xiaomi Redmi Note 10 4/64GB Grey",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "xiaominote10pro.png",
+				CategoryId = 2,
+				Price = 479.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 27,
+				Name = "Xiaomi Redmi Note 10 6/128GB Grey",
+				ShorDescription = "Storage: 128 GB | Battery : 5000(mAh) | RAM: 6 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "xiaominote10pro.png",
+				CategoryId = 2,
+				Price = 522.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 28,
+				Name = "Modem TP-LINK TD-W8961N",
+				ShorDescription = "Storage: 32 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "tplink.jpg",
+				CategoryId = 1,
+				Price = 49.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 29,
+				Name = "Modem TP-LINK TD-W8961N",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "tplink.jpg",
+				CategoryId = 1,
+				Price = 59.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 30,
+				Name = "Router Keenetic GIGA KN-1010-01RU",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "router.jpg",
+				CategoryId = 6,
+				Price = 319.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 6,
+				Name = "Router Keenetic GIGA KN-1010-01RU",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "router.jpg",
+				CategoryId = 6,
+				Price = 219.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 31,
+				Name = "Huawei eSpace 6805",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "iptelephone.png",
+				CategoryId = 3,
+				Price = 59.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 32,
+				Name = "Huawei eSpace 6805",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "iptelephone.png",
+				CategoryId = 3,
+				Price = 79.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 33,
+				Name = "PANASONİC KX-FP701 FX",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "fax-machine.jpg",
+				CategoryId = 4,
+				Price = 89.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 34,
+				Name = "PANASONİC KX-FP701 FX",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "fax-machine.jpg",
+				CategoryId = 4,
+				Price = 59.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 35,
+				Name = "Xiaomi Redmi Note 10 4/64GB Grey",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "xiaominote10pro.png",
+				CategoryId = 2,
+				Price = 479.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 36,
+				Name = "Xiaomi Redmi Note 10 6/128GB Grey",
+				ShorDescription = "Storage: 128 GB | Battery : 5000(mAh) | RAM: 6 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Xiaomi | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "xiaominote10pro.png",
+				CategoryId = 2,
+				Price = 522.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 37,
+				Name = "Modem TP-LINK TD-W8961N",
+				ShorDescription = "Storage: 32 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "tplink.jpg",
+				CategoryId = 1,
+				Price = 49.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 14,
+				Name = "Modem TP-LINK TD-W8961N",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: TP-LINK | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "tplink.jpg",
+				CategoryId = 1,
+				Price = 59.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 38,
+				Name = "Router Keenetic GIGA KN-1010-01RU",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "router.jpg",
+				CategoryId = 6,
+				Price = 319.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 39,
+				Name = "Router Keenetic GIGA KN-1010-01RU",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Zyxel | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "router.jpg",
+				CategoryId = 6,
+				Price = 219.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 40,
+				Name = "Huawei eSpace 6805",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "iptelephone.png",
+				CategoryId = 3,
+				Price = 59.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 41,
+				Name = "Huawei eSpace 6805",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: Huawei | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "iptelephone.png",
+				CategoryId = 3,
+				Price = 79.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 42,
+				Name = "PANASONİC KX-FP701 FX",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "fax-machine.jpg",
+				CategoryId = 4,
+				Price = 89.99m,
+				StockCount = 30
+			},
+			new Product
+			{
+				Id = 43,
+				Name = "PANASONİC KX-FP701 FX",
+				ShorDescription = "Storage: 64 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				MetaDescription = "Production Company: PANASONİC | Production Year: 2012 | Screen: 6.43'' | Resolution: 1080x2400 | Main camera: 48 mpx + 8 mpx + 2 mpx + 2 mpx | Storage: 128 GB | Battery : 5000(mAh) | RAM: 4 GB | Processor: Qualcomm |",
+				ImagePath = "fax-machine.jpg",
+				CategoryId = 4,
+				Price = 59.99m,
+				StockCount = 30
+			}
+			);
 			#endregion
 			context.SaveChanges();
         }

@@ -56,15 +56,13 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		public static IEnumerable<ProductIndexModel> GetPopularProducts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsNumber)
 		{
 			return _tsdbcontxt.Products.Where( x => x.StockCount > 0).
-						OrderByDescending(x => x.Customers.Count()).
+						OrderBy(x => x.StockCount).
 							Take(_itemsNumber).Select( p => new ProductIndexModel
 							{
 								Name = p.Name,
 								Id = p.Id,
 								ImagePath = p.ImagePath,
 								Price = p.Price,
-								//ShorDescription = p.ShorDescription,
-								CustomersCount = p.Customers.Count()
 							}).ToList();
 		}
 
@@ -88,9 +86,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								Name = p.Name,
 								Id = p.Id,
 								ImagePath = p.ImagePath,
-								Price = p.Price,
-								//ShorDescription = p.ShorDescription,
-								CustomersCount = p.Customers.Count()
+								Price = p.Price
 							}).ToListAsync();
 		}
 
@@ -109,8 +105,6 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								Id = p.Id,
 								ImagePath = p.ImagePath,
 								Price = p.Price,
-								//ShorDescription = p.ShorDescription,
-								CustomersCount = p.Customers.Count(),
 								CategoryName = p.Category.Name
 							}).ToListAsync();
 		}

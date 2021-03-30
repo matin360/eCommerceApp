@@ -196,6 +196,7 @@
     <Compile Include="Models\FeedbackIndexModel.cs" />
     <Compile Include="Models\MenuIndexModel.cs" />
     <Compile Include="Models\PageModel.cs" />
+    <Compile Include="Models\ProductDetailsModel.cs" />
     <Compile Include="Models\ProductIndexModel.cs" />
     <Compile Include="Models\ServiceIndexModel.cs" />
     <Compile Include="Models\ShippingDetails.cs" />
