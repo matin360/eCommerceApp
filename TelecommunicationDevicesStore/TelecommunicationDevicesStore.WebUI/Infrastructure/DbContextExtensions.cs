@@ -130,5 +130,42 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								StockCount = p.StockCount
 							}).ToListAsync();
 		}
+
+		public async static Task<IEnumerable<CustomerFullModel>> GetAllCustomers(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return await _tsdbcontxt.Customers.Select(c => new CustomerFullModel
+			{
+				Id = c.Id,
+				Email = c.Email,
+				UserName = c.UserName
+			}).ToListAsync();
+		}
+
+		public async static Task<IEnumerable<OrderFullModel>> GetAllOrders(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return await _tsdbcontxt.Orders.Select(ord => new OrderFullModel
+			{
+				Id = ord.Id,
+				Line1 = ord.Line1,
+				Line2 = ord.Line2,
+				Line3 = ord.Line3,
+				City = ord.City,
+				Country = ord.Country,
+				CustomerName = ord.User.UserName,
+				TotalPrice = ord.TotalPrice
+			}).ToListAsync();
+		}
+		public async static Task<IEnumerable<UserMessageFullModel>> GetAllUserMessages(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return await _tsdbcontxt.ContactMessages.Select(um => new UserMessageFullModel
+			{
+				Id = um.Id,
+				UserName = um.UserName,
+				UserEmail = um.UserEmail,
+				UserPhoneNumber = um.UserPhoneNumber,
+				SubmittedDate = um.SubmittedDate,
+				Message = um.Message
+			}).ToListAsync();
+		}
 	}
 }

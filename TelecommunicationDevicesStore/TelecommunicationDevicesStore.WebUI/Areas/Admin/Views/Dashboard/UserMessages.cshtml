@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TelecommunicationDevicesStore.WebUI.Areas.Admin.Models.UserMessageFullModel>
+
+@{
+	ViewBag.Title = "User Messages";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@{ Html.RenderPartial("_HeaderAdminPartial", "Messages from Users"); }
+<p>
+	@Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover p-3">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Id)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.UserName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.UserEmail)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.UserPhoneNumber)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Message)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.SubmittedDate)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.UserName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.UserEmail)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.UserPhoneNumber)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Message)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.SubmittedDate)
+			</td>
+		</tr>
+	}
+
+</table>

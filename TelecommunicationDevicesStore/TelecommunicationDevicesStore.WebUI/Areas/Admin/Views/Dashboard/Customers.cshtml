@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TelecommunicationDevicesStore.WebUI.Areas.Admin.Models.CustomerFullModel>
+
+@{
+	ViewBag.Title = "Customers";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@{ Html.RenderPartial("_HeaderAdminPartial", "Customers"); }
+<table class="table table-hover p-3">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Id)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.UserName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Email)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.UserName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Email)
+			</td>
+		</tr>
+	}
+
+</table>
