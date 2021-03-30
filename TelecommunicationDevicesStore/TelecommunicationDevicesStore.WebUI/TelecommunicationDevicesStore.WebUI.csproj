@@ -171,8 +171,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Data\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductFullModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -252,6 +255,7 @@
     <Content Include="Areas\Admin\Views\Shared\_NavbarPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\List.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -288,6 +292,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Categories\" />
+    <Folder Include="Areas\Admin\Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TelecommunicationDevicesStore.Domain\TelecommunicationDevicesStore.Domain.csproj">

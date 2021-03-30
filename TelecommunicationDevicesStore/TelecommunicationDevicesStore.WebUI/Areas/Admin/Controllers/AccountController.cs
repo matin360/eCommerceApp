@@ -54,7 +54,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            Session.Clear();
+            Session.Remove("user");
             return RedirectToAction(nameof(Login));
         }
     }

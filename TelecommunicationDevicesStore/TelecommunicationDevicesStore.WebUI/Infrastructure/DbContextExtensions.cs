@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using TelecommunicationDevicesStore.Domain.Data;
+using TelecommunicationDevicesStore.WebUI.Areas.Admin.Models;
 using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Infrastructure
@@ -115,6 +116,19 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			var product = await _tsdbcontxt.Products.FindAsync(id);
 			product.Category = await _tsdbcontxt.Categories.FindAsync(product.CategoryId);
 			return product;
+		}
+
+		public async static Task<IEnumerable<ProductFullModel>> GetAllProducts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			return await _tsdbcontxt.Products.Select(p => new ProductFullModel
+							{
+								Name = p.Name,
+								Id = p.Id,
+								Price = p.Price,
+								CategoryName = p.Category.Name,
+								MetaDescription = p.MetaDescription,
+								StockCount = p.StockCount
+							}).ToListAsync();
 		}
 	}
 }
