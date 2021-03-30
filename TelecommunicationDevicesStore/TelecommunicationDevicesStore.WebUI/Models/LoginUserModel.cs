@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TelecommunicationDevicesStore.WebUI.Models
 {
-	public class LoginModel
+	public class LoginUserModel
 	{
 		[Required]
 		[EmailAddress]

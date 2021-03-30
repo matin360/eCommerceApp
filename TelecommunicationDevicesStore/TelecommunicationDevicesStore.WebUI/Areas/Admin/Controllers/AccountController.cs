@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
-using TelecommunicationDevicesStore.Domain.Filters;
-using TelecommunicationDevicesStore.WebUI.Models;
+using TelecommunicationDevicesStore.WebUI.Areas.Admin.Data;
 using TelecommunicationDevicesStore.WebUI.Infrastructure;
 
 namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
@@ -30,8 +29,8 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         [ActionName("Login")]
         public async Task<ActionResult> LoginAsync(LoginModel model)
         {
-			if (ModelState.IsValid)
-			{
+            if (ModelState.IsValid)
+            {
                 if (ModelState.IsValid)
                 {
                     var user = await _tsdbcontxt.SystemUsers.GetUserAsync(model);
@@ -52,6 +51,11 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-       
-	}
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction(nameof(Login));
+        }
+    }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using TelecommunicationDevicesStore.Domain.Data;
+using TelecommunicationDevicesStore.WebUI.Areas.Admin.Data;
 using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Infrastructure
@@ -15,7 +16,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		{
 			return await _dbSet.Where(x => x.Email == model.Email && x.Password == model.Password).SingleOrDefaultAsync();
 		}
-		public async static Task<Customer> GetUserAsync(this DbSet<Customer> _dbSet, LoginModel model)
+		public async static Task<Customer> GetUserAsync(this DbSet<Customer> _dbSet, LoginUserModel model)
 		{
 			return await _dbSet.Where(x => x.Email == model.Email && x.Password == model.Password).SingleOrDefaultAsync();
 		}

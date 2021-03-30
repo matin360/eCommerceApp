@@ -22,7 +22,21 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body class="main-layout">
-	@RenderBody()
+	<div class="container-scroller">
+		<div class="container-fluid page-body-wrapper">
+			<!-- partial:partials/_sidebar.html -->
+			@{ Html.RenderPartial("_NavbarPartial");}
+			<!-- partial -->
+			<div class="main-panel">
+				@RenderBody()
+
+				@{ Html.RenderPartial("_FooterPartial");}
+			</div>
+			<!-- main-panel ends -->
+		</div>
+		<!-- page-body-wrapper ends -->
+	</div>
+
 	<!-- Javascript files-->
 	<script src="/Scripts/jquery.min.js"></script>
 	<script src="/Scripts/popper.min.js"></script>

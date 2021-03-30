@@ -1,38 +1,74 @@
-﻿@model TelecommunicationDevicesStore.WebUI.Areas.Admin.Data.LoginModel
+﻿
+@model TelecommunicationDevicesStore.WebUI.Areas.Admin.Data.LoginModel
 @{
 	ViewBag.Title = "Login";
-	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<div class="py-5">
-	<div class="container">
-		<div class="d-flex justify-content-center align-items-center">
-			<div class="col-md-6 border p-3">
-				@using (Html.BeginForm("Login", "Account", FormMethod.Post, htmlAttributes: new { @class = "main_form" }))
-				{
-				 @Html.ValidationSummary();
-				<div class="row">
-					@Html.AntiForgeryToken()
-					<div class="col-md-12">
-						@Html.TextBoxFor(x => x.Email, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
-						@Html.ValidationMessageFor(x => x.Email)
-					</div>
-					<div class="col-md-12">
-						@Html.PasswordFor(x => x.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
-						@Html.ValidationMessageFor(x => x.Password)
-					</div>
-					<div class="text-center col-md-12">
-						<input class="btn btn-warning w-100" type="submit" value="Login" />
-					</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<title>Login</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/Areas/Admin/Content/css/style.css">
+	<link rel="stylesheet" href="/Content/css/responsive.css">
+	<link href="/Content/css/errorStyles.css" rel="stylesheet" />
+	<link rel="icon" href="/Content/images/fevicon.png" type="image/gif" />
+	<link rel="stylesheet" href="/Content/css/jquery.mCustomScrollbar.min.css">
+
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<div class="py-5">
+		<div class="container">
+			<div class="d-flex justify-content-center align-items-center">
+				<div class="col-md-6 border p-3">
+					@using (Html.BeginForm("Login", "Account", FormMethod.Post, htmlAttributes: new { @class = "main_form" }))
+					{
+						@Html.ValidationSummary();
+						<div class="row">
+							@Html.AntiForgeryToken()
+							<div class="col-md-12">
+								@Html.TextBoxFor(x => x.Email, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
+								@Html.ValidationMessageFor(x => x.Email)
+							</div>
+							<div class="col-md-12">
+								@Html.PasswordFor(x => x.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
+								@Html.ValidationMessageFor(x => x.Password)
+							</div>
+							<div class="text-center col-md-12">
+								<input class="btn btn-warning w-100" type="submit" value="Login" />
+							</div>
+						</div>
+					}
 				</div>
-				}
 			</div>
 		</div>
 	</div>
-</div>
-
-@section ValidationSection{
+	<script src="/Scripts/jquery.min.js"></script>
+	<script src="/Scripts/popper.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
-}
+	<script src="/Scripts/bootstrap.bundle.min.js"></script>
+	<script src="/Scripts/plugin.js"></script>
+	<script src="/Areas/Admin/Scripts/off-canvas.js"></script>
+	<script src="/Areas/Admin/Scripts/hoverable-collapse.js"></script>
+	<script src="/Areas/Admin/Scripts/template.js"></script>
+	<script src="/Areas/Admin/Scripts/todolist.js"></script>
+	<!-- sidebar -->
+	<script src="/Areas/Admin/Scripts/dashboard.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+</body>
+</html>
+
+	
 

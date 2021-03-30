@@ -3,26 +3,28 @@
 	<ul class="nav">
 
 		<li class="nav-item">
-			<a class="nav-link menu-title" href="index.html">
+			<a class="nav-link menu-title" href="#">
 				Dashboard
 			</a>
 		</li>
-
-		@*<li class="nav-item">
-			<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-				<i class="ti-user menu-icon"></i>
-				<span class="menu-title">User Pages</span>
-				<i class="menu-arrow"></i>
-			</a>
-			<div class="collapse" id="auth">
-				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-					<li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-					<li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-					<li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-					<li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
-				</ul>
-			</div>
-		</li>*@
+		<li class="nav-item">
+			@Html.ActionLink("All Products", "List", "Product", null, htmlAttributes: new { @class = "nav-link menu-title" })
+		</li>
+		<li class="nav-item">
+			@Html.ActionLink("All Customers", "List", "Customer", null, htmlAttributes: new { @class = "nav-link menu-title" })
+		</li>
+		<li class="nav-item">
+			@Html.ActionLink("All Orders", "List", "Order", null, htmlAttributes: new { @class = "nav-link menu-title" })
+		</li>
+		<li class="nav-item">
+			@Html.ActionLink("Messages from Users", "List", "UserMessage", null, htmlAttributes: new { @class = "nav-link menu-title" })
+		</li>
+		<li class="nav-item dropdown-divider"></li>
+		<li class="nav-item">
+			@Html.ActionLink("Add New Product", "Add", "Product", null, htmlAttributes: new { @class = "nav-link menu-title" })
+		</li>
+		<li class="nav-item">
+			@Html.ActionLink("Add New Category", "Add", "Category", null, htmlAttributes: new { @class = "nav-link menu-title" })
+		</li>
 	</ul>
 </nav>

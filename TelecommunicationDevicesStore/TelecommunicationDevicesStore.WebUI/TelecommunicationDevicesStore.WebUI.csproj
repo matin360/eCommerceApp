@@ -172,7 +172,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
-    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Data\LoginModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -194,6 +194,7 @@
     <Compile Include="Models\CartIndexModel.cs" />
     <Compile Include="Models\CategoryIndexModel.cs" />
     <Compile Include="Models\FeedbackIndexModel.cs" />
+    <Compile Include="Models\LoginUserModel.cs" />
     <Compile Include="Models\MenuIndexModel.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\ProductDetailsModel.cs" />
@@ -207,7 +208,6 @@
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Content\fonts\Roboto-Black.eot" />
     <Content Include="Areas\Admin\Content\fonts\Roboto-Black.ttf" />
@@ -251,6 +251,7 @@
     <Content Include="Areas\Admin\Content\fonts\Roboto\Roboto-Light.woff2" />
     <Content Include="Areas\Admin\Views\Shared\_NavbarPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -287,7 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TelecommunicationDevicesStore.Domain\TelecommunicationDevicesStore.Domain.csproj">
