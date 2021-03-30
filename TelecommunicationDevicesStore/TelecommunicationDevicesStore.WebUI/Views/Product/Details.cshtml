@@ -1,0 +1,59 @@
+﻿@using TelecommunicationDevicesStore.WebUI.Models
+@model TelecommunicationDevicesStore.WebUI.Models.ProductDetailsModel
+
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var product = Model;
+}
+
+<div class="brand_color">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="titlepage">
+					<p class="fs-2 fw-bold">@product.Category.Name</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- Lastestnews -->
+<div class="product-details py-5">
+	<div class="container">
+		<div class="row">
+			<section class="col-md-5 p-3">
+				<img src="~/Content/images/products/@product.ImagePath" alt="">
+			</section>
+			<section class="col-md-7 p-3">
+				<h2>@product.Name</h2>
+				<p class="fs-4 mb-3">@product.Price.ToString("# AZN")</p>
+				<p class="fs-4 mb-3">Avalialbe: @product.StockCount</p>
+				<p class="mb-3">
+					@product.MetaDescription
+				</p>
+				<section class="purchase mb-4">
+					@Html.ActionLink("Add to Cart", "AddToCart", "Cart",
+									routeValues: new { productId = product.Id, returnUrl = Request.Url.PathAndQuery },
+										htmlAttributes: new { @class = "btn btn-warning" })
+				</section>
+				<footer>
+					<section class="fs-6">@Html.ActionLink("See other products", "Index", "Product", null , htmlAttributes: new { @class = "text-warning" })</section>
+					<section class="fs-6">
+						@Html.ActionLink("See products of the same category", "GategoryProducts", "Product",
+							routeValues: new PageModel
+							{
+								CategoryName = product.Category.Name,
+								ActionName = "GategoryProducts",
+								ControllerName = "Product",
+								ElementsCount = product.Category.ProductsCount
+							},
+							htmlAttributes: new { @class = "text-warning"})
+					</section>
+				</footer>
+			</section>
+		</div>
+	</div>
+</div>
+

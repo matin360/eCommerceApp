@@ -43,13 +43,26 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         [ActionName("Details")]
         public async Task<ViewResult> DetailsAsync(int productId)
 		{
-            var product = await _tsdbcontxt.Customers.GetUserAsync(productId);
+            var product = await _tsdbcontxt.GetProductAsync(productId);
 
             if (product == null)
                 return View("Error");
 
+            ProductDetailsModel model = new ProductDetailsModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Category = new CategoryIndexModel { 
+                    Name = product.Category.Name,
+                    ProductsCount = product.Category.Products.Count()
+                },
+                MetaDescription = product.MetaDescription,
+                ImagePath = product.ImagePath,
+                Price = product.Price,
+                StockCount = product.StockCount
+            };
 
-            return View();
+            return View(model);
 		}
 	}
 }

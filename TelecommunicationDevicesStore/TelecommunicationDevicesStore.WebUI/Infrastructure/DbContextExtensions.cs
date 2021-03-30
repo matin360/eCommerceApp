@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Infrastructure
@@ -107,6 +108,13 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								Price = p.Price,
 								CategoryName = p.Category.Name
 							}).ToListAsync();
+		}
+
+		public async static Task<Product> GetProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
+		{
+			var product = await _tsdbcontxt.Products.FindAsync(id);
+			product.Category = await _tsdbcontxt.Categories.FindAsync(product.CategoryId);
+			return product;
 		}
 	}
 }

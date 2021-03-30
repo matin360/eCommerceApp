@@ -23,9 +23,6 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		{
 			return await _dbSet.Where(x => x.Id == id).SingleOrDefaultAsync();
 		}
-		public async static Task<Product> GetProductAsync(this DbSet<Product> _dbSet, int id)
-		{
-			return await _dbSet.FindAsync(id);
-		}
+		
 	}
 }

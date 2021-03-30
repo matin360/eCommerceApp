@@ -6,13 +6,14 @@
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
 	<div class="product-box rounded">
 		<i><img src="~/Content/images/products/@Model.ImagePath" /></i>
-		<h3>@Html.ActionLink($"{Model.Name}", "Details", "Product", routeValues: new { id = Model.Id }, htmlAttributes: new { })</h3>
+		<h3>@Model.Name</h3>
 		<span>@Model.Price @currency</span>
-	<footer class="prd-btm py-2">
-		@Html.ActionLink("Add to Cart", "AddToCart", "Cart", 
-								routeValues: new { productId = Model.Id, returnUrl = Request.Url.PathAndQuery }, 
-									htmlAttributes: new { @class="btn btn-outline-secondary"} )
-	</footer>
+		<footer class="prd-btm py-2">
+			@Html.ActionLink("Add to Cart", "AddToCart", "Cart",
+									routeValues: new { productId = Model.Id, returnUrl = Request.Url.PathAndQuery },
+										htmlAttributes: new { @class = "btn btn-outline-secondary" })
+			@Html.ActionLink("Details", "Details", "Product", routeValues: new { productId = Model.Id }, htmlAttributes: new { @class = "btn btn-link"})
+		</footer>
 	</div>
 </div>
 
