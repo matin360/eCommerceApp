@@ -10,12 +10,23 @@
     .header-search {
         padding: 15px 0px;
     }
+    .top-box {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .header{
+       padding-bottom: 35px;
+    }
 }
 
 
 /*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 599px) and (max-width: 767px) {
+    .header {
+        padding-bottom: 35px;
+    }
     .logo {
         text-align: center;
     }
@@ -82,12 +93,20 @@
     #collapseFilter.d-md-block {
         padding: 30px 0px;
     }
+    .top-box {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
 }
 
 
 /*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 280px) and (max-width: 599px) {
+    .header {
+        padding-bottom: 35px;
+    }
     .cart-content-right {
         padding-bottom: 5px;
     }
@@ -128,15 +147,26 @@
     .mean-container .mean-nav ul li a.mean-expand {
         top: 0;
     }
+    .top-box {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1500px) {
     .banner-main .carousel-caption {
         background: transparent;
     }
+    .header {
+        padding-bottom: 35px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+    .header {
+        padding-bottom: 35px;
+    }
     .main-menu ul > li a {
         padding: 26px 6px 0 6px;
     }
@@ -161,6 +191,11 @@
         bottom: 0;
         padding: 0;
     }
+    .top-box {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
     .banner-main .carousel-caption h1 {padding-top: 0px; font-size: 36px; line-height: 43px;}
     .footer .address h3 {
         font-size: 20px;
@@ -183,6 +218,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .header {
+        padding-bottom: 35px;
+    }
     .main-menu ul > li a {
         padding: 13px 6px 0 6px;
     }
@@ -214,13 +252,17 @@
     .banner-main .carousel-caption p {
         font-size: 15px;
 
-padding: 1px 0px 1px 0px;
+    padding: 1px 0px 1px 0px;
     }
     .banner-main .carousel-caption a {
         width: 182px;
         padding: 8px 0;
     }
-   
+    .top-box {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
     .main_bt {
         margin-right: 15px;
         padding: 10px 41px 10px 41px;
@@ -252,10 +294,11 @@ padding: 1px 0px 1px 0px;
 @media (min-width: 576px) and (max-width: 767px) {
     .header {
      
-        padding-top: 35px;
+        padding-top: 0px;
     }
     .mean-container .mean-bar {
         margin-top: 0px;
+        margin-bottom: 10px;
     }
     .relative {
         position: absolute;
@@ -289,6 +332,7 @@ padding: 1px 0px 1px 0px;
      .top-box{
          display: flex;
          justify-content: center;
+         gap: 10px;
      }
     .singin {
         text-align: center;
@@ -311,8 +355,7 @@ padding: 1px 0px 1px 0px;
 
 @media (max-width: 575px) {
     .header {
-        padding-bottom: 0px;
-        padding-top: 25px;
+        padding-bottom: 0px !important;
     }
     .logo {
         text-align: center !important;
@@ -351,6 +394,7 @@ padding: 1px 0px 1px 0px;
    
     .mean-container .mean-bar {
         margin-top: 0;
+        margin-bottom: 10px;
     }
     .mean-last {
 
@@ -360,7 +404,8 @@ padding: 1px 0px 1px 0px;
     }
     .top-box {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 20px;
     }
 
    .singin {

@@ -277,6 +277,7 @@
     <Content Include="Views\SignUp\Completed.cshtml" />
     <Content Include="Views\SignIn\Login.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Shared\_ServicesHeaderPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

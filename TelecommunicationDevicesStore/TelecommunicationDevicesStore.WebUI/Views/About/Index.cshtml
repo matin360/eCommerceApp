@@ -27,12 +27,7 @@
 <div class="service">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 offset-md-2">
-				<div class="title">
-					<h2>Service <strong class="black">Process</strong></h2>
-					<span>Easy and effective way to get your device repair</span>
-				</div>
-			</div>
+			@{ Html.RenderPartial("_ServicesHeaderPartial"); }
 		</div>
 		<div class="row">
 			@Html.Action("Services", "Service")

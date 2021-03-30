@@ -8,16 +8,7 @@
 }
 
 <div class="brand_color">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="titlepage">
-					<p class="fs-2 fw-bold">@product.Category.Name</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	@{ Html.RenderPartial("_PageTitlePartial", product.Category.Name);}
 </div>
 <!-- Lastestnews -->
 <div class="product-details py-5">
@@ -28,7 +19,7 @@
 			</section>
 			<section class="col-md-7 p-3">
 				<h2>@product.Name</h2>
-				<p class="fs-4 mb-3">@product.Price.ToString("# AZN")</p>
+				<p class="fs-4 mb-3">@product.Price AZN</p>
 				<p class="fs-4 mb-3">Avalialbe: @product.StockCount</p>
 				<p class="mb-3">
 					@product.MetaDescription

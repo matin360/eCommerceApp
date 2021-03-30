@@ -27,9 +27,9 @@
 				<tr>
 					<td class="text-center">@line.Quantity</td>
 					<td class="text-left">@line.Product.Name</td>
-					<td class="text-right">@line.Product.Price.ToString($"# {currency}")</td>
+					<td class="text-right">@line.Product.Price @currency</td>
 					<td class="text-right">
-						@((line.Quantity * line.Product.Price).ToString($"# {currency}"))
+						@((line.Quantity * line.Product.Price)) @currency
 					</td>
 					<td>
 						@Html.ActionLink("Remove", "RemoveFromCart", "Cart",
@@ -43,7 +43,7 @@
 			<tr>
 				<td colspan="3" class="text-right">Total:</td>
 				<td class="text-right">
-					@Model.Cart.ComputeTotalValue().ToString($"# {currency}")
+					@Model.Cart.ComputeTotalValue() @currency
 				</td>
 			</tr>
 		</tfoot>
