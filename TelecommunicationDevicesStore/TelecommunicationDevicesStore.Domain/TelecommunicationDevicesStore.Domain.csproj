@@ -91,6 +91,7 @@
     <Compile Include="Data\TelecomStoreDbContext.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Filters\SessionAuthorizationFilter.cs" />
+    <Compile Include="Filters\UserAuthorizationFilter.cs" />
     <Compile Include="Migrations\202103191217086_Initial.cs" />
     <Compile Include="Migrations\202103191217086_Initial.designer.cs">
       <DependentUpon>202103191217086_Initial.cs</DependentUpon>

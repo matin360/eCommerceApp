@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Models;
 using TelecommunicationDevicesStore.WebUI.Infrastructure;
+using TelecommunicationDevicesStore.Domain.Filters;
 
 namespace TelecommunicationDevicesStore.WebUI.Controllers
 {
@@ -50,6 +51,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
+
         [HttpGet]
         public ViewResult Checkout()
         {
@@ -59,17 +61,12 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Checkout")]
+        [UserAuthorizationFilter()]
         public async Task<ViewResult> CheckoutAsync(Cart cart, ShippingDetails shippingDetails)
         {
-            if (Session["customer"] == null)
-            {
-                ModelState.AddModelError("login", "You have to sign in before!");
-            }
-
             if (cart.Lines.Count() == 0)
-            {
-                ModelState.AddModelError("cart", "Sorry, your cart is empty!");
-            }
+                    ModelState.AddModelError("cart", "Sorry, your cart is empty!");
+
             shippingDetails.UserId = Convert.ToInt32(Session["customer"]);
             if (ModelState.IsValid)
             {
@@ -90,10 +87,14 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                         ProductId = x.ProductId
 					}).ToList()
                 };
+				foreach (var line in cart.Lines)
+				{
+                    line.Product.StockCount -= line.Quantity;
+				}
                 order.User = await _tsdbcontxt.Customers.GetUserAsync(order.UserId);
-                _tsdbcontxt.Orders.Add(order);
-                await _tsdbcontxt.SaveChangesAsync();
-                cart.Clear();
+                    _tsdbcontxt.Orders.Add(order);
+                        await _tsdbcontxt.SaveChangesAsync();
+                            cart.Clear();
                 return View(nameof(Completed));
             }
             else
