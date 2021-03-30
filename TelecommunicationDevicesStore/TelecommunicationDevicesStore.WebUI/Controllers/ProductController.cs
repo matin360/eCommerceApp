@@ -22,7 +22,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         // GET: Product
         [HttpGet]
         [ActionName("Index")]
-        public async Task<ActionResult> IndexAsync(PageModel model)
+        public async Task<ViewResult> IndexAsync(PageModel model)
         {
             return View(await _tsdbcontxt.GetPaginatableProductsAsync(_itemsPerPage, model));
         }
@@ -31,10 +31,19 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         {
             return View(_tsdbcontxt.GetPopularProducts(8));
         }
+
+        [HttpGet]
         [ActionName("GategoryProducts")]
-		public async Task<ActionResult> GategoryProductsAsync(PageModel model)
+		public async Task<ViewResult> GategoryProductsAsync(PageModel model)
 		{
             return View(await _tsdbcontxt.GetProductsWithCategory(_itemsPerPage, model));
+		}
+
+        [HttpGet]
+        [ActionName("Details")]
+        public async Task<ViewResult> DetailsAsync(int productId)
+		{
+            return View();
 		}
 	}
 }

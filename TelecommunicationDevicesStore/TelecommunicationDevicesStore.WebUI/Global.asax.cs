@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Infrastructure.Binders;
+using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI
 {

@@ -26,7 +26,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Login")]
-        public async Task<ActionResult> Login(LoginModel model)
+        public async Task<ActionResult> LoginAsync(LoginModel model)
         {
             if (ModelState.IsValid)
             {

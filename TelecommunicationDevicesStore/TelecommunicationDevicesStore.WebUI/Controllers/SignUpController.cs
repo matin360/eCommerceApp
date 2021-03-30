@@ -26,7 +26,8 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(UserModel model)
+        [ActionName("Register")]
+        public async Task<ActionResult> RegisterAsync(UserModel model)
         {
 			if (ModelState.IsValid)
 			{

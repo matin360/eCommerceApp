@@ -55,7 +55,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 
 		public static IEnumerable<ProductIndexModel> GetPopularProducts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsNumber)
 		{
-			return _tsdbcontxt.Products.
+			return _tsdbcontxt.Products.Where( x => x.StockCount > 0).
 						OrderByDescending(x => x.Customers.Count()).
 							Take(_itemsNumber).Select( p => new ProductIndexModel
 							{
@@ -63,7 +63,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								Id = p.Id,
 								ImagePath = p.ImagePath,
 								Price = p.Price,
-								ShorDescription = p.ShorDescription,
+								//ShorDescription = p.ShorDescription,
 								CustomersCount = p.Customers.Count()
 							}).ToList();
 		}
@@ -81,7 +81,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		}
 		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, PageModel model)
 		{
-			return await _tsdbcontxt.Products.
+			return await _tsdbcontxt.Products.Where(x => x.StockCount > 0).
 						OrderByDescending(x => x.Id).Skip((model.Page - 1) * _itemsPerPage).
 							Take(_itemsPerPage).Select(p => new ProductIndexModel
 							{
@@ -89,7 +89,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								Id = p.Id,
 								ImagePath = p.ImagePath,
 								Price = p.Price,
-								ShorDescription = p.ShorDescription,
+								//ShorDescription = p.ShorDescription,
 								CustomersCount = p.Customers.Count()
 							}).ToListAsync();
 		}
@@ -101,7 +101,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 
 		public async static Task<IEnumerable<ProductIndexModel>> GetProductsWithCategory(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, PageModel model)
 		{
-			return await _tsdbcontxt.Products.Where( x => x.Category.Name == model.CategoryName)
+			return await _tsdbcontxt.Products.Where( x => x.StockCount > 0 && x.Category.Name == model.CategoryName)
 						.OrderByDescending(x => x.Id).Skip((model.Page - 1) * _itemsPerPage).
 							Take(_itemsPerPage).Select(p => new ProductIndexModel
 							{
@@ -109,7 +109,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 								Id = p.Id,
 								ImagePath = p.ImagePath,
 								Price = p.Price,
-								ShorDescription = p.ShorDescription,
+								//ShorDescription = p.ShorDescription,
 								CustomersCount = p.Customers.Count(),
 								CategoryName = p.Category.Name
 							}).ToListAsync();
