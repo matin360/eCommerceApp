@@ -33,13 +33,6 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 		}
 
 		[HttpGet]
-		[ActionName("Orders")]
-		public async Task<ActionResult> OrdersAsync()
-		{
-			return View(await _tsdbcontxt.GetAllOrders());
-		}
-
-		[HttpGet]
 		[ActionName("UserMessages")]
 		public async Task<ActionResult> UserMessagesAsync()
 		{

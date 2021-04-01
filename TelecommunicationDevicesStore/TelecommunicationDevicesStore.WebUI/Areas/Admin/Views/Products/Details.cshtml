@@ -1,0 +1,28 @@
+﻿@model TelecommunicationDevicesStore.WebUI.Models.ProductDetailsModel
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	var product = Model;
+}
+
+<div class="product-details py-5">
+	<div class="container">
+		<div class="row">
+			<section class="col-md-5 p-3">
+				<img src="~/Content/images/products/@product.ImagePath" alt="">
+			</section>
+			<section class="col-md-7 p-3">
+				<p>Id: @product.Id</p>
+				<p>Name: @product.Name</p>
+				<p class="mb-3">Category: @product.Category.Name</p>
+				<p class="mb-3">Price: @product.Price AZN</p>
+				<p class="mb-3">Avalialbe: @product.StockCount</p>
+				<p class="mb-3">Description: @product.MetaDescription</p>
+				<footer>
+					<section class="fs-6">@Html.ActionLink("Back to products", "List", "Products", null, htmlAttributes: new { @class = "btn-outline-secondary" })</section>
+				</footer>
+			</section>
+		</div>
+	</div>
+</div>
+

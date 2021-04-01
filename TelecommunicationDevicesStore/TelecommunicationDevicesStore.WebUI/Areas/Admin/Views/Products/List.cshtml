@@ -44,15 +44,9 @@
 		@Html.DisplayFor(modelItem => item.CategoryName)
 	</td>
 	<td> 
-		@*@Html.BeginForm("Remove", "Products", FormMethod.Post)*@
-		@*@Html.Hidden(item.Id.ToString())*@
 		@Html.ActionLink("Edit", "Edit", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-primary" })
 		@Html.ActionLink("Details", "Details", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
-
 		@Html.ActionLink("Remove", "Remove", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
-
-		@*<input type="submit" value="Remove" class="btn btn-outline-danger" />*@
-		
 	</td>
 </tr>
 }

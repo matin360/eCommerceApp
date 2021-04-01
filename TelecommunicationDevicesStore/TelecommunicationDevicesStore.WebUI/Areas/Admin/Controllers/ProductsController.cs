@@ -27,6 +27,12 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [ActionName("Details")]
+        public async Task<ActionResult> DetailsAsync(int productId)
+        {
+            return View(await _tsdbcontxt.GetProductDetailsAsync(productId));
+        }
+        [HttpGet]
         [ActionName("Add")]
         public ActionResult Add()
         {

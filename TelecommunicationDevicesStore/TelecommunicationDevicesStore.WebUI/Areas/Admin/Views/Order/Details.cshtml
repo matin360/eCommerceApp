@@ -1,0 +1,54 @@
+﻿@model TelecommunicationDevicesStore.WebUI.Areas.Admin.Models.OrderDetailsModel
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	var order = Model;
+	string giftWrap = order.GiftWrap ? "Yes" : "No";
+	string currency = "AZN";
+}
+
+<div class="product-details py-5">
+	<div class="container">
+		<div class="row">
+			<section class="col-md-4">
+				<div class="card p-3">
+					<p class="mb-3">Id: @order.Id</p>
+					<p class="mb-3">Customer: @order.CustomerName</p>
+					<ul class="list-group mb-3">
+						Address:
+						<li class="list-group-item">Line1: @order.Line1</li>
+						<li class="list-group-item">Line2: @order.Line2</li>
+						<li class="list-group-item">Line3: @order.Line3</li>
+					</ul>
+					<p class="mb-3">City: @order.City AZN</p>
+					<p class="mb-3">Country: @order.Country</p>
+					<p class="mb-3">Total Amount: @order.TotalPrice @currency</p>
+					<p class="mb-3">Gift Wrap: @giftWrap</p>
+					<footer>
+						<section class="fs-6">@Html.ActionLink("Back to products", "List", "Products", null, htmlAttributes: new { @class = "btn-outline-secondary" })</section>
+					</footer>
+				</div>
+			</section>
+			<section class="col-md-8 p-3">
+				<ul style="list-style-type:none; ">
+					@foreach (var item in order.CartLines)
+					{
+					<li>
+						<div class="card mb-3">
+							<div class="card-body">
+								<p class="card-title text-md-center text-xl-left">@item.ProductId</p>
+								<div class="">
+									<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">@item.Product.Name</h3>
+									<p>Category: @item.Product.Category.Name</p>
+									<p>Price: @item.Product.Price</p>
+									<i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+								</div>
+							</div>
+						</div>
+					</li>
+					}
+				</ul>
+			</section>
+		</div>
+	</div>
+</div>

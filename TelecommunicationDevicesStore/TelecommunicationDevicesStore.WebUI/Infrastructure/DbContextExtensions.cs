@@ -209,5 +209,49 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			}
 			return dbEntry;
 		}
+
+		public async static Task<ProductDetailsModel> GetProductDetailsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
+		{
+			var product = await _tsdbcontxt.Products.FindAsync(id);
+			product.Category = await _tsdbcontxt.Categories.FindAsync(product.CategoryId);
+
+			return new ProductDetailsModel
+			{
+				Id = product.Id,
+				Name = product.Name,
+				MetaDescription = product.MetaDescription,
+				Category = new CategoryIndexModel
+				{
+					Name = product.Category.Name,
+				},
+				StockCount = product.StockCount,
+				Price = product.Price,
+				ImagePath = product.ImagePath
+			};
+		}
+
+		public async static Task<OrderDetailsModel> GetOrderDetailsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
+		{
+			var order = await _tsdbcontxt.Orders.Select(ord => new OrderDetailsModel
+			{
+				Id = ord.Id,
+				Line1 = ord.Line1,
+				Line2 = ord.Line2,
+				Line3 = ord.Line3,
+				City = ord.City,
+				Country = ord.Country,
+				CustomerName = ord.User.UserName,
+				TotalPrice = ord.TotalPrice,
+				CartLines = ord.CartLines
+			}).FirstOrDefaultAsync();
+
+			foreach (var item in order.CartLines)
+			{
+				item.Product = await _tsdbcontxt.Products.FindAsync(item.ProductId);
+				item.Product.Category = await _tsdbcontxt.Categories.FindAsync(item.Product.CategoryId);
+			}
+			
+			return order;
+		}
 	}
 }
