@@ -26,7 +26,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
             return View( await _tsdbcontxt.GetAllProducts());
         }
 
-        [HttpPost]
+        [HttpGet]
         [ActionName("Add")]
         public ActionResult Add()
         {
@@ -67,7 +67,6 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
             }
         }
 
-        [HttpPost]
         [ActionName("Remove")]
         public async Task<ActionResult> RemoveAsync(int productId)
         {
