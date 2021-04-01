@@ -167,5 +167,35 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				Message = um.Message
 			}).ToListAsync();
 		}
+
+		public async static Task<int> SaveProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, ProductEditModel model)
+		{
+			var product = new Product
+			{
+				Id = model.Id,
+				Name = model.Name,
+				MetaDescription = model.MetaDescription,
+				CategoryId = _tsdbcontxt.Categories.Where(x => x.Name == model.CategoryName).FirstOrDefault().Id,
+				Price = model.Price,
+				StockCount = model.StockCount,
+				//ImagePath = "" // further implementation
+			};
+			if (product.Id == 0)
+				_tsdbcontxt.Products.Add(product);
+			else
+			{
+				Product dbEntry = await _tsdbcontxt.Products.FindAsync(product.Id);
+				if (dbEntry != null)
+				{
+					dbEntry.Name = product.Name;
+					dbEntry.MetaDescription = product.MetaDescription;
+					dbEntry.Price = product.Price;
+					dbEntry.CategoryId = product.CategoryId;
+					dbEntry.StockCount = product.StockCount;
+					//dbEntry.ImagePath = product.ImagePath;
+				}
+			}
+			return await _tsdbcontxt.SaveChangesAsync();
+		}
 	}
 }

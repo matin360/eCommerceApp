@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using TelecommunicationDevicesStore.Domain.Data;
 using TelecommunicationDevicesStore.WebUI.Areas.Admin.Data;
+using TelecommunicationDevicesStore.WebUI.Areas.Admin.Models;
 using TelecommunicationDevicesStore.WebUI.Models;
 
 namespace TelecommunicationDevicesStore.WebUI.Infrastructure
@@ -24,6 +25,6 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 		{
 			return await _dbSet.Where(x => x.Id == id).SingleOrDefaultAsync();
 		}
-		
+
 	}
 }

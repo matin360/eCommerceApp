@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\Data\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\CustomerFullModel.cs" />
     <Compile Include="Areas\Admin\Models\OrderFullModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductEditModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductFullModel.cs" />
     <Compile Include="Areas\Admin\Models\UserMessageFullModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
@@ -263,6 +264,7 @@
     <Content Include="Areas\Admin\Views\Shared\_HeaderAdminPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Orders.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\UserMessages.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

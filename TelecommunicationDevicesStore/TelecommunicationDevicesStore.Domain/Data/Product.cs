@@ -22,7 +22,7 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		public string MetaDescription { get; set; }
 		[Required]
 		[Range(0.1, 10000.00,
-			ErrorMessage = "Price must be between 0.01 and 100.00")]
+			ErrorMessage = "Price must be between 0.01 and 10000.00")]
 		public decimal Price { get; set; }
 		[Required]
 		public string ImagePath { get; set; }

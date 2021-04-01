@@ -44,9 +44,9 @@
 		@Html.DisplayFor(modelItem => item.CategoryName)
 	</td>
 	<td>
-		@Html.ActionLink("Edit", "Products", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-primary" })
-		@Html.ActionLink("Details", "Products", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
-		@Html.ActionLink("Remove", "Products", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
+		@Html.ActionLink("Edit", "Edit", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-primary" })
+		@Html.ActionLink("Details", "Details", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
+		@Html.ActionLink("Remove", "Remove", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
 	</td>
 </tr>
 }

@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using TelecommunicationDevicesStore.Domain.Data;
+
+namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Models
+{
+	public class ProductEditModel
+	{
+		public int Id { get; set; }
+		[Required]
+		[StringLength(maximumLength: 100, MinimumLength = 3)]
+		public string Name { get; set; }
+		[Required]
+		[StringLength(maximumLength: 500, MinimumLength = 20)]
+		public string MetaDescription { get; set; }
+		[Required]
+		public decimal Price { get; set; }
+		[Required]
+		public int StockCount { get; set; }
+		[Required]
+		public string CategoryName { get; set; }
+		public int CategoryId { get; set; }
+		public IEnumerable<SelectListItem> Categories { get; set; }
+	}
+}

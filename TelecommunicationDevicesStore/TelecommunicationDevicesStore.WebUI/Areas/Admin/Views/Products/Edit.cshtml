@@ -1,0 +1,68 @@
+﻿@model TelecommunicationDevicesStore.WebUI.Areas.Admin.Models.ProductEditModel
+
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@{ Html.RenderPartial("_HeaderAdminPartial", "Edit a product"); }
+
+@using (Html.BeginForm("Edit", "Products", FormMethod.Post))
+{
+	@Html.AntiForgeryToken()
+	<div class="form p-5">
+		<h4>ProductEditModel</h4>
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		@Html.HiddenFor(model => model.Id)
+
+
+		@foreach (var property in ViewData.ModelMetadata.Properties)
+		{
+			if (property.PropertyName != "Id" &&
+				property.PropertyName != "CategoryName" && 
+				property.PropertyName != "Categories" && 
+				property.PropertyName != "CategoryId")
+			{
+				<div class="form-group">
+					@Html.Label(property.DisplayName ?? property.PropertyName, htmlAttributes: new { @class = "control-label col-md-2" })
+					@if (property.PropertyName == "MetaDescription")
+					{
+						@Html.TextArea(property.PropertyName, null,
+							rows: 5,
+								columns: 5,
+									htmlAttributes: new { @class = "form-control" })
+						@Html.ValidationMessage(property.PropertyName, "", new { @class = "text-danger" })
+					}
+					else
+					{
+						@Html.TextBox(property.PropertyName, null, htmlAttributes: new { @class = "form-control" })
+						@Html.ValidationMessage(property.PropertyName, "", new { @class = "text-danger" })
+					}
+				</div>
+			}
+		}
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+			@Html.DropDownListFor(model => model.CategoryName, Model.Categories, new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Save" class="btn btn-primary" />
+				@Html.ActionLink("Cancel changes and go back to list", "List", null, new
+			   {
+				   @class = "btn btn-outline-secondary"
+			   })
+			</div>
+		</div>
+	</div>
+}
+
+@section ValidationSection{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
+

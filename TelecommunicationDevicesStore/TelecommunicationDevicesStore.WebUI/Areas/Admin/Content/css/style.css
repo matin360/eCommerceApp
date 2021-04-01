@@ -20503,7 +20503,7 @@ dl li {
 }
 
 .page-body-wrapper {
-  height: calc(100vh);
+  min-height: calc(100vh);
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;

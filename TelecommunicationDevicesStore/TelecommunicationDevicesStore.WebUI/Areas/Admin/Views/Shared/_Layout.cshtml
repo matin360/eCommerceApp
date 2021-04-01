@@ -23,16 +23,21 @@
 </head>
 <body class="main-layout">
 	<div class="container-fluid p-0">
-		<div class="container-fluid page-body-wrapper">
+		<div class="page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 			@{ Html.RenderPartial("_NavbarPartial");}
 			<!-- partial -->
 			<div class="main-panel">
+				@if (TempData["message"] != null)
+				{
+					<div class="alert alert-success">@TempData["message"]</div>
+				}
 				@RenderBody()
 			</div>
 			<!-- main-panel ends -->
 		</div>
 		<!-- page-body-wrapper ends -->
+		@{ Html.RenderPartial("_FooterPartial"); }
 	</div>
 
 	<!-- Javascript files-->
