@@ -15,9 +15,6 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		[StringLength(maximumLength:100, MinimumLength =3)]
 		public string Name { get; set; }
 		[Required]
-		[StringLength(maximumLength:100, MinimumLength = 10)]
-		public string ShorDescription { get; set; }
-		[Required]
 		[StringLength(maximumLength: 500, MinimumLength = 20)]
 		public string MetaDescription { get; set; }
 		[Required]

@@ -170,15 +170,16 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 
 		public async static Task<int> SaveProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, ProductEditModel model)
 		{
+			var category = await _tsdbcontxt.Categories.Where(x => x.Name == model.CategoryName).FirstOrDefaultAsync();
 			var product = new Product
 			{
 				Id = model.Id,
 				Name = model.Name,
 				MetaDescription = model.MetaDescription,
-				CategoryId = _tsdbcontxt.Categories.Where(x => x.Name == model.CategoryName).FirstOrDefault().Id,
+				CategoryId = category.Id,
 				Price = model.Price,
 				StockCount = model.StockCount,
-				//ImagePath = "" // further implementation
+				ImagePath = model.ImagePath ?? default // further implementation
 			};
 			if (product.Id == 0)
 				_tsdbcontxt.Products.Add(product);
@@ -192,10 +193,21 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 					dbEntry.Price = product.Price;
 					dbEntry.CategoryId = product.CategoryId;
 					dbEntry.StockCount = product.StockCount;
-					//dbEntry.ImagePath = product.ImagePath;
+					dbEntry.ImagePath = product.ImagePath ?? "";
 				}
 			}
 			return await _tsdbcontxt.SaveChangesAsync();
+		}
+
+		public async static Task<Product> RemoveProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
+		{
+			Product dbEntry = _tsdbcontxt.Products.Find(id);
+			if (dbEntry != null)
+			{
+				_tsdbcontxt.Products.Remove(dbEntry);
+				await _tsdbcontxt.SaveChangesAsync();
+			}
+			return dbEntry;
 		}
 	}
 }

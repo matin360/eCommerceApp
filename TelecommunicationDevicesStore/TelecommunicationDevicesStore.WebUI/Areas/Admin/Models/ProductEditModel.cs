@@ -24,6 +24,18 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Models
 		[Required]
 		public string CategoryName { get; set; }
 		public int CategoryId { get; set; }
+		public string ImagePath { get; set; }
 		public IEnumerable<SelectListItem> Categories { get; set; }
+
+		public ProductEditModel()
+		{
+			Categories = new TelecomStoreDbContext().Categories.Select(x => new SelectListItem
+			{
+				Text = x.Name,
+				Disabled = false,
+				Value = x.Name,
+				Selected = true
+			});
+		}
 	}
 }

@@ -4,7 +4,7 @@
     ViewBag.Title = "Products";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
+ 
 @{ Html.RenderPartial("_HeaderAdminPartial", "Products"); }
 <table class="table table-hover p-3">
 	<tr>
@@ -25,7 +25,7 @@
 		</th>
 		<th></th>
 	</tr>
-
+	 
 @foreach (var item in Model) {
 <tr>
 	<td>
@@ -43,10 +43,16 @@
 	<td>
 		@Html.DisplayFor(modelItem => item.CategoryName)
 	</td>
-	<td>
+	<td> 
+		@*@Html.BeginForm("Remove", "Products", FormMethod.Post)*@
+		@*@Html.Hidden(item.Id.ToString())*@
 		@Html.ActionLink("Edit", "Edit", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-primary" })
 		@Html.ActionLink("Details", "Details", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
+
 		@Html.ActionLink("Remove", "Remove", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
+
+		@*<input type="submit" value="Remove" class="btn btn-outline-danger" />*@
+		
 	</td>
 </tr>
 }

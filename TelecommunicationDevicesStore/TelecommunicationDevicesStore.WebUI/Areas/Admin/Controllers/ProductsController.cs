@@ -18,17 +18,19 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         {
             _tsdbcontxt = new TelecomStoreDbContext();
         }
-        // GET: Admin/Product
+
+        [HttpGet]
         [ActionName("List")]
         public async Task<ActionResult> ListAsync()
         {
             return View( await _tsdbcontxt.GetAllProducts());
         }
 
+        [HttpPost]
         [ActionName("Add")]
-        public async Task<ActionResult> AddAsync()
+        public ActionResult Add()
         {
-            return View();
+            return View("Edit", new ProductEditModel());
         }
 
         [HttpGet]
@@ -43,14 +45,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
                    CategoryName = p.Category.Name,
                    Name = p.Name,
                    Price = p.Price,
-                   StockCount = p.StockCount,
-                   Categories = _tsdbcontxt.Categories.Select(x => new SelectListItem
-				   {
-                       Text = x.Name,
-                       Disabled = false,
-                       Value = x.Name,
-                       Selected = true
-				   })
+                   StockCount = p.StockCount
                }).FirstOrDefaultAsync(p => p.Id == productId);
                                             
             return View(model);
@@ -68,9 +63,21 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
             }
             else
             {
-                // Что-то не так со значениями данных
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        [ActionName("Remove")]
+        public async Task<ActionResult> RemoveAsync(int productId)
+        {
+            Product removedProduct = await _tsdbcontxt.RemoveProductAsync(productId);
+            if (removedProduct != null)
+            {
+                TempData["message"] = string.Format("Игра \"{0}\" была удалена",
+                    removedProduct.Name);
+            }
+            return RedirectToAction("List", "Products");
         }
     }
 }
