@@ -57,12 +57,28 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                     ProductsCount = product.Category.Products.Count()
                 },
                 MetaDescription = product.MetaDescription,
-                ImagePath = product.ImagePath,
+                ImageData = product.ImageData,
+                ImageMimeType = product.ImageMimeType,
                 Price = product.Price,
                 StockCount = product.StockCount
             };
 
             return View(model);
 		}
-	}
+
+        public FileContentResult GetImage(int id)
+        {
+            Product game = _tsdbcontxt.Products
+                .FirstOrDefault(p => p.Id == id);
+
+            if (game != null)
+            {
+                return File(game.ImageData, game.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
 }

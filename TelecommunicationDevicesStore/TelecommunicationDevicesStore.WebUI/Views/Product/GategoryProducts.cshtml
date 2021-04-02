@@ -1,17 +1,28 @@
 ﻿@using TelecommunicationDevicesStore.WebUI.Models
 @model List<ProductIndexModel>
 @{
-		var allProducts = Model;
-		string category = allProducts.FirstOrDefault().CategoryName;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var allProducts = Model;
+	string category = category = "";
+	var pageModel = new PageModel();
+	if (allProducts.Count() > 0)
+	{
+		category = allProducts.FirstOrDefault().CategoryName;
 		ViewBag.Title = $"Products - {category}";
-		Layout = "~/Views/Shared/_Layout.cshtml";
-		var pageModel = new PageModel
+
+		pageModel = new PageModel
 		{
 			ControllerName = "Product",
 			ActionName = "GategoryProducts",
 			CategoryName = category,
 			ElementsCount = allProducts.Count()
-	};
+		};
+	}
+	else
+	{
+		category = "Empty...";
+	}
+
 }
 
 <div class="brand_color">
@@ -22,9 +33,12 @@
 	<div class="product-bg-white">
 		<div class="container">
 			<div class="row">
-				@foreach (var product in allProducts)
+				@if (allProducts.Count() > 0)
 				{
-					{ Html.RenderPartial("_SingleProductPartial", product); }
+					foreach (var product in allProducts)
+					{
+						{ Html.RenderPartial("_SingleProductPartial", product); }
+					}
 				}
 			</div>
 			<div class="row">

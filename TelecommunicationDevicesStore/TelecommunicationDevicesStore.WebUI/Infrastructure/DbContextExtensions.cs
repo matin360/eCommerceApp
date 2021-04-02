@@ -63,7 +63,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 							{
 								Name = p.Name,
 								Id = p.Id,
-								ImagePath = p.ImagePath,
+								ImageData = p.ImageData,
+								ImageMimeType = p.ImageMimeType,
 								Price = p.Price,
 							}).ToList();
 		}
@@ -87,7 +88,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 							{
 								Name = p.Name,
 								Id = p.Id,
-								ImagePath = p.ImagePath,
+								ImageData = p.ImageData,
+								ImageMimeType = p.ImageMimeType,
 								Price = p.Price
 							}).ToListAsync();
 		}
@@ -105,7 +107,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 							{
 								Name = p.Name,
 								Id = p.Id,
-								ImagePath = p.ImagePath,
+								ImageData = p.ImageData,
+								ImageMimeType = p.ImageMimeType,
 								Price = p.Price,
 								CategoryName = p.Category.Name
 							}).ToListAsync();
@@ -179,7 +182,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				CategoryId = category.Id,
 				Price = model.Price,
 				StockCount = model.StockCount,
-				ImagePath = model.ImagePath ?? default // further implementation
+				ImageData = model.ImageData,
+				ImageMimeType = model.ImageMimeType
 			};
 			if (product.Id == 0)
 				_tsdbcontxt.Products.Add(product);
@@ -193,7 +197,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 					dbEntry.Price = product.Price;
 					dbEntry.CategoryId = product.CategoryId;
 					dbEntry.StockCount = product.StockCount;
-					dbEntry.ImagePath = product.ImagePath ?? "";
+					dbEntry.ImageData = product.ImageData;
+					dbEntry.ImageMimeType = product.ImageMimeType;
 				}
 			}
 			return await _tsdbcontxt.SaveChangesAsync();
@@ -226,7 +231,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				},
 				StockCount = product.StockCount,
 				Price = product.Price,
-				ImagePath = product.ImagePath
+				ImageData = product.ImageData,
+				ImageMimeType = product.ImageMimeType
 			};
 		}
 

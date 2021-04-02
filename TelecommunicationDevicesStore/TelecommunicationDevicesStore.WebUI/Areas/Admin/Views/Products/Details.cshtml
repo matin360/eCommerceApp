@@ -9,7 +9,11 @@
 	<div class="container">
 		<div class="row">
 			<section class="col-md-5 p-3">
-				<img src="~/Content/images/products/@product.ImagePath" alt="">
+				@if (Model.ImageData != null)
+				{
+						<img class="img-thumbnail"
+							 src="@Url.Action("GetImage", "Products", new { Model.Id })" />
+				}
 			</section>
 			<section class="col-md-7 p-3">
 				<div class="card p-3">

@@ -156,6 +156,10 @@
     <Compile Include="Migrations\202104011348373_ProductChanged.designer.cs">
       <DependentUpon>202104011348373_ProductChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104022003230_ProductEntityUpdated.cs" />
+    <Compile Include="Migrations\202104022003230_ProductEntityUpdated.designer.cs">
+      <DependentUpon>202104022003230_ProductEntityUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\UserRole.cs" />
@@ -212,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104011348373_ProductChanged.resx">
       <DependentUpon>202104011348373_ProductChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104022003230_ProductEntityUpdated.resx">
+      <DependentUpon>202104022003230_ProductEntityUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -24,7 +24,8 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Models
 		[Required]
 		public string CategoryName { get; set; }
 		public int CategoryId { get; set; }
-		public string ImagePath { get; set; }
+		public byte[] ImageData { get; set; }
+		public string ImageMimeType { get; set; }
 		public IEnumerable<SelectListItem> Categories { get; set; }
 
 		public ProductEditModel()

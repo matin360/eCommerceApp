@@ -75,14 +75,14 @@
 			//	TextLink = "See more Products",
 			//	SlideNumber = "third-slide"
 			//});
-			context.SystemUsers.AddOrUpdate(new SystemUser
-			{
-				Id = 1,
-				UserName = "Admin",
-				Email = ConfigurationManager.AppSettings["email"],
-				Password = ConfigurationManager.AppSettings["password"],
-				UserRole = Roles.UserRole.Admin
-			});
+			//context.SystemUsers.AddOrUpdate(new SystemUser
+			//{
+			//	Id = 1,
+			//	UserName = "Admin",
+			//	Email = ConfigurationManager.AppSettings["email"],
+			//	Password = ConfigurationManager.AppSettings["password"],
+			//	UserRole = Roles.UserRole.Admin
+			//});
 			//context.Customers.AddOrUpdate(new Customer
 			//{
 			//	Id = 2,

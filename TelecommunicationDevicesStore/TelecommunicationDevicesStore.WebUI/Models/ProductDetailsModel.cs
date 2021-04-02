@@ -11,7 +11,8 @@ namespace TelecommunicationDevicesStore.WebUI.Models
 		public string Name { get; set; }
 		public string MetaDescription { get; set; }
 		public decimal Price { get; set; }
-		public string ImagePath { get; set; }
+		public byte[] ImageData { get; set; }
+		public string ImageMimeType { get; set; }
 		public int StockCount { get; set; }
 		public CategoryIndexModel Category { get; set; }
 	}

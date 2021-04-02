@@ -3,9 +3,7 @@
 	<ul class="nav">
 
 		<li class="nav-item">
-			<a class="nav-link menu-title" href="#">
-				Dashboard
-			</a>
+			@Html.ActionLink("Dashboard", "Index", "Dashboard", null, htmlAttributes: new { @class = "nav-link menu-title" })
 		</li>
 		<li class="nav-item">
 			@Html.ActionLink("All Products", "List", "Products", null, htmlAttributes: new { @class = "nav-link menu-title" })

@@ -22,7 +22,8 @@ namespace TelecommunicationDevicesStore.Domain.Data
 			ErrorMessage = "Price must be between 0.01 and 10000.00")]
 		public decimal Price { get; set; }
 		[Required]
-		public string ImagePath { get; set; }
+		public byte[] ImageData { get; set; }
+		public string ImageMimeType { get; set; }
 		[Required]
 		[Range(0, 100000,
 			ErrorMessage = "Number of products must be between 0 and 100000")]

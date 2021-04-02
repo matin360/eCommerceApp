@@ -59,17 +59,38 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 
         [HttpPost]
         [ActionName("Edit")]
-        public async Task<ActionResult> EditAsync(ProductEditModel model)
+        public async Task<ActionResult> EditAsync(ProductEditModel model, HttpPostedFileBase image = null)
         {
             if (ModelState.IsValid)
             {
+                if (image != null)
+                {
+                    model.ImageMimeType = image.ContentType;
+                    model.ImageData = new byte[image.ContentLength];
+                    image.InputStream.Read(model.ImageData, 0, image.ContentLength);
+                }
                 await _tsdbcontxt.SaveProductAsync(model);
                 TempData["message"] = string.Format("Changes in the product \"{0}\" were saved", model.Name);
                 return RedirectToAction("List");
             }
             else
             {
+                // smth went wrong
                 return View(model);
+            }
+        }
+        public FileContentResult GetImage(int id)
+        {
+            Product game = _tsdbcontxt.Products
+                .FirstOrDefault(p => p.Id == id);
+
+            if (game != null)
+            {
+                return File(game.ImageData, game.ImageMimeType);
+            }
+            else
+            {
+                return null;
             }
         }
 
