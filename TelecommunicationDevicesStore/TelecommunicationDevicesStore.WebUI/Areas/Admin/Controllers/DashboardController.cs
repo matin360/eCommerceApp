@@ -22,7 +22,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         //[SessionAuthorizationFilter("/Admin/Account/Login")]
         public ActionResult Index()
         {
-            return View();
+            return View(_tsdbcontxt.GetElementsCounts());
         }
 
 		[HttpGet]

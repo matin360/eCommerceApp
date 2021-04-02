@@ -6,33 +6,37 @@
 }
 
 @{ Html.RenderPartial("_HeaderAdminPartial", "Customers"); }
-<table class="table table-hover p-3">
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Id)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.UserName)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Email)
-		</th>
-		<th></th>
-	</tr>
+<div class="card m-3">
+	<div class="table-responsive">
+		<table class="table table-striped table-hover p-3">
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.UserName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Email)
+				</th>
+				<th></th>
+			</tr>
 
-	@foreach (var item in Model)
-	{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.Id)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.UserName)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Email)
-			</td>
-		</tr>
-	}
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.UserName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Email)
+					</td>
+				</tr>
+			}
 
-</table>
+		</table>
+	</div>
+</div>

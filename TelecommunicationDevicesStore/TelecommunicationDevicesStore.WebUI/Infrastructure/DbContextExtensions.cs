@@ -253,5 +253,17 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			
 			return order;
 		}
+
+		public static Dictionary<string, int> GetElementsCounts(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		{
+			Dictionary<string, int> elementsCounts = new Dictionary<string, int>();
+
+			elementsCounts.Add("Products", _tsdbcontxt.Products.Count());
+			elementsCounts.Add("Cutomers", _tsdbcontxt.Customers.Count());
+			elementsCounts.Add("Orders", _tsdbcontxt.Orders.Count());
+			elementsCounts.Add("Contact Messages", _tsdbcontxt.ContactMessages.Count());
+
+			return elementsCounts;
+		}
 	}
 }

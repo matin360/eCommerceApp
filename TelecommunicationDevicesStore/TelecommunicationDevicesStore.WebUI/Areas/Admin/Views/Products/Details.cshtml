@@ -12,15 +12,17 @@
 				<img src="~/Content/images/products/@product.ImagePath" alt="">
 			</section>
 			<section class="col-md-7 p-3">
-				<p>Id: @product.Id</p>
-				<p>Name: @product.Name</p>
-				<p class="mb-3">Category: @product.Category.Name</p>
-				<p class="mb-3">Price: @product.Price AZN</p>
-				<p class="mb-3">Avalialbe: @product.StockCount</p>
-				<p class="mb-3">Description: @product.MetaDescription</p>
-				<footer>
-					<section class="fs-6">@Html.ActionLink("Back to products", "List", "Products", null, htmlAttributes: new { @class = "btn-outline-secondary" })</section>
-				</footer>
+				<div class="card p-3">
+					<p><b>Id:</b> @product.Id</p>
+					<p><b>Name:</b> @product.Name</p>
+					<p class="mb-3"><b>Category:</b> @product.Category.Name</p>
+					<p class="mb-3"><b>Price:</b> @product.Price AZN</p>
+					<p class="mb-3"><b>Avalialbe:</b> @product.StockCount</p>
+					<p class="mb-3"><b>Description:</b> @product.MetaDescription</p>
+					<footer>
+						<section class="fs-6">@Html.ActionLink("Back to products", "List", "Products", null, htmlAttributes: new { @class = "btn btn-outline-secondary" })</section>
+					</footer>
+				</div>
 			</section>
 		</div>
 	</div>

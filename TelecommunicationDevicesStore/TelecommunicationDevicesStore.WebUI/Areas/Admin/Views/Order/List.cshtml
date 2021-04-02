@@ -8,66 +8,70 @@
 
 @{ Html.RenderPartial("_HeaderAdminPartial", "Orders"); }
 
-<table class="table table-hover p-3">
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Id)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.CustomerName)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Line1)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Line2)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Line3)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.City)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Country)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.TotalPrice)
-		</th>
-		<th></th>
-	</tr>
+<div class="card m-3">
+	<div class="table-responsive">
+		<table class="table table-striped table-hover p-3">
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.CustomerName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Line1)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Line2)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Line3)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.City)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Country)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.TotalPrice)
+				</th>
+				<th></th>
+			</tr>
 
-	@foreach (var item in Model)
-	{
-<tr>
-	<td>
-		@Html.DisplayFor(modelItem => item.Id)
-	</td>
-	<td>
-		@Html.DisplayFor(modelItem => item.CustomerName)
-	</td>
-	<td>
-		@Html.DisplayFor(modelItem => item.Line1)
-	</td>
-	<td>
-		@Html.DisplayFor(modelItem => item.Line2)
-	</td>
-	<td>
-		@Html.DisplayFor(modelItem => item.Line3)
-	</td>
-	<td>
-		@Html.DisplayFor(modelItem => item.City)
-	</td>
-	<td>
-		@Html.DisplayFor(modelItem => item.Country)
-	</td>
-	<td>
-		@Html.DisplayFor(modelItem => item.TotalPrice)
-	</td>
-	<td>
-		@Html.ActionLink("Details", "Details", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
-	</td>
-</tr>
-	}
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.CustomerName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Line1)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Line2)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Line3)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.City)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Country)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.TotalPrice)
+					</td>
+					<td>
+						@Html.ActionLink("Details", "Details", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
+					</td>
+				</tr>
+			}
 
-</table>
+		</table>
+	</div>
+</div>

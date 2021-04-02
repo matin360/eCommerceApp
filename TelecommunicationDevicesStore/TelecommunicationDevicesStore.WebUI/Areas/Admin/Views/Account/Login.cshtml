@@ -28,20 +28,23 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-	<div class="py-5">
-		<div class="container">
-			<div class="d-flex justify-content-center align-items-center">
+	<div class="py-5 w-100 h-100">
+		<div class="container w-100 h-100">
+			<div class="w-100 h-100 d-flex justify-content-center align-items-center">
 				<div class="col-md-6 border p-3">
+					<section class="my-2">
+						<h4 class="text-warning">Welcome! Please, enter your data!</h4>
+					</section>
 					@using (Html.BeginForm("Login", "Account", FormMethod.Post, htmlAttributes: new { @class = "main_form" }))
 					{
 						@Html.ValidationSummary();
 						<div class="row">
 							@Html.AntiForgeryToken()
-							<div class="col-md-12">
+							<div class="col-md-12 mb-4">
 								@Html.TextBoxFor(x => x.Email, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
 								@Html.ValidationMessageFor(x => x.Email)
 							</div>
-							<div class="col-md-12">
+							<div class="col-md-12 mb-4">
 								@Html.PasswordFor(x => x.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Your Email" })
 								@Html.ValidationMessageFor(x => x.Password)
 							</div>

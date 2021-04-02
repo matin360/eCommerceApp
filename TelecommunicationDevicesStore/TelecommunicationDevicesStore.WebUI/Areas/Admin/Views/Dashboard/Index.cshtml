@@ -1,4 +1,4 @@
-﻿
+﻿@model Dictionary<string, int>
 @{
 	ViewBag.Title = "Dashboard";
 	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -13,6 +13,19 @@
 				<div>
 					@Html.ActionLink("Logout", "Logout", "Account", null, htmlAttributes: new { @class = "btn btn-warning btn-icon-text btn-rounded" })
 				</div>
+			</div>
+			<div class="row my-5">
+				@foreach (var item in Model)
+				{
+					<div class="col-md-4 my-3">
+						<div class="card">
+							<div class="card-body">
+								<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">@item.Key</h3>
+								<p class="mb-0 mt-2 text-primary fw-bolder">@item.Value</p>
+							</div>
+						</div>
+					</div>
+				}
 			</div>
 		</div>
 	</div>
