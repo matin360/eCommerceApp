@@ -76,8 +76,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				UserName = f.UserName,
 				WrittenDate = f.WrittenDate,
 				Message = f.Message,
-				SlideNumber = f.SlideNumber,
-				UserImage = f.Customer.Picture
+				SlideNumber = f.SlideNumber
 			}).ToList();
 		}
 		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, PageModel model)

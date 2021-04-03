@@ -81,7 +81,6 @@
     <Compile Include="Data\CartLine.cs" />
     <Compile Include="Data\Category.cs" />
     <Compile Include="Data\ContactMessage.cs" />
-    <Compile Include="Data\Customer.cs" />
     <Compile Include="Data\Feedback.cs" />
     <Compile Include="Data\Menu.cs" />
     <Compile Include="Data\Order.cs" />
@@ -160,6 +159,10 @@
     <Compile Include="Migrations\202104022003230_ProductEntityUpdated.designer.cs">
       <DependentUpon>202104022003230_ProductEntityUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104030952531_CartLine_updated.cs" />
+    <Compile Include="Migrations\202104030952531_CartLine_updated.designer.cs">
+      <DependentUpon>202104030952531_CartLine_updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\UserRole.cs" />
@@ -219,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104022003230_ProductEntityUpdated.resx">
       <DependentUpon>202104022003230_ProductEntityUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104030952531_CartLine_updated.resx">
+      <DependentUpon>202104030952531_CartLine_updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

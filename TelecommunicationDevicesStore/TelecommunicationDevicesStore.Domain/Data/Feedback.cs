@@ -22,7 +22,7 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		[Required]
 		[DataType("smalldatetime")]
 		public DateTime WrittenDate { get; set; }
-		public Customer Customer { get; set; }
+		public User Customer { get; set; }
 		[Required]
 		public int CustomerId { get; set; }
 	}

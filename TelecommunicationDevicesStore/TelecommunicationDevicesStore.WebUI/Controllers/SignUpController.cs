@@ -31,7 +31,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         {
 			if (ModelState.IsValid)
 			{
-                Customer user = new Customer
+                User user = new User
                 {
                     UserName = model.UserName,
                     Email = model.Email,

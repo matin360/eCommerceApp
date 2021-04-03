@@ -45,7 +45,16 @@
 						</div>
 						<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
 							<section class="singin">
-								@Html.ActionLink("Sign In", "Login", "SignIn", null, htmlAttributes: new { @class = "btn btn-outline-dark" })
+								<div class="dropdown">
+									<a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+										Account
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+										<li>@Html.ActionLink("Sign In", "Login", "SignIn", null, htmlAttributes: new { @class = "dropdown-item" })</li>
+										<li>@Html.ActionLink("Sign Out", "Logout", "SignIn", null, htmlAttributes: new { @class = "dropdown-item" })</li>
+									</ul>
+								</div>
+
 							</section>
 						</div>
 					</div>
@@ -133,19 +142,17 @@
 
 		</div>
 	</footer>
-	<!-- end footer -->
-	<!-- Javascript files-->
 	<script src="/Scripts/jquery.min.js"></script>
-	@*<script src="/Scripts/jquery-3.0.0.min.js"></script>*@
-	<script src="/Scripts/popper.min.js"></script>
 	@RenderSection("ValidationSection", false)
+	<script src="/Scripts/popper.min.js"></script>
 	<script src="/Scripts/bootstrap.bundle.min.js"></script>
-
 	<script src="/Scripts/plugin.js"></script>
-	<!-- sidebar -->
 	<script src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="/Scripts/custom.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+	<script src=""></script>
+	<script src=""></script>
+	<script src=""></script>
 	<script>
 		$(document).ready(function () {
 			$(".fancybox").fancybox({

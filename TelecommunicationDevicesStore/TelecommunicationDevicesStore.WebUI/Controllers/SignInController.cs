@@ -28,8 +28,6 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         [ActionName("Login")]
         public async Task<ActionResult> LoginAsync(LoginUserModel model)
         {
-            if (ModelState.IsValid)
-            {
                 if (ModelState.IsValid)
                 {
                     var user = await _tsdbcontxt.Customers.GetUserAsync(model);
@@ -46,8 +44,13 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                     }
                 }
                 return View();
-            }
-            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session.Remove("customer");
+            return RedirectToAction(nameof(Login));
         }
     }
 }

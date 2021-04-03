@@ -21,9 +21,12 @@
 	<div class="product-bg-white">
 		<div class="container">
 			<div class="row">
-				@foreach (var product in allProducts)
+				@if (allProducts.Count() > 0)
 				{
-					{ Html.RenderPartial("_SingleProductPartial", product); }
+					foreach (var product in allProducts)
+					{
+						{ Html.RenderPartial("_SingleProductPartial", product); }
+					}
 				}
 			</div>
 			<div class="row">

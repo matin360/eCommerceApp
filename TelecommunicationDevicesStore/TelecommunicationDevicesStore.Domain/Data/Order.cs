@@ -27,10 +27,15 @@ namespace TelecommunicationDevicesStore.Domain.Data
         public bool GiftWrap { get; set; }
         [Required]
         public decimal TotalPrice { get; set; }
-        public Customer User { get; set; }
+        public User User { get; set; }
         [Required]
         public int UserId { get; set; }
 
 		public ICollection<CartLine> CartLines { get; set; }
-	}
+
+		public Order()
+		{
+            CartLines = new HashSet<CartLine>();
+		}
+    }
 }

@@ -4,7 +4,11 @@
 	var popProducts = Model;
 }
 
-@foreach (var product in popProducts)
+
+@if (popProducts.Count() > 0)
 {
-	{ Html.RenderPartial("_SingleProductPartial", product); }
+	foreach (var product in popProducts)
+	{
+		{ Html.RenderPartial("_SingleProductPartial", product); }
+	}
 }

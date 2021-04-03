@@ -79,22 +79,17 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                     Line3 = shippingDetails.Line3,
                     UserId =  shippingDetails.UserId,
                     GiftWrap = shippingDetails.GiftWrap,
-                    TotalPrice = cart.ComputeTotalValue(),
-                    CartLines = cart.Lines.Select(x => new CartLine
-					{
-                        Product = x.Product,
-                        Quantity = x.Quantity,
-                        ProductId = x.ProductId
-					}).ToList()
+                    TotalPrice = cart.ComputeTotalValue()
                 };
+
 				foreach (var line in cart.Lines)
 				{
-                    line.Product.StockCount -= line.Quantity;
+					line.Product.StockCount -= line.Quantity;
 				}
-                order.User = await _tsdbcontxt.Customers.GetUserAsync(order.UserId);
-                    _tsdbcontxt.Orders.Add(order);
-                        await _tsdbcontxt.SaveChangesAsync();
-                            cart.Clear();
+				order.User = await _tsdbcontxt.Customers.GetUserAsync(order.UserId);
+				_tsdbcontxt.Orders.Add(order);
+				await _tsdbcontxt.SaveChangesAsync();
+				cart.Clear();
                 return View(nameof(Completed));
             }
             else
