@@ -27,7 +27,8 @@ namespace TelecommunicationDevicesStore.Domain.Data
                 lineCollection.Add(new CartLine
                 {
                     Product = product,
-                    Quantity = quantity
+                    Quantity = quantity,
+                    ProductId = product.Id
                 });
             }
             else

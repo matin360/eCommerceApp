@@ -81,15 +81,22 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                     GiftWrap = shippingDetails.GiftWrap,
                     TotalPrice = cart.ComputeTotalValue()
                 };
-
-				foreach (var line in cart.Lines)
-				{
-					line.Product.StockCount -= line.Quantity;
-				}
-				order.User = await _tsdbcontxt.Customers.GetUserAsync(order.UserId);
+                foreach (var line in cart.Lines)
+                {
+                    var product = await _tsdbcontxt.Products.FindAsync(line.ProductId);
+                    product.StockCount -= line.Quantity;
+                    _tsdbcontxt.CartLines.Add(new CartLine
+                    {
+                        OrderId = order.Id,
+                        ProductId = product.Id,
+                        Product = product,
+                        Quantity = line.Quantity
+                    });
+                }
+                order.User = await _tsdbcontxt.Customers.GetUserAsync(order.UserId);
 				_tsdbcontxt.Orders.Add(order);
-				await _tsdbcontxt.SaveChangesAsync();
-				cart.Clear();
+                cart.Clear();
+                await _tsdbcontxt.SaveChangesAsync();
                 return View(nameof(Completed));
             }
             else
