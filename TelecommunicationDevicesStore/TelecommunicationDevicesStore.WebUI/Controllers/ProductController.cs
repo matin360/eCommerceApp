@@ -22,22 +22,13 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         // GET: Product
         [HttpGet]
         [ActionName("Index")]
-        public async Task<ViewResult> IndexAsync(PageModel model)
-        {
-            return View(await _tsdbcontxt.GetPaginatableProductsAsync(_itemsPerPage, model));
-        }
+        public async Task<ViewResult> IndexAsync(PageModel model) => View(await _tsdbcontxt.GetPaginatableProductsAsync(_itemsPerPage, model));
 
-        public ActionResult PopularProduct()
-        {
-            return View(_tsdbcontxt.GetPopularProducts(8));
-        }
+        public ActionResult PopularProduct() => View(_tsdbcontxt.GetPopularProducts(8));
 
         [HttpGet]
         [ActionName("GategoryProducts")]
-		public async Task<ViewResult> GategoryProductsAsync(PageModel model)
-		{
-            return View(await _tsdbcontxt.GetProductsWithCategory(_itemsPerPage, model));
-		}
+		public async Task<ViewResult> GategoryProductsAsync(PageModel model) => View(await _tsdbcontxt.GetProductsWithCategory(_itemsPerPage, model));
 
         [HttpGet]
         [ActionName("Details")]
@@ -46,10 +37,10 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             var product = await _tsdbcontxt.GetProductAsync(productId);
 
             if (product == null)
-                return View("Error");
+                    return View("Error");
 
             ProductDetailsModel model = new ProductDetailsModel
-            {
+            { // constructor add
                 Id = product.Id,
                 Name = product.Name,
                 Category = new CategoryIndexModel { 
@@ -68,17 +59,12 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 
         public FileContentResult GetImage(int id)
         {
-            Product game = _tsdbcontxt.Products
-                .FirstOrDefault(p => p.Id == id);
+            Product game = _tsdbcontxt.Products.GetProduct(id);
 
             if (game != null)
-            {
                 return File(game.ImageData, game.ImageMimeType);
-            }
             else
-            {
                 return null;
-            }
         }
     }
 }

@@ -19,10 +19,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         }
         // GET: SignUp
         [HttpGet]
-        public ActionResult Register()
-        {
-            return View();
-        }
+        public ActionResult Register() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -38,23 +35,19 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                     Password = model.Password
                 };
                 
-                if(_tsdbcontxt.Customers.Any( x => x.Email == user.Email))
+                if(_tsdbcontxt.Customers.UserExists(user.Email))
 				{
                     ModelState.AddModelError("", "User with this email already exists!");
 				}
 				else
 				{
-                    _tsdbcontxt.Customers.Add(user);
-                    await _tsdbcontxt.SaveChangesAsync();
+                    await _tsdbcontxt.AddUserAsync(user);
                     return View(nameof(Completed));
                 }
 			}
             return View();
         }
 
-        public ViewResult Completed()
-		{
-            return View();
-		}
+        public ViewResult Completed() => View();
     }
 }

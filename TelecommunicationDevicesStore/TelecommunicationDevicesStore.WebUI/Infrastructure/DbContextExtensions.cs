@@ -270,5 +270,20 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 
 			return elementsCounts;
 		}
+
+
+		// iud
+		public async static Task<int> AddUserAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, User user)
+		{
+			_tsdbcontxt.Customers.Add(user);
+			return await _tsdbcontxt.SaveChangesAsync();
+		}
+
+		public async static Task<int> AddContactMessageAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, ContactMessage model)
+		{
+			model.SubmittedDate = DateTime.Now;
+			_tsdbcontxt.ContactMessages.Add(model);
+			return await _tsdbcontxt.SaveChangesAsync();
+		}
 	}
 }

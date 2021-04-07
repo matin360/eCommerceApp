@@ -21,23 +21,14 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 
         [HttpGet]
         [ActionName("List")]
-        public async Task<ActionResult> ListAsync()
-        {
-            return View( await _tsdbcontxt.GetAllProducts());
-        }
+        public async Task<ActionResult> ListAsync() => View(await _tsdbcontxt.GetAllProducts());
 
         [HttpGet]
         [ActionName("Details")]
-        public async Task<ActionResult> DetailsAsync(int productId)
-        {
-            return View(await _tsdbcontxt.GetProductDetailsAsync(productId));
-        }
+        public async Task<ActionResult> DetailsAsync(int productId) => View(await _tsdbcontxt.GetProductDetailsAsync(productId));
         [HttpGet]
         [ActionName("Add")]
-        public ActionResult Add()
-        {
-            return View("Edit", new ProductEditModel());
-        }
+        public ActionResult Add() =>  View("Edit", new ProductEditModel());
 
         [HttpGet]
         [ActionName("Edit")]
@@ -53,7 +44,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
                    Price = p.Price,
                    StockCount = p.StockCount
                }).FirstOrDefaultAsync(p => p.Id == productId);
-                                            
+               // constructor add               
             return View(model);
         }
 
@@ -81,28 +72,22 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         }
         public FileContentResult GetImage(int id)
         {
-            Product game = _tsdbcontxt.Products
-                .FirstOrDefault(p => p.Id == id);
+            Product game = _tsdbcontxt.Products.GetProduct(id);
 
             if (game != null)
-            {
                 return File(game.ImageData, game.ImageMimeType);
-            }
             else
-            {
                 return null;
-            }
         }
 
         [ActionName("Remove")]
         public async Task<ActionResult> RemoveAsync(int productId)
         {
             Product removedProduct = await _tsdbcontxt.RemoveProductAsync(productId);
+
             if (removedProduct != null)
-            {
-                TempData["message"] = string.Format("Игра \"{0}\" была удалена",
-                    removedProduct.Name);
-            }
+                    TempData["message"] = string.Format("Игра \"{0}\" was removed", removedProduct.Name);
+
             return RedirectToAction("List", "Products");
         }
     }

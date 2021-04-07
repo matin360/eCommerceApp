@@ -19,10 +19,8 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         }
         // GET: Account
         [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
+        public ActionResult Login() => View();
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Login")]

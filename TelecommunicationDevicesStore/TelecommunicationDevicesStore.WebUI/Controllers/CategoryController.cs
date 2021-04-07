@@ -16,9 +16,6 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             _tsdbcontxt = new TelecomStoreDbContext();
         }
         // GET: Category
-        public ActionResult Categories()
-        {
-            return View(_tsdbcontxt.GetAllCategories());
-        }
+        public ActionResult Categories() => View(_tsdbcontxt.GetAllCategories());
     }
 }

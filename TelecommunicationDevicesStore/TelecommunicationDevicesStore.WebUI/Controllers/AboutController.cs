@@ -15,9 +15,6 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             _tsdbcontxt = new TelecomStoreDbContext();
         }
         // GET: About
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => View();
     }
 }

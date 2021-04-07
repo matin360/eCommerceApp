@@ -19,24 +19,15 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         }
         // GET: Admin/Dashboard
         [HttpGet]
-        //[SessionAuthorizationFilter("/Admin/Account/Login")]
-        public ActionResult Index()
-        {
-            return View(_tsdbcontxt.GetElementsCounts());
-        }
+		[SessionAuthorizationFilter("/Admin/Account/Login")]
+		public ActionResult Index() => View(_tsdbcontxt.GetElementsCounts());
 
 		[HttpGet]
 		[ActionName("Customers")]
-		public async Task<ActionResult> CustomersAsync()
-		{
-			return View(await _tsdbcontxt.GetAllCustomers());
-		}
+		public async Task<ActionResult> CustomersAsync() => View(await _tsdbcontxt.GetAllCustomers());
 
 		[HttpGet]
 		[ActionName("UserMessages")]
-		public async Task<ActionResult> UserMessagesAsync()
-		{
-			return View(await _tsdbcontxt.GetAllUserMessages());
-		}
+		public async Task<ActionResult> UserMessagesAsync() => View(await _tsdbcontxt.GetAllUserMessages());
 	}
 }

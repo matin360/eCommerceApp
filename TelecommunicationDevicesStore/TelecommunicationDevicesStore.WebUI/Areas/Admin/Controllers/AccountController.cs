@@ -19,10 +19,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         }
         // GET: Admin/Account
         [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
+        public ActionResult Login() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]

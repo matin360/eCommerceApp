@@ -19,10 +19,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         }
         // GET: Contact
         [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -31,17 +28,12 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
         {
 			if (ModelState.IsValid)
 			{
-                model.SubmittedDate = DateTime.Now;
-                _tsdbcontxt.ContactMessages.Add(model);
-                await _tsdbcontxt.SaveChangesAsync();
+                await _tsdbcontxt.AddContactMessageAsync(model);
                 return View(nameof(Sent));
 			}
             return View();
         }
 
-        public ActionResult Sent()
-        {
-            return View();
-        }
+        public ActionResult Sent() => View();
     }
 }

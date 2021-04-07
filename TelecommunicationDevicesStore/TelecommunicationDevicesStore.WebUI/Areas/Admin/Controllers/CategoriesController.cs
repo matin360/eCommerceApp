@@ -15,9 +15,6 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
             _tsdbcontxt = new TelecomStoreDbContext();
         }
         // GET: Admin/Category
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => View();
     }
 }

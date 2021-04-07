@@ -20,43 +20,31 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             _tsdbcontxt = new TelecomStoreDbContext();
         }
         // GET: Cart
-        public ViewResult Index(Cart cart, string returnUrl)
+        public ViewResult Index(Cart cart, string returnUrl) => View(new CartIndexModel { Cart = cart, ReturnUrl = returnUrl });
+        [ActionName("AddToCart")]
+        public async Task<RedirectToRouteResult> AddToCartAsync(Cart cart, int productId, string returnUrl)
         {
-            return View(new CartIndexModel
-            {
-                Cart = cart,
-                ReturnUrl = returnUrl
-            });
-        }
-        public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl)
-        {
-            Product product = _tsdbcontxt.Products
-                .FirstOrDefault(p => p.Id == productId);
+            Product product = await _tsdbcontxt.GetProductAsync(productId);
 
             if (product != null)
-            {
-                cart.AddItem(product, 1);
-            }
+                    cart.AddItem(product, 1);
+
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult RemoveFromCart(Cart cart, int productId, string returnUrl)
+        [ActionName("RemoveFromCart")]
+        public async Task<RedirectToRouteResult> RemoveFromCartAsync(Cart cart, int productId, string returnUrl)
         {
-            Product product = _tsdbcontxt.Products
-                 .FirstOrDefault(p => p.Id == productId);
+            Product product = await _tsdbcontxt.GetProductAsync(productId);
 
             if (product != null)
-            {
-                cart.RemoveLine(product);
-            }
+                    cart.RemoveLine(product);
+
             return RedirectToAction("Index", new { returnUrl });
         }
 
         [HttpGet]
-        public ViewResult Checkout()
-        {
-            return View(new ShippingDetails());
-        }
+        public ViewResult Checkout() => View(new ShippingDetails());
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -71,7 +59,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 Order order = new Order
-                {
+                {// constructor add
                     City = shippingDetails.City,
                     Country = shippingDetails.Country,
                     Line1 = shippingDetails.Line1,
@@ -80,13 +68,13 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
                     UserId =  shippingDetails.UserId,
                     GiftWrap = shippingDetails.GiftWrap,
                     TotalPrice = cart.ComputeTotalValue()
-                };
+                }; // constructor
                 foreach (var line in cart.Lines)
                 {
                     var product = await _tsdbcontxt.Products.FindAsync(line.ProductId);
                     product.StockCount -= line.Quantity;
                     _tsdbcontxt.CartLines.Add(new CartLine
-                    {
+                    { // constructor add
                         OrderId = order.Id,
                         ProductId = product.Id,
                         Product = product,
@@ -105,14 +93,8 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             }
         }
 
-        public ViewResult Completed()
-		{
-            return View();
-		}
+        public ViewResult Completed() => View();
 
-        public PartialViewResult Summary(Cart cart)
-        {
-            return PartialView(cart);
-        }
+        public PartialViewResult Summary(Cart cart) => PartialView(cart);
     }
 }

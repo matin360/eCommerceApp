@@ -20,16 +20,10 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 
         [HttpGet]
         [ActionName("List")]
-        public async Task<ActionResult> OrdersAsync()
-        {
-            return View(await _tsdbcontxt.GetAllOrders());
-        }
+        public async Task<ActionResult> OrdersAsync() => View(await _tsdbcontxt.GetAllOrders());
 
         [HttpGet]
         [ActionName("Details")]
-        public async Task<ActionResult> DetailsAsync(int productId)
-        {
-            return View(await _tsdbcontxt.GetOrderDetailsAsync(productId));
-        }
+        public async Task<ActionResult> DetailsAsync(int productId) => View(await _tsdbcontxt.GetOrderDetailsAsync(productId));
     }
 }

@@ -20,7 +20,7 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
 
         public ActionResult Paging(PageModel model)
 		{
-            if (model.ElementsCount == default)
+            if (model.ElementsCount == 0)
                  model.ElementsCount = _tsdbcontxt.GetAllProductsNumber();
             return View(model);
 		}

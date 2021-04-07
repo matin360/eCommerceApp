@@ -17,19 +17,10 @@ namespace TelecommunicationDevicesStore.WebUI.Controllers
             _tsdbcontxt = new TelecomStoreDbContext();
 		}
         // GET: Home
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => View();
 
-		public ActionResult CarouselItems()
-		{
-			return View(_tsdbcontxt.GetAllCarouselItems());
-		}
+		public ActionResult CarouselItems() => View(_tsdbcontxt.GetAllCarouselItems());
 
-        public ActionResult Feedbacks()
-        {
-            return View(_tsdbcontxt.GetAllFEeedbacks());
-        }
+        public ActionResult Feedbacks() => View(_tsdbcontxt.GetAllFEeedbacks());
     }
 }
