@@ -23,10 +23,12 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 		public ActionResult Index() => View(_tsdbcontxt.GetElementsCounts());
 
 		[HttpGet]
+		[SessionAuthorizationFilter("/Admin/Account/Login")]
 		[ActionName("Customers")]
 		public async Task<ActionResult> CustomersAsync() => View(await _tsdbcontxt.GetAllCustomers());
 
 		[HttpGet]
+		[SessionAuthorizationFilter("/Admin/Account/Login")]
 		[ActionName("UserMessages")]
 		public async Task<ActionResult> UserMessagesAsync() => View(await _tsdbcontxt.GetAllUserMessages());
 	}

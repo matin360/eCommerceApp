@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
+using TelecommunicationDevicesStore.Domain.Filters;
 using TelecommunicationDevicesStore.WebUI.Areas.Admin.Models;
 using TelecommunicationDevicesStore.WebUI.Infrastructure;
 
@@ -21,10 +22,12 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 
         [HttpGet]
         [ActionName("List")]
+        [SessionAuthorizationFilter("/Admin/Account/Login")]
         public async Task<ActionResult> ListAsync() => View(await _tsdbcontxt.GetAllProducts());
 
         [HttpGet]
         [ActionName("Details")]
+        [SessionAuthorizationFilter("/Admin/Account/Login")]
         public async Task<ActionResult> DetailsAsync(int productId) => View(await _tsdbcontxt.GetProductDetailsAsync(productId));
         [HttpGet]
         [ActionName("Add")]
@@ -32,6 +35,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 
         [HttpGet]
         [ActionName("Edit")]
+        [SessionAuthorizationFilter("/Admin/Account/Login")]
         public async Task<ActionResult> EditAsync(int productId)
         {
             ProductEditModel model = await _tsdbcontxt.Products.Select(p =>
