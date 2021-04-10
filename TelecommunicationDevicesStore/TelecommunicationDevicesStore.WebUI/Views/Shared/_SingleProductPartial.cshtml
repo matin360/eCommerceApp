@@ -19,7 +19,8 @@
 			@Html.ActionLink("Add to Cart", "AddToCart", "Cart",
 									routeValues: new { productId = Model.Id, returnUrl = Request.Url.PathAndQuery },
 										htmlAttributes: new { @class = "btn btn-warning mx-2" })
-			@Html.ActionLink("Details", "Details", "Product", routeValues: new { productId = Model.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
+			@Html.ActionLink("Details", "Details", "Product", routeValues: new { productId = Model.Id }, 
+									htmlAttributes: new { @class = "btn btn-outline-secondary" })
 		</footer>
 	</div>
 </div>

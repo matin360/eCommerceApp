@@ -12,7 +12,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 {
 	public static class DbContextExtensions
 	{
-		public static IEnumerable<MenuIndexModel> GetAllMenus(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		public static IEnumerable<MenuIndexModel> GetAllMenus(this TelecomStoreDbContext _tsdbcontxt)
 		{
 			return _tsdbcontxt.Menus.Where(m => m.IsActive).Select(m => new MenuIndexModel
 			{
@@ -22,7 +22,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			}).ToList();
 		}
 
-		public static IEnumerable<CategoryIndexModel> GetAllCategories(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		public static IEnumerable<CategoryIndexModel> GetAllCategories(this TelecomStoreDbContext _tsdbcontxt)
 		{
 			return _tsdbcontxt.Categories.Select(cat => new CategoryIndexModel
 			{
@@ -30,8 +30,16 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				ProductsCount = cat.Products.Count()
 			}).ToList();
 		}
-
-		public static IEnumerable<CarouselItemIndexModel> GetAllCarouselItems(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt)
+		public static async Task<IEnumerable<CategoryFullModel>> GetAllFullCategories(this TelecomStoreDbContext _tsdbcontxt)
+		{
+			return await _tsdbcontxt.Categories.Select(cat => new CategoryFullModel
+			{
+				Id = cat.Id,
+				Name = cat.Name,
+				ProductsCount = cat.Products.Count()
+			}).ToListAsync();
+		}
+		public static IEnumerable<CarouselItemIndexModel> GetAllCarouselItems(this TelecomStoreDbContext _tsdbcontxt)
 		{
 			return _tsdbcontxt.CarouselItems.Select(carItm => new CarouselItemIndexModel
 			{
@@ -79,7 +87,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				SlideNumber = f.SlideNumber
 			}).ToList();
 		}
-		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, PageModel model)
+		public async static Task<IEnumerable<ProductIndexModel>> GetPaginatableProductsAsync(this TelecomStoreDbContext _tsdbcontxt, int _itemsPerPage, PageModel model)
 		{
 			return await _tsdbcontxt.Products.Where(x => x.StockCount > 0).
 						OrderByDescending(x => x.Id).Skip((model.Page - 1) * _itemsPerPage).

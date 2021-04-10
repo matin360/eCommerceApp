@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TelecommunicationDevicesStore.Domain.Data;
+using TelecommunicationDevicesStore.WebUI.Infrastructure;
 
 namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 {
@@ -15,6 +17,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
             _tsdbcontxt = new TelecomStoreDbContext();
         }
         // GET: Admin/Category
-        public ActionResult Index() => View();
+        [ActionName("List")]
+        public async Task<ActionResult> ListAsync() => View( await _tsdbcontxt.GetAllFullCategories());
     }
 }

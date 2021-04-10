@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TelecommunicationDevicesStore.WebUI.Areas.Admin.Models.CategoryFullModel>
+
+@{
+	ViewBag.Title = "Categories";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@{ Html.RenderPartial("_HeaderAdminPartial", "Categories"); }
+
+<div class="card m-3">
+	<div class="table-responsive">
+		<table class="table table-striped table-hover p-3">
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Name)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.ProductsCount)
+				</th>
+			</tr>
+
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Name)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.ProductsCount)
+					</td>
+				</tr>
+			}
+
+		</table>
+	</div>
+</div>
