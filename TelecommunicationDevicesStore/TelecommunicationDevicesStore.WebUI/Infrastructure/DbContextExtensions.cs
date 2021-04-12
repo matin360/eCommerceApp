@@ -178,50 +178,6 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			}).ToListAsync();
 		}
 
-		public async static Task<int> SaveProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, ProductEditModel model)
-		{
-			var category = await _tsdbcontxt.Categories.Where(x => x.Name == model.CategoryName).FirstOrDefaultAsync();
-			var product = new Product
-			{
-				Id = model.Id,
-				Name = model.Name,
-				MetaDescription = model.MetaDescription,
-				CategoryId = category.Id,
-				Price = model.Price,
-				StockCount = model.StockCount,
-				ImageData = model.ImageData,
-				ImageMimeType = model.ImageMimeType
-			};
-			if (product.Id == 0)
-				_tsdbcontxt.Products.Add(product);
-			else
-			{
-				Product dbEntry = await _tsdbcontxt.Products.FindAsync(product.Id);
-				if (dbEntry != null)
-				{
-					dbEntry.Name = product.Name;
-					dbEntry.MetaDescription = product.MetaDescription;
-					dbEntry.Price = product.Price;
-					dbEntry.CategoryId = product.CategoryId;
-					dbEntry.StockCount = product.StockCount;
-					dbEntry.ImageData = product.ImageData;
-					dbEntry.ImageMimeType = product.ImageMimeType;
-				}
-			}
-			return await _tsdbcontxt.SaveChangesAsync();
-		}
-
-		public async static Task<Product> RemoveProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
-		{
-			Product dbEntry = _tsdbcontxt.Products.Find(id);
-			if (dbEntry != null)
-			{
-				_tsdbcontxt.Products.Remove(dbEntry);
-				await _tsdbcontxt.SaveChangesAsync();
-			}
-			return dbEntry;
-		}
-
 		public async static Task<ProductDetailsModel> GetProductDetailsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
 		{
 			var product = await _tsdbcontxt.Products.FindAsync(id);
@@ -275,7 +231,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			elementsCounts.Add("Cutomers", _tsdbcontxt.Customers.Count());
 			elementsCounts.Add("Orders", _tsdbcontxt.Orders.Count());
 			elementsCounts.Add("Contact Messages", _tsdbcontxt.ContactMessages.Count());
-
+			elementsCounts.Add("Categories", _tsdbcontxt.Categories.Count());
 			return elementsCounts;
 		}
 
@@ -286,11 +242,69 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 			_tsdbcontxt.Customers.Add(user);
 			return await _tsdbcontxt.SaveChangesAsync();
 		}
+		public async static Task<int> SaveProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, ProductEditModel model)
+		{
+			var category = await _tsdbcontxt.Categories.Where(x => x.Name == model.CategoryName).FirstOrDefaultAsync();
+			var product = new Product
+			{
+				Id = model.Id,
+				Name = model.Name,
+				MetaDescription = model.MetaDescription,
+				CategoryId = category.Id,
+				Price = model.Price,
+				StockCount = model.StockCount,
+				ImageData = model.ImageData,
+				ImageMimeType = model.ImageMimeType
+			};
+			if (product.Id == 0)
+				_tsdbcontxt.Products.Add(product);
+			else
+			{
+				Product dbEntry = await _tsdbcontxt.Products.FindAsync(product.Id);
+				if (dbEntry != null)
+				{
+					dbEntry.Name = product.Name;
+					dbEntry.MetaDescription = product.MetaDescription;
+					dbEntry.Price = product.Price;
+					dbEntry.CategoryId = product.CategoryId;
+					dbEntry.StockCount = product.StockCount;
+					dbEntry.ImageData = product.ImageData;
+					dbEntry.ImageMimeType = product.ImageMimeType;
+				}
+			}
+			return await _tsdbcontxt.SaveChangesAsync();
+		}
 
+		public async static Task<Product> RemoveProductAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
+		{
+			Product dbEntry = _tsdbcontxt.Products.Find(id);
+			if (dbEntry != null)
+			{
+				_tsdbcontxt.Products.Remove(dbEntry);
+				await _tsdbcontxt.SaveChangesAsync();
+			}
+			return dbEntry;
+		}
+		public async static Task<Category> RemoveCategoryAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
+		{
+			Category dbEntry = _tsdbcontxt.Categories.Find(id);
+			if (dbEntry != null)
+			{
+				_tsdbcontxt.Categories.Remove(dbEntry);
+				await _tsdbcontxt.SaveChangesAsync();
+			}
+			return dbEntry;
+		}
 		public async static Task<int> AddContactMessageAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, ContactMessage model)
 		{
 			model.SubmittedDate = DateTime.Now;
 			_tsdbcontxt.ContactMessages.Add(model);
+			return await _tsdbcontxt.SaveChangesAsync();
+		}
+		public async static Task<int> AddCategoryAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, CategoryEditModel model)
+		{
+			Category category = new Category(model.Name);
+			_tsdbcontxt.Categories.Add(category);
 			return await _tsdbcontxt.SaveChangesAsync();
 		}
 	}

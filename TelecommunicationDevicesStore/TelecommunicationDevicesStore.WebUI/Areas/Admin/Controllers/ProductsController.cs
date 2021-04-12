@@ -31,6 +31,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         public async Task<ActionResult> DetailsAsync(int productId) => View(await _tsdbcontxt.GetProductDetailsAsync(productId));
         [HttpGet]
         [ActionName("Add")]
+        [SessionAuthorizationFilter("/Admin/Account/Login")]
         public ActionResult Add() =>  View("Edit", new ProductEditModel());
 
         [HttpGet]
@@ -39,16 +40,8 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         public async Task<ActionResult> EditAsync(int productId)
         {
             ProductEditModel model = await _tsdbcontxt.Products.Select(p =>
-               new ProductEditModel
-               {
-                   Id = p.Id,
-                   MetaDescription = p.MetaDescription,
-                   CategoryName = p.Category.Name,
-                   Name = p.Name,
-                   Price = p.Price,
-                   StockCount = p.StockCount
-               }).FirstOrDefaultAsync(p => p.Id == productId);
-               // constructor add               
+               new ProductEditModel(p.Id, p.MetaDescription, p.Category.Name, p.Name, p.Price, p.StockCount)
+               ).FirstOrDefaultAsync(p => p.Id == productId);          
             return View(model);
         }
 
@@ -90,7 +83,7 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
             Product removedProduct = await _tsdbcontxt.RemoveProductAsync(productId);
 
             if (removedProduct != null)
-                    TempData["message"] = string.Format("Игра \"{0}\" was removed", removedProduct.Name);
+                    TempData["message"] = string.Format("Product \"{0}\" was removed", removedProduct.Name);
 
             return RedirectToAction("List", "Products");
         }

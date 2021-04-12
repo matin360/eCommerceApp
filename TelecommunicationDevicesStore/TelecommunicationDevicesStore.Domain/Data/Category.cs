@@ -19,5 +19,10 @@ namespace TelecommunicationDevicesStore.Domain.Data
 		{
 			Products = new HashSet<Product>();
 		}
+
+		public Category(string name)
+		{
+			Name = name;
+		}
 	}
 }
