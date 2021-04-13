@@ -24,6 +24,6 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
 
         [HttpGet]
         [ActionName("Details")]
-        public async Task<ActionResult> DetailsAsync(int productId) => View(await _tsdbcontxt.GetOrderDetailsAsync(productId));
+        public async Task<ActionResult> DetailsAsync(int orderid) => View(await _tsdbcontxt.GetOrderDetailsAsync(orderid));
     }
 }

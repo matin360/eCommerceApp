@@ -30,7 +30,13 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Models
 
 		public ProductEditModel()
 		{
-			
+			Categories = new TelecomStoreDbContext().Categories.Select(x => new SelectListItem
+			{
+				Text = x.Name,
+				Disabled = false,
+				Value = x.Name,
+				Selected = true
+			});
 		}
 
 		public ProductEditModel(int id, string metaDescription, string categoryname, string name, decimal price, int stockCount)

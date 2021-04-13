@@ -67,7 +67,7 @@
 						@Html.DisplayFor(modelItem => item.TotalPrice)
 					</td>
 					<td>
-						@Html.ActionLink("Details", "Details", new { productId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
+						@Html.ActionLink("Details", "Details", new { orderid = item.Id }, htmlAttributes: new { @class = "btn btn-outline-secondary" })
 					</td>
 				</tr>
 			}

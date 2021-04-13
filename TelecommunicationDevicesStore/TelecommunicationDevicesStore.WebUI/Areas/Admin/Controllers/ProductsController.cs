@@ -40,8 +40,15 @@ namespace TelecommunicationDevicesStore.WebUI.Areas.Admin.Controllers
         public async Task<ActionResult> EditAsync(int productId)
         {
             ProductEditModel model = await _tsdbcontxt.Products.Select(p =>
-               new ProductEditModel(p.Id, p.MetaDescription, p.Category.Name, p.Name, p.Price, p.StockCount)
-               ).FirstOrDefaultAsync(p => p.Id == productId);          
+               new ProductEditModel
+			   {
+                   Id = p.Id,
+                   MetaDescription = p.MetaDescription,
+                   CategoryName = p.Category.Name,
+                   Name = p.Name,
+                   Price = p.Price,
+                   StockCount = p.StockCount
+               }).FirstOrDefaultAsync(p => p.Id == productId);          
             return View(model);
         }
 

@@ -75,14 +75,14 @@
 			//	TextLink = "See more Products",
 			//	SlideNumber = "third-slide"
 			//});
-			context.SystemUsers.AddOrUpdate(new SystemUser
-			{
-				Id = 1,
-				UserName = "Admin",
-				Email = ConfigurationManager.AppSettings["email"],
-				Password = ConfigurationManager.AppSettings["password"],
-				UserRole = Roles.UserRole.Admin
-			});
+			//context.SystemUsers.AddOrUpdate(new SystemUser
+			//{
+			//	Id = 1,
+			//	UserName = "Admin",
+			//	Email = ConfigurationManager.AppSettings["email"],
+			//	Password = ConfigurationManager.AppSettings["password"],
+			//	UserRole = Roles.UserRole.Admin
+			//});
 			//context.Customers.AddOrUpdate(new Customer
 			//{
 			//	Id = 2,
@@ -140,29 +140,29 @@
 			//context.Feedbacks.AddOrUpdate(new Feedback
 			//{
 			//	Id = 1,
-			//	UserName = "Jhon Smith",
+			//	UserName = "Emil",
 			//	WrittenDate = DateTime.Now,
 			//	Message = "You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop",
-			//	CustomerId = 2,
+			//	CustomerId = 5,
 			//	SlideNumber = 0
 			//},
 			//new Feedback
 			//{
 			//	Id = 2,
-			//	UserName = "Jhon Smith",
+			//	UserName = "Matin",
 			//	WrittenDate = DateTime.Now,
 			//	Message = "You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop",
-			//	CustomerId = 2,
+			//	CustomerId = 7,
 			//	SlideNumber = 1
 
 			//},
 			//new Feedback
 			//{
 			//	Id = 3,
-			//	UserName = "Jhon Smith",
+			//	UserName = "Emil",
 			//	WrittenDate = DateTime.Now,
 			//	Message = "You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop",
-			//	CustomerId = 2,
+			//	CustomerId = 5,
 			//	SlideNumber = 2
 			//});
 			//context.Products.AddOrUpdate(

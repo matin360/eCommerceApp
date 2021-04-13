@@ -201,19 +201,20 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 
 		public async static Task<OrderDetailsModel> GetOrderDetailsAsync(this TelecommunicationDevicesStore.Domain.Data.TelecomStoreDbContext _tsdbcontxt, int id)
 		{
-			var order = await _tsdbcontxt.Orders.Select(ord => new OrderDetailsModel
+			var domOrder = await _tsdbcontxt.Orders.FindAsync(id);
+			var order = new OrderDetailsModel
 			{
-				Id = ord.Id,
-				Line1 = ord.Line1,
-				Line2 = ord.Line2,
-				Line3 = ord.Line3,
-				City = ord.City,
-				Country = ord.Country,
-				CustomerName = ord.User.UserName,
-				TotalPrice = ord.TotalPrice,
-				CartLines = ord.CartLines
-			}).FirstOrDefaultAsync();
-
+				Id = domOrder.Id,
+				Line1 = domOrder.Line1,
+				Line2 = domOrder.Line2,
+				Line3 = domOrder.Line3,
+				City = domOrder.City,
+				Country = domOrder.Country,
+				TotalPrice = domOrder.TotalPrice,
+			};
+			order.CartLines = await _tsdbcontxt.CartLines.Where(x => x.OrderId == id).ToListAsync();
+			var user = await _tsdbcontxt.Customers.Where(x => x.Id == domOrder.UserId).FirstOrDefaultAsync();
+			order.CustomerName = user.UserName;
 			foreach (var item in order.CartLines)
 			{
 				item.Product = await _tsdbcontxt.Products.FindAsync(item.ProductId);
@@ -256,6 +257,7 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 				ImageData = model.ImageData,
 				ImageMimeType = model.ImageMimeType
 			};
+			var Domproduct = await _tsdbcontxt.Products.FindAsync(model.Id);
 			if (product.Id == 0)
 				_tsdbcontxt.Products.Add(product);
 			else
@@ -268,8 +270,8 @@ namespace TelecommunicationDevicesStore.WebUI.Infrastructure
 					dbEntry.Price = product.Price;
 					dbEntry.CategoryId = product.CategoryId;
 					dbEntry.StockCount = product.StockCount;
-					dbEntry.ImageData = product.ImageData;
-					dbEntry.ImageMimeType = product.ImageMimeType;
+					dbEntry.ImageData = product.ImageData ?? Domproduct.ImageData;
+					dbEntry.ImageMimeType = product.ImageMimeType ?? Domproduct.ImageMimeType;
 				}
 			}
 			return await _tsdbcontxt.SaveChangesAsync();
